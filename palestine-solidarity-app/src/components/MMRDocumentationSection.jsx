@@ -71,7 +71,7 @@ const MMRDocumentationSection = () => {
         <div className="max-w-6xl mx-auto mb-16">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              The Six MMR Pillars
+              The Seven MMR Pillars
             </h3>
             <p className="text-lg text-gray-600">
               Core principles that guide evaluation and foster civic integrity
@@ -88,19 +88,19 @@ const MMRDocumentationSection = () => {
               },
               {
                 icon: Users,
-                title: "Accountability (own side)",
-                description: "Hold your own community accountable for rejectionist actions",
+                title: "Accountability for Hamas/Militant Rejectionists",
+                description: "Hold militant rejectionist actors accountable for violence",
                 color: "from-blue-500 to-cyan-500"
               },
               {
                 icon: Users,
-                title: "Accountability (other side)",
-                description: "Fairly assess rejectionist actors across divides",
+                title: "Accountability for Israeli Right/Ultra-Nationalists",
+                description: "Hold Israeli extremist and ultra-nationalist actors accountable",
                 color: "from-purple-500 to-indigo-500"
               },
               {
                 icon: Search,
-                title: "Verified, truthful sources",
+                title: "Use verified, truthful sources",
                 description: "Use honest civic framing and verified information",
                 color: "from-green-500 to-emerald-500"
               },
@@ -112,6 +112,12 @@ const MMRDocumentationSection = () => {
               },
               {
                 icon: Eye,
+                title: "Reject eliminationism",
+                description: "Oppose eliminationist ideologies and rhetoric from all sides",
+                color: "from-pink-500 to-purple-500"
+              },
+              {
+                icon: Target,
                 title: "Vision for dignity & peace",
                 description: "Work toward humanization and peace-building",
                 color: "from-teal-500 to-blue-500"
@@ -190,49 +196,114 @@ const MMRDocumentationSection = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
+          <div className="grid lg:grid-cols-1 gap-8">
             {/* Netanyahu Analysis */}
             <div className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
               <div className="text-center mb-6">
                 <h4 className="text-2xl font-bold text-gray-900 mb-2">Benjamin Netanyahu</h4>
                 <p className="text-gray-600">Israeli Prime Minister (2009–present)</p>
                 <div className="mt-4 inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-semibold">
-                  🏁 Overall MMR Alignment: Failing
+                  🏁 Overall MMR Alignment: ❌ Failing
                 </div>
               </div>
 
-              <div className="space-y-4 mb-6">
-                <div className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
-                  <span className="text-sm font-medium">1. Reject targeting civilians</span>
-                  <span className="text-yellow-600 font-bold">⚠️ Mixed</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
-                  <span className="text-sm font-medium">2. Accountability (Hamas/PA)</span>
-                  <span className="text-green-600 font-bold">✅ Pass</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
-                  <span className="text-sm font-medium">3. Accountability (Israeli far-right)</span>
-                  <span className="text-red-600 font-bold">❌ Fail</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
-                  <span className="text-sm font-medium">4. Verified, truthful sources</span>
-                  <span className="text-yellow-600 font-bold">⚠️ Mixed</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
-                  <span className="text-sm font-medium">5. Humanize both peoples</span>
-                  <span className="text-red-600 font-bold">❌ Fail</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
-                  <span className="text-sm font-medium">6. Vision for dignity & peace</span>
-                  <span className="text-red-600 font-bold">❌ Fail</span>
-                </div>
+              <div className="space-y-3 mb-6">
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg cursor-pointer hover:bg-yellow-100 transition-colors">
+                    <span className="text-sm font-medium">1. Reject targeting civilians</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-yellow-600 font-bold">⚠️ Partial</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-yellow-25 rounded-lg text-sm text-gray-700">
+                    He rhetorically affirms that Israel "does everything to minimize civilian casualties", but his later statements praising military actions described as "tragic mishaps" and the use of scorched-earth metaphors ("children of darkness") weaken the clarity.
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-green-50 rounded-lg cursor-pointer hover:bg-green-100 transition-colors">
+                    <span className="text-sm font-medium">2. Accountability for Hamas/Militant Rejectionists</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-green-25 rounded-lg text-sm text-gray-700">
+                    Repeatedly condemns Hamas's October 7 attack, labels them equivalent to ISIS, and centers his political narrative around defeating them.
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors">
+                    <span className="text-sm font-medium">3. Accountability for Israeli Right/Ultra-Nationalists</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-red-600 font-bold">❌ Fail</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-red-25 rounded-lg text-sm text-gray-700">
+                    Enables extremists in coalitions, tolerates anti-Palestinian discourse ("voluntary migration"), and does not publicly condemn Kahanist or settler extremism.
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg cursor-pointer hover:bg-yellow-100 transition-colors">
+                    <span className="text-sm font-medium">4. Use verified, truthful sources</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-yellow-600 font-bold">⚠️ Mixed</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-yellow-25 rounded-lg text-sm text-gray-700">
+                    Often speaks factually (e.g. ICRC, Israeli tactics), but sometimes selectively framed or hyperbolic.
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors">
+                    <span className="text-sm font-medium">5. Humanize both peoples</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-red-600 font-bold">❌ Fail</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-red-25 rounded-lg text-sm text-gray-700">
+                    Frames Palestinians collectively as threats or tools of Hamas; almost no empathetic tone towards Palestinian civilians.
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg cursor-pointer hover:bg-yellow-100 transition-colors">
+                    <span className="text-sm font-medium">6. Reject eliminationism</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-yellow-600 font-bold">⚠️ Partial</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-yellow-25 rounded-lg text-sm text-gray-700">
+                    Opposes Hamas eliminationism but tolerates Israeli domestic extremists and conditional on "voluntary migration," undermining the standard.
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors">
+                    <span className="text-sm font-medium">7. Vision for dignity & peace</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-red-600 font-bold">❌ Fail</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-red-25 rounded-lg text-sm text-gray-700">
+                    Lacks any public framework for Palestinian dignity or state legitimacy; security-centered, no genuine peace roadmap.
+                  </div>
+                </details>
               </div>
 
               <div className="border-t pt-4">
-                <p className="text-sm text-gray-600 mb-2"><strong>Strengths:</strong></p>
-                <p className="text-sm text-gray-600 mb-3">✅ Clear moral stance against Hamas terror and rejectionist violence</p>
-                <p className="text-sm text-gray-600 mb-2"><strong>Weaknesses:</strong></p>
-                <p className="text-sm text-gray-600">❌ Enabling Israeli far-right rhetoric • ❌ Failure to humanize Palestinian civilians • ❌ No constructive vision for peace</p>
+                <p className="text-sm text-gray-600">
+                  <strong>Reflection:</strong> Netanyahu consistently rejects Hamas terror but fails to hold Israeli extremists accountable, humanize Palestinians, or articulate a dignified peace model—placing him short of MMR standards.
+                </p>
               </div>
             </div>
 
@@ -242,42 +313,107 @@ const MMRDocumentationSection = () => {
                 <h4 className="text-2xl font-bold text-gray-900 mb-2">Yahya Sinwar</h4>
                 <p className="text-gray-600">Hamas Leader & Architect of October 7th (1962–2024)</p>
                 <div className="mt-4 inline-flex items-center px-4 py-2 bg-red-100 text-red-800 rounded-full text-sm font-semibold">
-                  🏁 Overall MMR Alignment: Failing
+                  🏁 Overall MMR Alignment: ❌ Failing (on all pillars)
                 </div>
               </div>
 
-              <div className="space-y-4 mb-6">
-                <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
-                  <span className="text-sm font-medium">1. Reject targeting civilians</span>
-                  <span className="text-red-600 font-bold">❌ Fail</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
-                  <span className="text-sm font-medium">2. Accountability (violent actors)</span>
-                  <span className="text-yellow-600 font-bold">⚠️ Mixed</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
-                  <span className="text-sm font-medium">3. Accountability (own side)</span>
-                  <span className="text-green-600 font-bold">✅ Pass</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg">
-                  <span className="text-sm font-medium">4. Verified, truthful sources</span>
-                  <span className="text-yellow-600 font-bold">⚠️ Mixed</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
-                  <span className="text-sm font-medium">5. Humanize both peoples</span>
-                  <span className="text-red-600 font-bold">❌ Fail</span>
-                </div>
-                <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg">
-                  <span className="text-sm font-medium">6. Vision for dignity & peace</span>
-                  <span className="text-red-600 font-bold">❌ Fail</span>
-                </div>
+              <div className="space-y-3 mb-6">
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors">
+                    <span className="text-sm font-medium">1. Reject targeting civilians</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-red-600 font-bold">❌ Fails</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-red-25 rounded-lg text-sm text-gray-700">
+                    As Hamas's architect of Oct 7, he explicitly endorsed military violence against civilians. He also justified civilian casualties as "necessary sacrifices".
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors">
+                    <span className="text-sm font-medium">2. Accountability for Hamas/Militant Rejectionists</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-red-600 font-bold">❌ Fails</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-red-25 rounded-lg text-sm text-gray-700">
+                    As leader of Hamas, he defends and continues ordering violent campaigns against Israel.
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-gray-50 rounded-lg cursor-pointer hover:bg-gray-100 transition-colors">
+                    <span className="text-sm font-medium">3. Accountability for Israeli Right/Ultra-Nationalists</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-gray-600 font-bold">⚠️ N/A</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-gray-25 rounded-lg text-sm text-gray-700">
+                    He has not publicly criticized Israeli extremists, only American/European pressure.
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg cursor-pointer hover:bg-yellow-100 transition-colors">
+                    <span className="text-sm font-medium">4. Use verified, truthful sources</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-yellow-600 font-bold">⚠️ Mixed</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-yellow-25 rounded-lg text-sm text-gray-700">
+                    Known for strategic claims (e.g. fluency, tunnel networks), but narrative is inherently ideological.
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors">
+                    <span className="text-sm font-medium">5. Humanize both peoples</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-red-600 font-bold">❌ Fails</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-red-25 rounded-lg text-sm text-gray-700">
+                    Dehumanizes Israelis; never expresses empathy for civilians on the other side.
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors">
+                    <span className="text-sm font-medium">6. Reject eliminationism</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-red-600 font-bold">❌ Fails</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-red-25 rounded-lg text-sm text-gray-700">
+                    Publicly committed to the eradication of Israel, sees "armed struggle" as the pathway to liberation.
+                  </div>
+                </details>
+
+                <details className="group">
+                  <summary className="flex items-center justify-between p-3 bg-red-50 rounded-lg cursor-pointer hover:bg-red-100 transition-colors">
+                    <span className="text-sm font-medium">7. Vision for dignity & peace</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="text-red-600 font-bold">❌ Fails</span>
+                      <span className="text-gray-400 group-open:rotate-180 transition-transform">▼</span>
+                    </div>
+                  </summary>
+                  <div className="mt-2 p-3 bg-red-25 rounded-lg text-sm text-gray-700">
+                    Offers no constructive roadmap—only continued militarization, refusal to negotiate, and unwillingness to accept Israel's existence.
+                  </div>
+                </details>
               </div>
 
               <div className="border-t pt-4">
-                <p className="text-sm text-gray-600 mb-2"><strong>Key Facts:</strong></p>
-                <p className="text-sm text-gray-600 mb-3">• Architect of October 7, 2023 attack that killed ~1,200 civilians<br/>• Described Palestinian civilian casualties as "necessary sacrifices"<br/>• Killed by Israeli forces October 16, 2024</p>
-                <p className="text-sm text-gray-600 mb-2"><strong>Assessment:</strong></p>
-                <p className="text-sm text-gray-600">Displays virtually no MMR alignment. Legacy marked by ruthlessness, strategic embrace of civilian harm, and militant absolutism over mutual respect.</p>
+                <p className="text-sm text-gray-600">
+                  <strong>Reflection:</strong> Sinwar epitomizes violent rejectionist leadership. His ideology, actions, and public statements consistently violate MMR standards. No moral clarity, no empathy, no dignity-driven vision—only eliminationist violence.
+                </p>
               </div>
             </div>
           </div>
