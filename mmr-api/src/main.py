@@ -28,8 +28,8 @@ def mmr_query():
         if not prompt:
             return jsonify({'error': 'Prompt is required'}), 400
         
-        # Reduced processing time for better UX
-        time.sleep(random.uniform(0.5, 1.5))
+        # Optimized processing time for better UX
+        time.sleep(random.uniform(0.1, 0.3))
         
         # More informative responses based on content
         if 'al ahli' in prompt or 'al-ahli' in prompt:
