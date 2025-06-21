@@ -20,31 +20,35 @@ const HeroSection = () => {
           alt="Intertwined Palestine and Israel Flags" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-white/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-white/90"></div>
         
         {/* Content Overlay on Banner */}
         <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
           {/* Modern Typography Hierarchy */}
           <div className="space-y-4 max-w-4xl">
             <h1 className="text-6xl md:text-7xl font-black tracking-tight">
-              <span className="text-white drop-shadow-2xl">
+              <span className="text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] [text-shadow:_2px_2px_4px_rgb(0_0_0_/_80%)]">
                 SOLIDARITY
               </span>
             </h1>
             
-            <h2 className="text-3xl md:text-4xl font-bold text-white/90 drop-shadow-xl">
-              WITH
+            <h2 className="text-3xl md:text-4xl font-bold drop-shadow-[0_3px_6px_rgba(0,0,0,0.7)]">
+              <span className="text-white [text-shadow:_2px_2px_4px_rgb(0_0_0_/_70%)]">
+                WITH
+              </span>
             </h2>
             
             <h3 className="text-4xl md:text-5xl font-black">
-              <span className="text-white drop-shadow-2xl">
+              <span className="text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] [text-shadow:_2px_2px_4px_rgb(0_0_0_/_80%)]">
                 PALESTINE & ISRAEL
               </span>
             </h3>
             
-            <p className="text-lg md:text-xl text-white/90 font-medium mt-6 leading-relaxed drop-shadow-lg">
-              Freedom in Israel, Gaza, and the West Bank
-            </p>
+            <div className="mt-6 bg-black/50 backdrop-blur-sm rounded-2xl px-6 py-4 border border-white/20">
+              <p className="text-lg md:text-xl text-white font-bold leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                Freedom in Israel, Gaza, and the West Bank
+              </p>
+            </div>
           </div>
         </div>
       </div>
