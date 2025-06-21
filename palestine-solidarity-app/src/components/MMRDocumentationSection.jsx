@@ -421,10 +421,147 @@ const MMRDocumentationSection = () => {
           <div className="mt-12 text-center">
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Understanding MMR Assessments</h4>
-              <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto">
-                These examples demonstrate how the MMR framework provides nuanced, evidence-based evaluations across all six pillars. 
-                The framework reveals both strengths and critical failures in political leadership, helping identify voices that 
-                genuinely advance mutual moral respect versus those that perpetuate cycles of polarization and violence.
+            <div className="mt-16 text-center">
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+              These examples demonstrate how the MMR framework provides nuanced, evidence-based evaluations across all seven pillars. The framework reveals both strengths and critical failures in political leadership, helping identify voices that genuinely advance mutual moral respect versus those that perpetuate cycles of polarization and violence.
+            </p>
+          </div>
+        </div>
+
+        {/* Voices of Hope Section */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mb-6">
+              <span className="text-2xl">🕊️</span>
+            </div>
+            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Voices of Hope
+            </h3>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+              There are inspiring voices who speak for and advocate for a better path towards freedom, dignity and mutual respect. These Palestinian and Israeli leaders demonstrate that another way is possible.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-1 gap-8">
+            {/* Maoz Inon & Aziz Abu Sara */}
+            <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-3xl shadow-xl p-8 border border-green-100">
+              <div className="text-center mb-6">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mb-4">
+                  <span className="text-white text-xl">🕊️</span>
+                </div>
+                <h4 className="text-2xl font-bold text-gray-900 mb-2">Maoz Inon & Aziz Abu Sara</h4>
+                <p className="text-gray-600">Israeli and Palestinian peace duo</p>
+                <div className="mt-4 inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-semibold">
+                  🏁 Overall MMR Alignment: ✅ Full Pass — model MMR duo
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-4 mb-6">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between p-2 bg-green-100 rounded-lg">
+                    <span className="text-sm font-medium">1. Reject targeting civilians</span>
+                    <span className="text-green-600 font-bold text-sm">✅ Strong Pass</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2 bg-green-100 rounded-lg">
+                    <span className="text-sm font-medium">2. Accountability for Hamas/Militants</span>
+                    <span className="text-green-600 font-bold text-sm">✅ Strong Pass</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2 bg-green-100 rounded-lg">
+                    <span className="text-sm font-medium">3. Accountability for Israeli Right</span>
+                    <span className="text-green-600 font-bold text-sm">✅ Pass</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2 bg-green-100 rounded-lg">
+                    <span className="text-sm font-medium">4. Use verified sources</span>
+                    <span className="text-green-600 font-bold text-sm">✅ Pass</span>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between p-2 bg-green-100 rounded-lg">
+                    <span className="text-sm font-medium">5. Humanize both peoples</span>
+                    <span className="text-green-600 font-bold text-sm">✅ Strong Pass</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2 bg-green-100 rounded-lg">
+                    <span className="text-sm font-medium">6. Reject eliminationism</span>
+                    <span className="text-green-600 font-bold text-sm">✅ Strong Pass</span>
+                  </div>
+                  <div className="flex items-center justify-between p-2 bg-green-100 rounded-lg">
+                    <span className="text-sm font-medium">7. Vision for dignity & peace</span>
+                    <span className="text-green-600 font-bold text-sm">✅ Strong Pass</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t border-green-200 pt-4">
+                <p className="text-sm text-gray-700">
+                  <strong>Impact:</strong> Publicly condemned terrorism and Israeli military excess; jointly call for ceasefire and nonviolence. They share personal loss and deep empathy for each other's communities, organizing inclusive peace gatherings and articulating a future with mutual respect.
+                </p>
+              </div>
+            </div>
+
+            {/* Other Voices Grid */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Sulaiman Khatib */}
+              <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+                <div className="text-center mb-4">
+                  <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full mb-3">
+                    <span className="text-white text-lg">✋</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">Sulaiman Khatib</h4>
+                  <p className="text-sm text-gray-600">Combatants for Peace, West Bank nonviolent activist</p>
+                  <div className="mt-3 inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+                    ✅ Full Pass — peace movement exemplar
+                  </div>
+                </div>
+                <p className="text-xs text-gray-600">
+                  Moved from armed struggle to nonviolence, advocates disarmament and nonviolent resistance. Co-founded binational nonviolent peace group; Nobel-nominated.
+                </p>
+              </div>
+
+              {/* Gershon Baskin */}
+              <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+                <div className="text-center mb-4">
+                  <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full mb-3">
+                    <span className="text-white text-lg">🌐</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">Gershon Baskin</h4>
+                  <p className="text-sm text-gray-600">Israeli mediator, co-founder IPCRI</p>
+                  <div className="mt-3 inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+                    ✅ Full Pass — model mediator
+                  </div>
+                </div>
+                <p className="text-xs text-gray-600">
+                  Facilitated hostage negotiations with Hamas to preserve civilian lives. Co-founded Alliance for Two States, IPCRI, and peace NGOs.
+                </p>
+              </div>
+
+              {/* Sally Abed */}
+              <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+                <div className="text-center mb-4">
+                  <div className="inline-flex items-center justify-center w-10 h-10 bg-gradient-to-r from-green-500 to-yellow-500 rounded-full mb-3">
+                    <span className="text-white text-lg">🌱</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-1">Sally Abed</h4>
+                  <p className="text-sm text-gray-600">Palestinian-Israeli city councilor, Standing Together</p>
+                  <div className="mt-3 inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+                    ✅ Full Pass — grassroots leader
+                  </div>
+                </div>
+                <p className="text-xs text-gray-600">
+                  Advocates ceasefire and defending all civilian lives. Emphasizes "radical empathy" between communities and works toward grassroots political change.
+                </p>
+              </div>
+            </div>
+
+            {/* Hope Message */}
+            <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-3xl p-8 md:p-12 text-white text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6">
+                <span className="text-3xl">💫</span>
+              </div>
+              <h4 className="text-2xl md:text-3xl font-bold mb-4">
+                Another Path is Possible
+              </h4>
+              <p className="text-lg md:text-xl leading-relaxed max-w-4xl mx-auto">
+                These voices prove that Palestinians and Israelis can work together with mutual moral respect, dignity, and a shared vision for peace. They demonstrate that beyond the cycle of violence and polarization, there exists a path toward freedom, justice, and coexistence for all.
               </p>
             </div>
           </div>
