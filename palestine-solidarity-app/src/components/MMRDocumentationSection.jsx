@@ -499,7 +499,7 @@ const MMRDocumentationSection = () => {
             </div>
 
             {/* Other Voices Grid */}
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
               {/* Sulaiman Khatib */}
               <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
                 <div className="text-center mb-4">
@@ -552,6 +552,189 @@ const MMRDocumentationSection = () => {
               </div>
             </div>
 
+            {/* Detailed MMR Tables for Individual Voices */}
+            <div className="space-y-8 mb-8">
+              {/* Sulaiman Khatib Detailed Table */}
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                <div className="bg-gradient-to-r from-purple-500 to-blue-500 p-6 text-white">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-2xl">✋</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold">Sulaiman Khatib - Detailed MMR Assessment</h4>
+                      <p className="text-purple-100">Combatants for Peace, West Bank nonviolent activist</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">1. Reject targeting civilians</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Moved from armed struggle to nonviolence, condemns violence against all civilians.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">2. Accountability for Hamas/Militants</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Advocates disarmament and nonviolent resistance, opposes militant approaches.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">3. Accountability for Israeli Right</span>
+                      <span className="text-green-600 font-bold">✅ Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Works directly with Israelis; holds all parties accountable equally.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">4. Use verified sources</span>
+                      <span className="text-green-600 font-bold">✅ Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Public, transparent nonviolence movement with documentation.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">5. Humanize both peoples</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Emphasizes seeing "human behind the uniform" - profound empathy for all.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">6. Reject eliminationism</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Advocates partnership, rejects annihilationist narratives from all sides.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">7. Vision for dignity & peace</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Co-founded binational nonviolent peace group; Nobel-nominated for peace work.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Gershon Baskin Detailed Table */}
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                <div className="bg-gradient-to-r from-blue-500 to-teal-500 p-6 text-white">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-2xl">🌐</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold">Gershon Baskin - Detailed MMR Assessment</h4>
+                      <p className="text-blue-100">Israeli mediator, co-founder IPCRI</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">1. Reject targeting civilians</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Facilitated hostage negotiations with Hamas to preserve civilian lives.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">2. Accountability for Hamas/Militants</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Negotiates responsibly but does not excuse Hamas; holds Hamas accountable.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">3. Accountability for Israeli Right</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Critiques Israeli government's hardline measures and advocates for peace.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">4. Use verified sources</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Cites diplomatic reports, negotiation records, transparent documentation.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">5. Humanize both peoples</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Brings Israelis and Palestinians together; emphasizes shared humanity.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">6. Reject eliminationism</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Supports two-state solution and mutual legitimacy for both peoples.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">7. Vision for dignity & peace</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Co-founded Alliance for Two States, IPCRI, and multiple peace NGOs.</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Sally Abed Detailed Table */}
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                <div className="bg-gradient-to-r from-green-500 to-yellow-500 p-6 text-white">
+                  <div className="flex items-center">
+                    <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mr-4">
+                      <span className="text-2xl">🌱</span>
+                    </div>
+                    <div>
+                      <h4 className="text-xl font-bold">Sally Abed - Detailed MMR Assessment</h4>
+                      <p className="text-green-100">Palestinian-Israeli city councilor, Standing Together</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">1. Reject targeting civilians</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Advocates ceasefire and defending all civilian lives equally.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">2. Accountability for Hamas/Militants</span>
+                      <span className="text-green-600 font-bold">✅ Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Promotes nonviolence in Palestinian activism and political engagement.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">3. Accountability for Israeli Right</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Challenges occupation and ultra-nationalist rhetoric through political action.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">4. Use verified sources</span>
+                      <span className="text-green-600 font-bold">✅ Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Speaks in public forums, documented media coverage of local politics.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">5. Humanize both peoples</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Emphasizes "radical empathy" between communities and shared struggles.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">6. Reject eliminationism</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Seeks joint narratives and partnership through grassroots organizing.</p>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <span className="font-medium">7. Vision for dignity & peace</span>
+                      <span className="text-green-600 font-bold">✅ Strong Pass</span>
+                    </div>
+                    <p className="text-sm text-gray-600 ml-4">Works toward grassroots political change and two-state solution through Standing Together.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Hope Message */}
             <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-3xl p-8 md:p-12 text-white text-center">
               <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6">
@@ -572,4 +755,176 @@ const MMRDocumentationSection = () => {
 };
 
 export default MMRDocumentationSection;
+
+
+
+        {/* Organizations Section */}
+        <div className="max-w-6xl mx-auto mb-16">
+          <div className="text-center mb-12">
+            <div className="flex items-center justify-center mb-6">
+              <Users className="w-10 h-10 text-purple-600 mr-3" />
+              <h3 className="text-3xl md:text-4xl font-black text-gray-900">
+                Organizations Meeting MMR Criteria
+              </h3>
+            </div>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              These Israeli-Palestinian organizations demonstrate that institutional cooperation based on mutual moral respect is not only possible, but actively working to build peace and justice.
+            </p>
+          </div>
+
+          {/* Organizations Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {/* Combatants for Peace */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+              <div className="text-center mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full mb-3">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-1">Combatants for Peace</h4>
+                <p className="text-sm text-gray-600">Ex-combatants (Israeli soldiers & Palestinian fighters)</p>
+                <div className="mt-3 inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+                  ✅ Full Pass — bi-national nonviolent movement
+                </div>
+              </div>
+              <p className="text-xs text-gray-600 mb-3">
+                Founded in 2006, challenges the cycle of violence through joint activism and public ceremonies.
+              </p>
+              <div className="text-xs text-blue-600">
+                <p>🌐 cfpeace.org</p>
+                <p>🇺🇸 afcfp.org (US support)</p>
+              </div>
+            </div>
+
+            {/* Standing Together */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+              <div className="text-center mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-600 to-blue-600 rounded-full mb-3">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-1">Standing Together</h4>
+                <p className="text-sm text-gray-600">Israel's largest grassroots Arab-Jewish movement</p>
+                <div className="mt-3 inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+                  ✅ Full Pass — equality & justice movement
+                </div>
+              </div>
+              <p className="text-xs text-gray-600 mb-3">
+                Founded in 2015 to promote equality, social justice, and end of occupation through shared civic mobilization.
+              </p>
+              <div className="text-xs text-blue-600">
+                <p>🌐 standing-together.org</p>
+                <p>📍 Local chapters in Tel Aviv, Jerusalem, Haifa</p>
+              </div>
+            </div>
+
+            {/* Musalaha */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+              <div className="text-center mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-full mb-3">
+                  <Heart className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-1">Musalaha</h4>
+                <p className="text-sm text-gray-600">Faith-based reconciliation NGO</p>
+                <div className="mt-3 inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+                  ✅ Full Pass — reconciliation through faith
+                </div>
+              </div>
+              <p className="text-xs text-gray-600 mb-3">
+                Established in 1990, promotes dialogue rooted in shared covenantal values through reconciliation camps.
+              </p>
+              <div className="text-xs text-blue-600">
+                <p>🌐 musalaha.org</p>
+                <p>🏕️ Desert Encounters camps</p>
+              </div>
+            </div>
+
+            {/* Women Wage Peace */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+              <div className="text-center mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full mb-3">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-1">Women Wage Peace</h4>
+                <p className="text-sm text-gray-600">Jewish Israeli & Palestinian women's collaboration</p>
+                <div className="mt-3 inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+                  ✅ Full Pass — women's peace movement
+                </div>
+              </div>
+              <p className="text-xs text-gray-600 mb-3">
+                Collaborates with Women of the Sun (Palestinian) for nonviolent peace advocacy, internationally recognized.
+              </p>
+              <div className="text-xs text-blue-600">
+                <p>🌐 via ALLMEP</p>
+                <p>🚶‍♀️ Marches & dialogue events</p>
+              </div>
+            </div>
+
+            {/* Coalition of Women for Peace */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+              <div className="text-center mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-red-600 to-pink-600 rounded-full mb-3">
+                  <Users className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-1">Coalition of Women for Peace</h4>
+                <p className="text-sm text-gray-600">Feminist Israeli-Palestinian coalition</p>
+                <div className="mt-3 inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+                  ✅ Full Pass — feminist peace coalition
+                </div>
+              </div>
+              <p className="text-xs text-gray-600 mb-3">
+                Founded in 2000, brings together Women in Black, Noga, Machsom Watch for justice and anti-occupation campaigns.
+              </p>
+              <div className="text-xs text-blue-600">
+                <p>🔍 Search: Coalition of Women for Peace</p>
+                <p>✊ Peaceful solidarity initiatives</p>
+              </div>
+            </div>
+
+            {/* Community Peacemaker Teams */}
+            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
+              <div className="text-center mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-teal-600 to-green-600 rounded-full mb-3">
+                  <Shield className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-1">Community Peacemaker Teams</h4>
+                <p className="text-sm text-gray-600">International volunteers in Palestine</p>
+                <div className="mt-3 inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold">
+                  ✅ Full Pass — civilian protection
+                </div>
+              </div>
+              <p className="text-xs text-gray-600 mb-3">
+                Active in Hebron and Masafer Yatta since 1994, protecting civilians and supporting nonviolent resistance.
+              </p>
+              <div className="text-xs text-blue-600">
+                <p>🌐 Community Peacemaker Teams</p>
+                <p>🤝 Volunteer accompaniment roles</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center">
+            <div className="bg-gradient-to-r from-purple-50 to-blue-50 rounded-2xl p-8 border border-purple-100">
+              <h4 className="text-2xl font-bold text-gray-900 mb-4">
+                Get Involved with MMR Organizations
+              </h4>
+              <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-6">
+                These organizations prove that Israelis and Palestinians can work together effectively when guided by mutual moral respect. They offer concrete ways to support peace, justice, and dignity for all people in the region.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <div className="bg-white px-4 py-2 rounded-lg border border-gray-200">
+                  <span className="text-sm font-medium text-gray-700">🤝 Volunteer</span>
+                </div>
+                <div className="bg-white px-4 py-2 rounded-lg border border-gray-200">
+                  <span className="text-sm font-medium text-gray-700">💰 Donate</span>
+                </div>
+                <div className="bg-white px-4 py-2 rounded-lg border border-gray-200">
+                  <span className="text-sm font-medium text-gray-700">📢 Advocate</span>
+                </div>
+                <div className="bg-white px-4 py-2 rounded-lg border border-gray-200">
+                  <span className="text-sm font-medium text-gray-700">🎓 Educate</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
