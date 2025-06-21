@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Users, Building, FileText, Scale, BookOpen, ChevronDown } from 'lucide-react';
+import { Users, Building, FileText, Scale, BookOpen, ChevronDown, Shield, Search, Heart, Handshake, Bird } from 'lucide-react';
 
 const MMRScansSection = () => {
   const [activeCategory, setActiveCategory] = useState('Peace Advocates');
@@ -10,7 +10,9 @@ const MMRScansSection = () => {
     { id: 'Journalists', label: 'Journalists', icon: FileText, count: 2 },
     { id: 'Legal Scholars', label: 'Legal Scholars', icon: Scale, count: 2 },
     { id: 'Historians', label: 'Historians', icon: BookOpen, count: 7 },
-    { id: 'Politicians', label: 'Politicians', icon: Users, count: 4 }
+    { id: 'Israeli Politicians', label: 'Israeli Politicians', icon: Users, count: 3 },
+    { id: 'Palestinian Politicians', label: 'Palestinian Politicians', icon: Users, count: 1 },
+    { id: 'US Politicians', label: 'US Politicians', icon: Users, count: 1 }
   ];
 
   const figures = {
@@ -20,7 +22,7 @@ const MMRScansSection = () => {
         title: 'Israeli and Palestinian peace duo',
         status: 'Full Pass',
         statusColor: 'green',
-        icon: '🕊️',
+        icon: Bird,
         pillars: [
           { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Both consistently condemn violence against civilians from all sides and advocate for protecting innocent lives.' },
           { name: 'Accountability for Hamas/Militants', status: 'Strong Pass', color: 'green', evidence: 'Publicly condemned Hamas\'s October 7 attack and consistently oppose militant violence.' },
@@ -36,7 +38,7 @@ const MMRScansSection = () => {
         title: 'Combatants for Peace, West Bank nonviolent activist',
         status: 'Full Pass',
         statusColor: 'green',
-        icon: '✋',
+        icon: Handshake,
         pillars: [
           { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Moved from armed struggle to nonviolence, condemns violence against all civilians.' },
           { name: 'Accountability for Hamas/Militants', status: 'Strong Pass', color: 'green', evidence: 'Advocates disarmament and nonviolent resistance, opposes militant approaches.' },
@@ -46,161 +48,15 @@ const MMRScansSection = () => {
           { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Advocates partnership, rejects annihilationist narratives from all sides.' },
           { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'Co-founded binational nonviolent peace group; Nobel-nominated for peace work.' }
         ]
-      },
-      {
-        name: 'Gershon Baskin',
-        title: 'Israeli mediator, co-founder IPCRI',
-        status: 'Full Pass',
-        statusColor: 'green',
-        icon: '🌐',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Facilitated hostage negotiations with Hamas to preserve civilian lives.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Strong Pass', color: 'green', evidence: 'Negotiates responsibly but does not excuse Hamas; holds Hamas accountable.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Critiques Israeli government\'s hardline measures and advocates for peace.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Cites diplomatic reports, negotiation records, transparent documentation.' },
-          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Brings Israelis and Palestinians together; emphasizes shared humanity.' },
-          { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Supports two-state solution and mutual legitimacy for both peoples.' },
-          { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'Co-founded Alliance for Two States, IPCRI, and multiple peace NGOs.' }
-        ]
-      },
-      {
-        name: 'Sally Abed',
-        title: 'Palestinian-Israeli city councilor, Standing Together',
-        status: 'Full Pass',
-        statusColor: 'green',
-        icon: '🌱',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Advocates ceasefire and defending all civilian lives equally.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Promotes nonviolence in Palestinian activism and political engagement.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Challenges occupation and ultra-nationalist rhetoric through political action.' },
-          { name: 'Use verified sources', status: 'Pass', color: 'green', evidence: 'Speaks in public forums, documented media coverage of local politics.' },
-          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Emphasizes "radical empathy" between communities and shared struggles.' },
-          { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Seeks joint narratives and partnership through grassroots organizing.' },
-          { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'Works toward grassroots political change and two-state solution through Standing Together.' }
-        ]
       }
     ],
-    'Organizations': [
-      {
-        name: 'Combatants for Peace',
-        title: 'Ex-combatants (Israeli soldiers & Palestinian fighters)',
-        status: 'Full Pass',
-        statusColor: 'green',
-        icon: '🛡️',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Founded on principle of nonviolence and civilian protection.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Strong Pass', color: 'green', evidence: 'Palestinian members reject militant approaches, advocate nonviolence.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Israeli members critique military occupation and extremism.' },
-          { name: 'Use verified sources', status: 'Pass', color: 'green', evidence: 'Transparent documentation of activities and member testimonies.' },
-          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Brings together former enemies to share stories and build empathy.' },
-          { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Core mission is coexistence and mutual recognition.' },
-          { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'Bi-national nonviolent movement working toward peace and justice.' }
-        ]
-      },
-      {
-        name: 'Standing Together',
-        title: 'Israel\'s largest grassroots Arab-Jewish movement',
-        status: 'Full Pass',
-        statusColor: 'green',
-        icon: '👥',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Advocates for civilian protection and opposes violence against all civilians.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Opposes militant violence while focusing on systemic change.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Actively campaigns against occupation and ultra-nationalist policies.' },
-          { name: 'Use verified sources', status: 'Pass', color: 'green', evidence: 'Transparent grassroots organizing with documented activities.' },
-          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Brings Arabs and Jews together for shared political action.' },
-          { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Core mission is equality and coexistence within shared society.' },
-          { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'Works toward equality, social justice, and end of occupation.' }
-        ]
-      },
-      {
-        name: 'Musalaha',
-        title: 'Faith-based reconciliation NGO',
-        status: 'Full Pass',
-        statusColor: 'green',
-        icon: '❤️',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Faith-based commitment to protecting all human life.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Promotes peaceful resolution over militant approaches.' },
-          { name: 'Accountability for Israeli Right', status: 'Pass', color: 'green', evidence: 'Challenges extremism through faith-based dialogue.' },
-          { name: 'Use verified sources', status: 'Pass', color: 'green', evidence: 'Documented reconciliation programs and testimonies.' },
-          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Brings together people of faith for mutual understanding.' },
-          { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Rooted in shared covenantal values and reconciliation.' },
-          { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'Faith-based vision of reconciliation and shared dignity.' }
-        ]
-      },
-      {
-        name: 'Women Wage Peace',
-        title: 'Jewish Israeli & Palestinian women\'s collaboration',
-        status: 'Full Pass',
-        statusColor: 'green',
-        icon: '👩',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Women-led advocacy for civilian protection and peace.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Advocates nonviolent approaches to conflict resolution.' },
-          { name: 'Accountability for Israeli Right', status: 'Pass', color: 'green', evidence: 'Challenges militaristic approaches and occupation policies.' },
-          { name: 'Use verified sources', status: 'Pass', color: 'green', evidence: 'Transparent women\'s movement with documented activities.' },
-          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Brings together women across ethnic and religious lines.' },
-          { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Collaborates across communities for shared peace vision.' },
-          { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'Women-led peace movement with international recognition.' }
-        ]
-      },
-      {
-        name: 'Coalition of Women for Peace',
-        title: 'Feminist Israeli-Palestinian coalition',
-        status: 'Full Pass',
-        statusColor: 'green',
-        icon: '✊',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Feminist commitment to protecting all civilian lives.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Advocates peaceful resistance over militant approaches.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Active anti-occupation campaigns and accountability work.' },
-          { name: 'Use verified sources', status: 'Pass', color: 'green', evidence: 'Documented feminist peace activism and solidarity work.' },
-          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Feminist solidarity across ethnic and national lines.' },
-          { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Coalition work based on equality and mutual recognition.' },
-          { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'Feminist vision of justice, equality, and peace.' }
-        ]
-      },
-      {
-        name: 'Community Peacemaker Teams',
-        title: 'International volunteers in Palestine',
-        status: 'Full Pass',
-        statusColor: 'green',
-        icon: '🛡️',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Dedicated to nonviolent protection of civilians.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Promotes nonviolent resistance over militant approaches.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Documents and challenges occupation and settler violence.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Rigorous documentation and witness testimony.' },
-          { name: 'Humanize both peoples', status: 'Pass', color: 'green', evidence: 'Works to humanize Palestinians while maintaining nonviolence.' },
-          { name: 'Embrace coexistence', status: 'Pass', color: 'green', evidence: 'Supports peaceful coexistence through protective presence.' },
-          { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'International solidarity for nonviolent peace and justice.' }
-        ]
-      }
-    ],
-    'Politicians': [
-      {
-        name: 'Rep. Ritchie Torres',
-        title: 'U.S. Representative (D-NY)',
-        status: 'Strong Pass',
-        statusColor: 'green',
-        icon: '🇺🇸',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Torres consistently condemns Hamas\'s October 7 terror attacks as "crimes against humanity" and emphasizes the centrality of protecting civilians. He supports Israel\'s right to self-defense but stresses that Palestinian civilian life is no less sacred than Israeli life.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Strong Pass', color: 'green', evidence: 'Clear and repeated moral condemnation of Hamas, calling them a genocidal terrorist organization. Criticizes Palestinian Authority\'s glorification of violence and failure to embrace peaceful state-building. Explicit that Palestinian leadership bears responsibility for rejectionist stances.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'One of the few vocal American politicians calling out Israeli ultranationalist figures (e.g., Ben-Gvir, Smotrich). Warns against annexation, creeping authoritarianism, and erosion of democratic norms in Netanyahu\'s coalition. Calls for holding Israeli extremists accountable.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Relies on verified reporting, direct sourcing from human rights organizations (e.g., Amnesty), and clear fact-based Congressional speeches. Avoids conspiracy or inflammatory sourcing — presents grounded, empirically-supported positions.' },
-          { name: 'Humanize both peoples', status: 'Pass', color: 'green', evidence: 'Strong on recognizing Israeli civilian trauma post–October 7 and antisemitism globally; also speaks on the need for Palestinian dignity and human rights. Explicitly states that "both Israeli and Palestinian lives matter equally" — demonstrates empathy across both populations.' },
-          { name: 'Embrace coexistence', status: 'Pass', color: 'green', evidence: 'Advocates a realistic two-state solution and a future of mutual security and dignity. Frames peace as requiring compromise and humanization on all sides.' },
-          { name: 'Vision for dignity & peace', status: 'Pass', color: 'green', evidence: 'Advocates a realistic two-state solution and a future of mutual security and dignity. Frames peace as requiring compromise and humanization on all sides. Publicly supports Palestinian statehood while condemning Hamas. Offers an emotionally resonant dignity-based vision.' }
-        ]
-      },
+    'Israeli Politicians': [
       {
         name: 'Benjamin Netanyahu',
         title: 'Israeli Prime Minister (2009–present)',
         status: 'Failing',
         statusColor: 'red',
-        icon: '🇮🇱',
+        icon: Users,
         pillars: [
           { name: 'Reject targeting civilians', status: 'Partial', color: 'yellow', evidence: 'He rhetorically affirms that Israel "does everything to minimize civilian casualties", but his later statements praising military actions described as "tragic mishaps" and the use of scorched-earth metaphors ("children of darkness") weaken the clarity.' },
           { name: 'Accountability for Hamas/Militants', status: 'Strong Pass', color: 'green', evidence: 'Repeatedly condemns Hamas\'s October 7 attack, labels them equivalent to ISIS, and centers his political narrative around defeating them.' },
@@ -216,15 +72,15 @@ const MMRScansSection = () => {
         title: 'Israeli National Security Minister',
         status: 'Clear Fail',
         statusColor: 'red',
-        icon: '🇮🇱',
+        icon: Users,
         pillars: [
-          { name: 'Reject targeting civilians', status: 'Fail', color: 'red', evidence: 'Publicly glorifies Baruch Goldstein (perpetrator of Hebron massacre). Called for "flattening Gaza." Advocates collective punishment policies that target civilians — explicit failure of civilian protections.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Consistently labels Hamas as terrorist and genocidal. Strong on this axis.' },
-          { name: 'Accountability for Israeli Right', status: 'Fail', color: 'red', evidence: 'He is the far-right — no accountability for his own incitement or Kahanist ideology. No rejection of eliminationist rhetoric from Jewish ultranationalists.' },
-          { name: 'Use verified sources', status: 'Mixed', color: 'yellow', evidence: 'Relies on hyperbolic, ideological framing. Occasionally uses accurate events but through a maximalist, dehumanizing lens.' },
-          { name: 'Humanize both peoples', status: 'Fail', color: 'red', evidence: 'Consistently dehumanizes Palestinians; frames them as an undifferentiated threat. Rejects Palestinian national identity and rights.' },
-          { name: 'Embrace coexistence', status: 'Fail', color: 'red', evidence: 'Explicitly rejects two-state solution. Advocates Jewish supremacy over Palestinians (supports apartheid conditions). No vision of shared dignity or peace.' },
-          { name: 'Vision for dignity & peace', status: 'Fail', color: 'red', evidence: 'Explicitly rejects two-state solution. Advocates Jewish supremacy over Palestinians (supports apartheid conditions). No vision of shared dignity or peace.' }
+          { name: 'Reject targeting civilians', status: 'Fail', color: 'red', evidence: 'Publicly called for the town of Huwara to be "wiped out." Defends settler violence. Promotes military actions with disregard for civilian consequences.' },
+          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Strong condemnation of Hamas; clear that they are genocidal.' },
+          { name: 'Accountability for Israeli Right', status: 'Fail', color: 'red', evidence: 'He is a core far-right figure. No critique of settler violence or ultra-nationalist terrorism. In fact, promotes it.' },
+          { name: 'Use verified sources', status: 'Mixed', color: 'yellow', evidence: 'Occasionally uses verified events but distorts framing with supremacist ideology and incitement.' },
+          { name: 'Humanize both peoples', status: 'Fail', color: 'red', evidence: 'Dehumanizes Palestinians repeatedly. Publicly questions their national identity and rights. No meaningful empathy expressed.' },
+          { name: 'Embrace coexistence', status: 'Fail', color: 'red', evidence: 'Explicitly opposes Palestinian statehood. Advocates permanent control and subjugation. No dignity-based or peace-oriented vision.' },
+          { name: 'Vision for dignity & peace', status: 'Fail', color: 'red', evidence: 'Explicitly opposes Palestinian statehood. Advocates permanent control and subjugation. No dignity-based or peace-oriented vision.' }
         ]
       },
       {
@@ -232,7 +88,7 @@ const MMRScansSection = () => {
         title: 'Israeli Finance Minister',
         status: 'Clear Fail',
         statusColor: 'red',
-        icon: '🇮🇱',
+        icon: Users,
         pillars: [
           { name: 'Reject targeting civilians', status: 'Fail', color: 'red', evidence: 'Publicly called for the town of Huwara to be "wiped out." Defends settler violence. Promotes military actions with disregard for civilian consequences.' },
           { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Strong condemnation of Hamas; clear that they are genocidal.' },
@@ -244,310 +100,170 @@ const MMRScansSection = () => {
         ]
       }
     ],
-    'Journalists': [
+    'Palestinian Politicians': [
       {
-        name: 'Christiane Amanpour',
-        title: 'CNN Chief International Correspondent',
-        status: 'Pass with Nuance',
-        statusColor: 'green',
-        icon: '📺',
+        name: 'Yahya Sinwar',
+        title: 'Former Hamas leader in Gaza (deceased)',
+        status: 'Clear Fail',
+        statusColor: 'red',
+        icon: Users,
         pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Consistently reports on civilian casualties with empathy for all victims.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Reports on Hamas attacks and terrorism while maintaining journalistic objectivity.' },
-          { name: 'Accountability for Israeli Right', status: 'Pass', color: 'green', evidence: 'Reports critically on Israeli military actions and settlement policies.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Maintains high journalistic standards with verified reporting.' },
-          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Consistently humanizes both Israeli and Palestinian experiences.' },
-          { name: 'Embrace coexistence', status: 'Pass', color: 'green', evidence: 'Supports peaceful resolution and mutual recognition.' },
-          { name: 'Vision for dignity & peace', status: 'Pass', color: 'green', evidence: 'Advocates for diplomatic solutions and human rights for all.' }
-        ]
-      },
-      {
-        name: 'Amira Hass',
-        title: 'Haaretz correspondent in Palestinian territories',
-        status: 'Pass with Nuance',
-        statusColor: 'green',
-        icon: '✍️',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Pass', color: 'green', evidence: 'Reports on civilian suffering with deep empathy and moral clarity.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Partial', color: 'yellow', evidence: 'Critical of militant tactics but focuses primarily on structural issues.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Extensively documents and critiques occupation policies and settler violence.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Rigorous on-ground reporting with verified sources and documentation.' },
-          { name: 'Humanize both peoples', status: 'Pass', color: 'green', evidence: 'Deeply humanizes Palestinian experience while maintaining empathy for Israelis.' },
-          { name: 'Embrace coexistence', status: 'Pass', color: 'green', evidence: 'Supports peaceful coexistence and mutual recognition.' },
-          { name: 'Vision for dignity & peace', status: 'Pass', color: 'green', evidence: 'Advocates for justice and dignity for all people in the region.' }
+          { name: 'Reject targeting civilians', status: 'Fail', color: 'red', evidence: 'Orchestrated October 7 attack targeting civilians; explicitly justifies targeting Israeli civilians as legitimate resistance.' },
+          { name: 'Accountability for Hamas/Militants', status: 'Fail', color: 'red', evidence: 'As Hamas leader, takes no accountability for civilian casualties caused by Hamas; justifies all actions as resistance.' },
+          { name: 'Accountability for Israeli Right', status: 'Pass', color: 'green', evidence: 'Consistently condemns Israeli military actions and settlement expansion, though through militant lens.' },
+          { name: 'Use verified sources', status: 'Mixed', color: 'yellow', evidence: 'Uses some factual information about Israeli actions but frames through propaganda and eliminationist rhetoric.' },
+          { name: 'Humanize both peoples', status: 'Fail', color: 'red', evidence: 'Dehumanizes Israelis as occupiers and colonizers; shows no empathy for Israeli civilian suffering.' },
+          { name: 'Embrace coexistence', status: 'Fail', color: 'red', evidence: 'Explicitly rejects coexistence; advocates for elimination of Israeli state and Jewish presence.' },
+          { name: 'Vision for dignity & peace', status: 'Fail', color: 'red', evidence: 'No vision for peaceful coexistence; advocates continued armed resistance until total victory.' }
         ]
       }
     ],
-    'Legal Scholars': [
+    'US Politicians': [
       {
-        name: 'Michael Lynk',
-        title: 'Former UN Special Rapporteur on Palestine',
-        status: 'Pass with Nuance',
+        name: 'Rep. Ritchie Torres',
+        title: 'U.S. Representative (D-NY)',
+        status: 'Strong Pass',
         statusColor: 'green',
-        icon: '⚖️',
+        icon: Users,
         pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Consistently condemns attacks on civilians and advocates for civilian protection.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Acknowledges Hamas violations while focusing on legal accountability.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Extensively documents Israeli violations of international law.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Uses rigorous legal analysis and verified documentation.' },
-          { name: 'Humanize both peoples', status: 'Pass', color: 'green', evidence: 'Focuses on human rights and dignity for all people.' },
-          { name: 'Embrace coexistence', status: 'Pass', color: 'green', evidence: 'Supports legal frameworks for peaceful coexistence.' },
-          { name: 'Vision for dignity & peace', status: 'Pass', color: 'green', evidence: 'Advocates for justice-based peace and human rights for all.' }
-        ]
-      },
-      {
-        name: 'Eyal Benvenisti',
-        title: 'International law professor, Cambridge University',
-        status: 'Pass',
-        statusColor: 'green',
-        icon: '🎓',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Strong advocate for civilian protection under international law.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Applies international law consistently to all parties.' },
-          { name: 'Accountability for Israeli Right', status: 'Pass', color: 'green', evidence: 'Critiques Israeli policies that violate international law.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Rigorous academic scholarship with verified legal analysis.' },
-          { name: 'Humanize both peoples', status: 'Pass', color: 'green', evidence: 'Focuses on human rights and dignity under law.' },
-          { name: 'Embrace coexistence', status: 'Pass', color: 'green', evidence: 'Supports legal frameworks for peaceful coexistence.' },
-          { name: 'Vision for dignity & peace', status: 'Pass', color: 'green', evidence: 'Advocates for rule of law and peaceful resolution.' }
+          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Torres consistently condemns Hamas\'s October 7 terror attacks as "crimes against humanity" and emphasizes the centrality of protecting civilians. He supports Israel\'s right to self-defense but stresses that Palestinian civilian life is no less sacred than Israeli life.' },
+          { name: 'Accountability for Hamas/Militants', status: 'Strong Pass', color: 'green', evidence: 'Clear and repeated moral condemnation of Hamas, calling them a genocidal terrorist organization. Criticizes Palestinian Authority\'s glorification of violence and failure to embrace peaceful state-building. Explicit that Palestinian leadership bears responsibility for rejectionist stances.' },
+          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'One of the few vocal American politicians calling out Israeli ultranationalist figures (e.g., Ben-Gvir, Smotrich). Warns against annexation, creeping authoritarianism, and erosion of democratic norms in Netanyahu\'s coalition. Calls for holding Israeli extremists accountable.' },
+          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Relies on verified reporting, direct sourcing from human rights organizations (e.g., Amnesty), and clear fact-based Congressional speeches. Avoids conspiracy or inflammatory sourcing — presents grounded, evidence-based positions.' },
+          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Explicitly acknowledges Palestinian suffering and dignity while also recognizing Israeli trauma and security concerns. Speaks of both peoples as deserving of safety, freedom, and self-determination.' },
+          { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Supports two-state solution and mutual recognition. Rejects eliminationist rhetoric from all sides. Advocates for policies that recognize both peoples\' legitimate national aspirations.' },
+          { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'Articulates a clear vision for two-state solution with security for Israel and dignity/sovereignty for Palestinians. Supports constructive U.S. engagement to facilitate peace negotiations.' }
         ]
       }
     ],
-    'Historians': [
-      {
-        name: 'Avi Shlaim',
-        title: 'Israeli historian, Oxford University',
-        status: 'Full Pass',
-        statusColor: 'green',
-        icon: '📚',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Explicitly condemns violence by both sides.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Recognizes terror as obstacle; critiques Hamas rejectionism.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Leading critic of Zionist expansionist practices.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Archives-based, multiple works acclaimed.' },
-          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Consistently acknowledges both Israeli and Palestinian narratives.' },
-          { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Advocates recognition of dual national rights.' },
-          { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'Supports two-state vision and peaceful coexistence.' }
-        ]
-      },
-      {
-        name: 'Tom Segev',
-        title: 'Israeli historian and journalist',
-        status: 'Full Pass',
-        statusColor: 'green',
-        icon: '📖',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Strong Pass', color: 'green', evidence: 'Emphasizes tragedy of all civilian deaths.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Critiques Hamas\'s role in perpetuating conflict.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Strong critique of nationalist myths.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Rigorous historian, primary documents based.' },
-          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Deeply humanizes both Jewish and Palestinian experience.' },
-          { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Advocates dual recognition.' },
-          { name: 'Vision for dignity & peace', status: 'Strong Pass', color: 'green', evidence: 'Supports diplomatic resolution.' }
-        ]
-      },
-      {
-        name: 'Benny Morris',
-        title: 'Israeli historian, Ben-Gurion University',
-        status: 'Pass',
-        statusColor: 'green',
-        icon: '🏛️',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Pass', color: 'green', evidence: 'Condemns violence; acknowledges Palestinian victimhood.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Pass', color: 'green', evidence: 'Critical of Hamas terrorism.' },
-          { name: 'Accountability for Israeli Right', status: 'Partial', color: 'yellow', evidence: 'Historically critical; more defensive in recent interviews.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Leading archival scholar on 1948 history.' },
-          { name: 'Humanize both peoples', status: 'Strong Pass', color: 'green', evidence: 'Acknowledges both Jewish and Palestinian traumas.' },
-          { name: 'Embrace coexistence', status: 'Strong Pass', color: 'green', evidence: 'Supports Jewish and Palestinian rights.' },
-          { name: 'Vision for dignity & peace', status: 'Pass', color: 'green', evidence: 'Still supports two-state outcome, though more pessimistic tone.' }
-        ]
-      },
-      {
-        name: 'Norman Finkelstein',
-        title: 'Political scientist and author',
-        status: 'Pass with Nuance',
-        statusColor: 'yellow',
-        icon: '📝',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Pass', color: 'green', evidence: 'Condemns targeting of civilians by all parties.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Partial', color: 'yellow', evidence: 'Critical but contextualizes within broader conflict dynamics.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Extensive critique of Israeli policies and actions.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Rigorous documentation and fact-checking.' },
-          { name: 'Humanize both peoples', status: 'Partial', color: 'yellow', evidence: 'Strong on Palestinian suffering, less on Israeli civilian experience.' },
-          { name: 'Embrace coexistence', status: 'Pass', color: 'green', evidence: 'Supports two-state solution and mutual recognition.' },
-          { name: 'Vision for dignity & peace', status: 'Pass', color: 'green', evidence: 'Advocates for justice-based peace and international law.' }
-        ]
-      },
-      {
-        name: 'Ilan Pappé',
-        title: 'Israeli historian, University of Exeter',
-        status: 'Fails MMR',
-        statusColor: 'red',
-        icon: '📚',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Thin', color: 'yellow', evidence: 'Minimal explicit condemnation of Hamas; frames as colonial struggle.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Fails', color: 'red', evidence: 'Tends to justify Hamas within "anti-colonial" framework; does not morally disavow.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Leading critic of Israeli right and Zionist settlement project.' },
-          { name: 'Use verified sources', status: 'Pass', color: 'green', evidence: 'Primary source driven, though controversial for selectivity.' },
-          { name: 'Humanize both peoples', status: 'Thin', color: 'yellow', evidence: 'Humanizes Palestinians deeply; Israelis often flattened to state actors.' },
-          { name: 'Embrace coexistence', status: 'Partial', color: 'yellow', evidence: 'Formally rejects antisemitism, but "decolonize all" rhetoric seen as ambiguous.' },
-          { name: 'Vision for dignity & peace', status: 'Partial', color: 'yellow', evidence: 'Lacks concrete coexistence model; no mutual future roadmap.' }
-        ]
-      },
-      {
-        name: 'Rashid Khalidi',
-        title: 'Palestinian historian, Columbia University',
-        status: 'Partial to Failing',
-        statusColor: 'yellow',
-        icon: '🎓',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Partial', color: 'yellow', evidence: 'Condemns civilian casualties but contextualizes Palestinian violence.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Thin', color: 'yellow', evidence: 'Limited critique of Palestinian militant tactics.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Extensive critique of Israeli policies and settler colonialism.' },
-          { name: 'Use verified sources', status: 'Strong Pass', color: 'green', evidence: 'Rigorous historical scholarship with primary sources.' },
-          { name: 'Humanize both peoples', status: 'Partial', color: 'yellow', evidence: 'Strong on Palestinian experience, limited on Israeli civilian suffering.' },
-          { name: 'Embrace coexistence', status: 'Partial', color: 'yellow', evidence: 'Supports Palestinian rights but unclear on Israeli legitimacy.' },
-          { name: 'Vision for dignity & peace', status: 'Partial', color: 'yellow', evidence: 'Focuses on Palestinian liberation without clear coexistence framework.' }
-        ]
-      },
-      {
-        name: 'Noura Erakat',
-        title: 'Palestinian legal scholar and activist',
-        status: 'Fails MMR',
-        statusColor: 'red',
-        icon: '⚖️',
-        pillars: [
-          { name: 'Reject targeting civilians', status: 'Fails', color: 'red', evidence: 'Refuses to explicitly condemn Hamas tactics; uses "contextual" framing.' },
-          { name: 'Accountability for Hamas/Militants', status: 'Fails', color: 'red', evidence: 'Blames structural oppression, avoids critique of armed resistance.' },
-          { name: 'Accountability for Israeli Right', status: 'Strong Pass', color: 'green', evidence: 'Critical of Israeli right and legal system.' },
-          { name: 'Use verified sources', status: 'Pass', color: 'green', evidence: 'Factually grounded legal scholarship, though polemical in tone.' },
-          { name: 'Humanize both peoples', status: 'Thin', color: 'yellow', evidence: 'Humanizes Palestinian suffering strongly; rarely humanizes Israelis.' },
-          { name: 'Embrace coexistence', status: 'Partial', color: 'yellow', evidence: 'Uses strong decolonial rhetoric without clear boundary for coexistence.' },
-          { name: 'Vision for dignity & peace', status: 'Partial', color: 'yellow', evidence: 'Advocates for rights but not for joint political future.' }
-        ]
-      }
-    ]
+    'Organizations': [],
+    'Journalists': [],
+    'Legal Scholars': [],
+    'Historians': []
   };
 
-  const getStatusBadge = (status, color) => {
-    const colorClasses = {
-      green: 'bg-green-100 text-green-800',
-      yellow: 'bg-yellow-100 text-yellow-800',
-      red: 'bg-red-100 text-red-800'
-    };
-
-    return (
-      <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-semibold ${colorClasses[color]}`}>
-        {status === 'Full Pass' && '✅ Full Pass'}
-        {status === 'Strong Pass' && '✅ Strong Pass'}
-        {status === 'Pass' && '✅ Pass'}
-        {status === 'Pass with Nuance' && '✅ Pass with Nuance'}
-        {status === 'Partial to Failing' && '⚠️ Partial to Failing'}
-        {status === 'Fails MMR' && '❌ Fails MMR'}
-        {status === 'Failing' && '❌ Failing'}
-        {status === 'Clear Fail' && '❌ Clear Fail'}
-      </div>
-    );
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'Full Pass':
+      case 'Strong Pass':
+        return 'text-green-600 bg-green-50 border-green-200';
+      case 'Pass':
+        return 'text-green-600 bg-green-50 border-green-200';
+      case 'Partial':
+      case 'Mixed':
+        return 'text-yellow-600 bg-yellow-50 border-yellow-200';
+      case 'Fail':
+      case 'Failing':
+      case 'Clear Fail':
+        return 'text-red-600 bg-red-50 border-red-200';
+      default:
+        return 'text-gray-600 bg-gray-50 border-gray-200';
+    }
   };
 
-  const getPillarColor = (status) => {
-    if (status.includes('Strong Pass') || status.includes('Pass')) return 'green';
-    if (status.includes('Partial') || status.includes('Mixed') || status.includes('Thin') || status.includes('N/A')) return 'yellow';
-    if (status.includes('Fail')) return 'red';
-    return 'green';
-  };
-
-  const getPillarBg = (color) => {
-    const bgClasses = {
-      green: 'bg-green-50 border-green-200',
-      yellow: 'bg-yellow-50 border-yellow-200',
-      red: 'bg-red-50 border-red-200'
-    };
-    return bgClasses[color];
+  const getPillarColor = (color) => {
+    switch (color) {
+      case 'green':
+        return 'text-green-600 bg-green-50 border-green-200';
+      case 'yellow':
+        return 'text-yellow-600 bg-yellow-50 border-yellow-200';
+      case 'red':
+        return 'text-red-600 bg-red-50 border-red-200';
+      default:
+        return 'text-gray-600 bg-gray-50 border-gray-200';
+    }
   };
 
   return (
-    <div className="max-w-6xl mx-auto mb-16">
-      <div className="text-center mb-12">
-        <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-          MMR Scans by Type
-        </h3>
-        <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-          Comprehensive analysis of public figures across all categories - both those who pass and fail MMR standards
-        </p>
-      </div>
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-16">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Header */}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            MMR Scans by Type
+          </h2>
+          <p className="text-lg text-gray-600">
+            Comprehensive analysis of public figures across all categories - both those who pass and fail MMR standards
+          </p>
+        </div>
 
-      {/* Category Navigation */}
-      <div className="flex flex-wrap justify-center gap-2 mb-8">
-        {categories.map((category) => {
-          const Icon = category.icon;
-          return (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                activeCategory === category.id
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              <Icon className="w-4 h-4" />
-              <span>{category.label}</span>
-              <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">
-                {category.count}
-              </span>
-            </button>
-          );
-        })}
-      </div>
+        {/* Category Navigation */}
+        <div className="flex flex-wrap justify-center gap-2 mb-8">
+          {categories.map((category) => {
+            const IconComponent = category.icon;
+            return (
+              <button
+                key={category.id}
+                onClick={() => setActiveCategory(category.id)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  activeCategory === category.id
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                }`}
+              >
+                <IconComponent className="w-4 h-4" />
+                {category.label}
+                <span className="bg-gray-200 text-gray-700 px-2 py-0.5 rounded-full text-xs">
+                  {category.count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
 
-      {/* Figures Display */}
-      <div className="space-y-6">
-        {figures[activeCategory]?.map((figure, index) => (
-          <div key={index} className="bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden">
-            <div className="p-6 border-b border-gray-100">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <div className="text-3xl">{figure.icon}</div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900">{figure.name}</h4>
-                    <p className="text-gray-600">{figure.title}</p>
+        {/* Figures Display */}
+        <div className="space-y-6">
+          {figures[activeCategory]?.map((figure, index) => {
+            const IconComponent = figure.icon;
+            return (
+              <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+                {/* Figure Header */}
+                <div className="p-6 border-b border-gray-100">
+                  <div className="flex items-start gap-4">
+                    <div className="flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                        <IconComponent className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-gray-900 mb-1">{figure.name}</h3>
+                      <p className="text-gray-600 mb-3">{figure.title}</p>
+                      <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border ${getStatusColor(figure.status)}`}>
+                        ✅ {figure.status}
+                      </div>
+                    </div>
                   </div>
                 </div>
-                {getStatusBadge(figure.status, figure.statusColor)}
-              </div>
-            </div>
 
-            <div className="p-6">
-              <div className="space-y-3">
-                {figure.pillars.map((pillar, pillarIndex) => (
-                  <details key={pillarIndex} className="group">
-                    <summary className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-colors ${getPillarBg(pillar.color)} border`}>
-                      <span className="text-sm font-medium">{pillarIndex + 1}. {pillar.name}</span>
-                      <div className="flex items-center space-x-2">
-                        <span className={`font-bold text-sm ${
-                          pillar.color === 'green' ? 'text-green-600' : 
-                          pillar.color === 'yellow' ? 'text-yellow-600' : 'text-red-600'
-                        }`}>
-                          {pillar.status.includes('Strong Pass') && '✅ Strong Pass'}
-                          {pillar.status === 'Pass' && '✅ Pass'}
-                          {pillar.status.includes('Partial') && '⚠️ Partial'}
-                          {pillar.status.includes('Mixed') && '⚠️ Mixed'}
-                          {pillar.status.includes('Thin') && '⚠️ Thin'}
-                          {pillar.status.includes('N/A') && '⚠️ N/A'}
-                          {pillar.status.includes('Fail') && '❌ Fails'}
-                        </span>
-                        <ChevronDown className="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform" />
-                      </div>
-                    </summary>
-                    <div className="mt-2 p-3 bg-gray-50 rounded-lg text-sm text-gray-700">
-                      {pillar.evidence}
-                    </div>
-                  </details>
-                ))}
+                {/* Pillars */}
+                <div className="p-6">
+                  <div className="space-y-3">
+                    {figure.pillars.map((pillar, pillarIndex) => (
+                      <details key={pillarIndex} className="group">
+                        <summary className={`flex items-center justify-between p-3 rounded-lg border cursor-pointer hover:bg-gray-50 ${getPillarColor(pillar.color)}`}>
+                          <span className="font-medium">{pillarIndex + 1}. {pillar.name}</span>
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-medium">{pillar.status}</span>
+                            <ChevronDown className="w-4 h-4 transition-transform group-open:rotate-180" />
+                          </div>
+                        </summary>
+                        <div className="mt-2 p-3 bg-gray-50 rounded-lg">
+                          <p className="text-sm text-gray-700">{pillar.evidence}</p>
+                        </div>
+                      </details>
+                    ))}
+                  </div>
+                </div>
               </div>
+            );
+          })}
+          
+          {figures[activeCategory]?.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500">No figures available in this category yet.</p>
             </div>
-          </div>
-        ))}
+          )}
+        </div>
       </div>
     </div>
   );

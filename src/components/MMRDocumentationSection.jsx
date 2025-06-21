@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Users, Heart, Scale } from 'lucide-react';
+import { Shield, Users, Building, BarChart3, Heart, Sprout, Eye, Scale } from 'lucide-react';
 
 const MMRDocumentationSection = () => {
   return (
@@ -34,7 +34,7 @@ const MMRDocumentationSection = () => {
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="text-center mb-4">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full mb-3">
-                  <span className="text-white text-xl">🛡️</span>
+                  <Shield className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">1. Reject Targeting Civilians</h3>
                 <p className="text-sm text-gray-600">
@@ -47,7 +47,7 @@ const MMRDocumentationSection = () => {
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="text-center mb-4">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mb-3">
-                  <span className="text-white text-xl">⚖️</span>
+                  <Scale className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">2. Accountability for Hamas/Militants</h3>
                 <p className="text-sm text-gray-600">
@@ -60,7 +60,7 @@ const MMRDocumentationSection = () => {
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="text-center mb-4">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mb-3">
-                  <span className="text-white text-xl">🏛️</span>
+                  <Building className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">3. Accountability for Israeli Right</h3>
                 <p className="text-sm text-gray-600">
@@ -73,7 +73,7 @@ const MMRDocumentationSection = () => {
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="text-center mb-4">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full mb-3">
-                  <span className="text-white text-xl">📊</span>
+                  <BarChart3 className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">4. Use Verified Sources</h3>
                 <p className="text-sm text-gray-600">
@@ -86,7 +86,7 @@ const MMRDocumentationSection = () => {
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="text-center mb-4">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-3">
-                  <span className="text-white text-xl">❤️</span>
+                  <Heart className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">5. Humanize Both Peoples</h3>
                 <p className="text-sm text-gray-600">
@@ -99,7 +99,7 @@ const MMRDocumentationSection = () => {
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="text-center mb-4">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-3">
-                  <span className="text-white text-xl">🤝</span>
+                  <Sprout className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">6. Embrace Coexistence</h3>
                 <p className="text-sm text-gray-600">
@@ -112,7 +112,7 @@ const MMRDocumentationSection = () => {
             <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
               <div className="text-center mb-4">
                 <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full mb-3">
-                  <span className="text-white text-xl">🕊️</span>
+                  <Eye className="w-6 h-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">7. Vision for Dignity & Peace</h3>
                 <p className="text-sm text-gray-600">
