@@ -75,7 +75,7 @@ const ChatInterface = () => {
     const baseDelay = 1000; // 1 second base delay
     
     try {
-      const response = await fetch('https://g8h3ilc78kvn.manus.space/api/mmr/query', {
+      const response = await fetch('https://kkh7ikcg18yz.manus.space/api/mmr/query', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

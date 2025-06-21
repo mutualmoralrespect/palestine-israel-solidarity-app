@@ -55,21 +55,34 @@ const ChatInterface = () => {
     }
   };
 
-  // Enhanced markdown formatting with modern styling
+  // Enhanced markdown formatting with modern styling and better colors
   const formatResponse = (text) => {
     let formatted = text
-      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-gray-900">$1</strong>')
-      .replace(/\*(.*?)\*/g, '<em class="italic text-blue-700">$1</em>')
-      .replace(/`(.*?)`/g, '<code class="bg-gray-100 px-2 py-1 rounded text-sm font-mono text-red-600">$1</code>')
-      .replace(/^### (.*$)/gm, '<h3 class="text-lg font-bold text-green-700 mt-4 mb-2">$1</h3>')
-      .replace(/^## (.*$)/gm, '<h2 class="text-xl font-bold text-red-600 mt-6 mb-3 border-b-2 border-red-200 pb-1">$1</h2>')
-      .replace(/^# (.*$)/gm, '<h1 class="text-2xl font-bold text-blue-700 mt-6 mb-4 border-b-2 border-blue-200 pb-2">$1</h1>')
-      .replace(/^- (.*$)/gm, '<li class="ml-4 mb-1 text-gray-700">$1</li>')
-      .replace(/\n\n/g, '</p><p class="mb-3 text-gray-800 leading-relaxed">')
-      .replace(/^(.+)$/gm, '<p class="mb-3 text-gray-800 leading-relaxed">$1</p>');
+      // Headers with coding-inspired colors
+      .replace(/^# (.*$)/gm, '<h1 class="text-3xl font-bold text-blue-800 mt-8 mb-6 border-b-4 border-blue-200 pb-3">$1</h1>')
+      .replace(/^## (.*$)/gm, '<h2 class="text-2xl font-bold text-green-700 mt-6 mb-4 border-b-2 border-green-200 pb-2">$1</h2>')
+      .replace(/^### (.*$)/gm, '<h3 class="text-xl font-semibold text-purple-700 mt-5 mb-3">$1</h3>')
+      .replace(/^#### (.*$)/gm, '<h4 class="text-lg font-semibold text-red-600 mt-4 mb-2">$1</h4>')
+      
+      // Bold and italic with better contrast
+      .replace(/\*\*(.*?)\*\*/g, '<strong class="font-bold text-gray-900 bg-yellow-50 px-1 rounded">$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em class="italic text-blue-700 font-medium">$1</em>')
+      
+      // Code blocks with syntax highlighting colors
+      .replace(/`(.*?)`/g, '<code class="bg-gray-800 text-green-400 px-2 py-1 rounded text-sm font-mono border">$1</code>')
+      
+      // Lists with better spacing
+      .replace(/^- (.*$)/gm, '<li class="ml-6 mb-2 text-gray-800 leading-relaxed">• $1</li>')
+      
+      // Paragraphs with better typography
+      .replace(/\n\n/g, '</p><p class="mb-4 text-gray-800 leading-relaxed text-lg">')
+      .replace(/^(.+)$/gm, '<p class="mb-4 text-gray-800 leading-relaxed text-lg">$1</p>');
 
     // Wrap lists with modern styling
-    formatted = formatted.replace(/(<li>.*<\/li>)/gs, '<ul class="list-disc list-inside space-y-1 my-3 ml-2">$1</ul>');
+    formatted = formatted.replace(/(<li>.*<\/li>)/gs, '<ul class="list-none space-y-2 my-6 ml-4 border-l-4 border-blue-200 pl-6">$1</ul>');
+    
+    // Add section dividers
+    formatted = formatted.replace(/---/g, '<hr class="my-8 border-t-2 border-gray-200" />');
     
     return formatted;
   };
@@ -230,52 +243,64 @@ const ChatInterface = () => {
             )}
             
             {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-4xl px-6 py-4 rounded-2xl ${
-                    message.type === 'user'
-                      ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg'
-                      : message.type === 'error'
-                      ? 'bg-red-50 text-red-800 border border-red-200 shadow-sm'
-                      : 'bg-white text-gray-800 border border-gray-100 shadow-lg'
-                  }`}
-                >
-                  {message.type === 'assistant' ? (
-                    <div>
-                      <div 
-                        className="markdown-response text-base leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: formatResponse(message.content) }}
-                      />
-                      <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
-                        <div className="flex items-center space-x-2">
-                          <Sparkles className="w-4 h-4 text-blue-500" />
-                          <span className="text-sm text-gray-500 font-medium">
-                            {message.model}
-                          </span>
-                        </div>
-                        <Button
-                          onClick={() => continueResponse(message.id)}
-                          disabled={isLoading}
-                          variant="ghost"
-                          size="sm"
-                          className="text-sm h-8 px-4 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-xl"
-                        >
-                          <MoreHorizontal className="w-4 h-4 mr-2" />
-                          Continue Analysis
-                        </Button>
+              <div key={message.id} className="w-full">
+                {message.type === 'user' ? (
+                  // User message - compact on right
+                  <div className="flex justify-end mb-6">
+                    <div className="max-w-2xl px-6 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg">
+                      <p className="text-base font-medium">{message.content}</p>
+                      <div className="text-xs opacity-70 mt-3 font-medium">
+                        {new Date(message.timestamp).toLocaleTimeString()}
                       </div>
                     </div>
-                  ) : (
-                    <p className="text-base font-medium">{message.content}</p>
-                  )}
-                  
-                  <div className="text-xs opacity-70 mt-3 font-medium">
-                    {new Date(message.timestamp).toLocaleTimeString()}
                   </div>
-                </div>
+                ) : (
+                  // Assistant message - full width for markdown
+                  <div className="w-full mb-8">
+                    <div className={`w-full px-8 py-6 rounded-2xl ${
+                      message.type === 'error'
+                        ? 'bg-red-50 text-red-800 border border-red-200 shadow-sm'
+                        : 'bg-white text-gray-800 border border-gray-100 shadow-lg'
+                    }`}>
+                      {message.type === 'assistant' ? (
+                        <div>
+                          <div 
+                            className="markdown-response prose prose-lg max-w-none"
+                            dangerouslySetInnerHTML={{ __html: formatResponse(message.content) }}
+                          />
+                          <div className="flex items-center justify-between mt-8 pt-6 border-t border-gray-100">
+                            <div className="flex items-center space-x-2">
+                              <Sparkles className="w-4 h-4 text-blue-500" />
+                              <span className="text-sm text-gray-500 font-medium">
+                                {message.model}
+                              </span>
+                              <span className="text-xs text-gray-400">
+                                {new Date(message.timestamp).toLocaleTimeString()}
+                              </span>
+                            </div>
+                            <Button
+                              onClick={() => continueResponse(message.id)}
+                              disabled={isLoading}
+                              variant="ghost"
+                              size="sm"
+                              className="text-sm h-8 px-4 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-xl"
+                            >
+                              <MoreHorizontal className="w-4 h-4 mr-2" />
+                              Continue Analysis
+                            </Button>
+                          </div>
+                        </div>
+                      ) : (
+                        <div>
+                          <p className="text-base font-medium">{message.content}</p>
+                          <div className="text-xs opacity-70 mt-3 font-medium">
+                            {new Date(message.timestamp).toLocaleTimeString()}
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
             
