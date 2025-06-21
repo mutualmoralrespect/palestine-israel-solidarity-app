@@ -17,9 +17,9 @@ const HeroSection = () => {
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full bg-gradient-to-br from-slate-50 via-white to-blue-50">
           <img 
-            src="/src/assets/intertwined-flags-banner.png" 
+            src="/assets/intertwined-flags-banner.png" 
             alt="Intertwined Palestine and Israel Flags" 
-            className="w-full h-full object-cover opacity-20"
+            className="w-full h-full object-cover opacity-30"
           />
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/80"></div>
