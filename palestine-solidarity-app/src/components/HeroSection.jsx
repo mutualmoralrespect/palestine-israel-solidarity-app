@@ -16,7 +16,7 @@ const HeroSection = () => {
       {/* Full-Width Intertwined Flags Banner Image */}
       <div className="w-full h-96 md:h-[500px] relative">
         <img 
-          src="/intertwined-flags-banner.jpg" 
+          src="/intertwined-flags-banner.png" 
           alt="Intertwined Palestine and Israel Flags" 
           className="w-full h-full object-cover"
         />
