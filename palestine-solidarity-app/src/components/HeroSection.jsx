@@ -13,67 +13,57 @@ const HeroSection = () => {
 
   return (
     <section className="hero-section relative overflow-hidden">
-      {/* Beautiful Intertwined Flags Banner */}
-      <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-gradient-to-br from-slate-50 via-white to-blue-50">
-          <img 
-            src="/assets/intertwined-flags-banner.png" 
-            alt="Intertwined Palestine and Israel Flags" 
-            className="w-full h-full object-cover opacity-30"
-          />
+      {/* Full-Width Intertwined Flags Banner Image */}
+      <div className="w-full h-96 md:h-[500px] relative">
+        <img 
+          src="/intertwined-flags-banner.jpg" 
+          alt="Intertwined Palestine and Israel Flags" 
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-white/90"></div>
+        
+        {/* Content Overlay on Banner */}
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-6">
+          {/* Modern Typography Hierarchy */}
+          <div className="space-y-4 max-w-4xl">
+            <h1 className="text-6xl md:text-7xl font-black tracking-tight">
+              <span className="text-white drop-shadow-2xl">
+                SOLIDARITY
+              </span>
+            </h1>
+            
+            <h2 className="text-3xl md:text-4xl font-bold text-white/90 drop-shadow-xl">
+              WITH
+            </h2>
+            
+            <h3 className="text-4xl md:text-5xl font-black">
+              <span className="text-white drop-shadow-2xl">
+                PALESTINE & ISRAEL
+              </span>
+            </h3>
+            
+            <p className="text-lg md:text-xl text-white/90 font-medium mt-6 leading-relaxed drop-shadow-lg">
+              Freedom in Israel, Gaza, and the West Bank
+            </p>
+          </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/80"></div>
       </div>
 
-      {/* Modern Content Container */}
-      <div className="relative z-10 container mx-auto px-6 py-20 min-h-screen flex flex-col justify-center items-center text-center">
-        
-        {/* Flag Symbols with Modern Styling */}
-        <div className="flex items-center justify-center space-x-8 mb-12">
-          <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center shadow-2xl transform rotate-3 hover:rotate-6 transition-transform duration-300">
-            <span className="text-white text-2xl font-bold">🤝</span>
+      {/* Content Section Below Banner */}
+      <div className="bg-gradient-to-br from-slate-50 via-white to-blue-50 py-20">
+        <div className="container mx-auto px-6 text-center">
+          {/* Modern CTA Button */}
+          <div className="mb-16">
+            <Button
+              onClick={scrollToMMR}
+              className="group relative px-12 py-6 text-lg font-semibold bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+            >
+              <span className="relative z-10">LEARN MORE</span>
+              <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
+            </Button>
           </div>
-          <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl flex items-center justify-center shadow-2xl transform -rotate-2 hover:-rotate-6 transition-transform duration-300">
-            <span className="text-white text-3xl">✡</span>
-          </div>
-        </div>
 
-        {/* Modern Typography Hierarchy */}
-        <div className="space-y-6 max-w-4xl">
-          <h1 className="text-7xl md:text-8xl font-black tracking-tight">
-            <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
-              SOLIDARITY
-            </span>
-          </h1>
-          
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-700">
-            WITH
-          </h2>
-          
-          <h3 className="text-5xl md:text-6xl font-black">
-            <span className="bg-gradient-to-r from-red-600 via-green-600 to-blue-600 bg-clip-text text-transparent">
-              PALESTINE & ISRAEL
-            </span>
-          </h3>
-          
-          <p className="text-xl md:text-2xl text-gray-600 font-medium mt-8 leading-relaxed">
-            Freedom in Israel, Gaza, and the West Bank
-          </p>
-        </div>
-
-        {/* Modern CTA Button */}
-        <div className="mt-16">
-          <Button
-            onClick={scrollToMMR}
-            className="group relative px-12 py-6 text-lg font-semibold bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
-          >
-            <span className="relative z-10">LEARN MORE</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-          </Button>
-        </div>
-
-        {/* Modern Scroll Indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          {/* Modern Scroll Indicator */}
           <div className="flex flex-col items-center space-y-2 text-gray-500">
             <span className="text-sm font-medium tracking-wide">SCROLL TO EXPLORE</span>
             <ChevronDown className="w-6 h-6 animate-bounce" />
