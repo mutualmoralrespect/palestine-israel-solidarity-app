@@ -1,14 +1,11 @@
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ExternalLink } from 'lucide-react';
 import { Button } from './ui/button';
 import '../App.css';
 
 const HeroSection = () => {
-  const scrollToMMR = () => {
-    const mmrSection = document.getElementById('mmr-section');
-    if (mmrSection) {
-      mmrSection.scrollIntoView({ behavior: 'smooth' });
-    }
+  const handleLearnMore = () => {
+    window.open('https://mutual-moral-respect-model.gitbook.io/mmr-core-model', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -59,12 +56,18 @@ const HeroSection = () => {
           {/* Modern CTA Button */}
           <div className="mb-16">
             <Button
-              onClick={scrollToMMR}
+              onClick={handleLearnMore}
               className="group relative px-12 py-6 text-lg font-semibold bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white rounded-2xl shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
             >
-              <span className="relative z-10">LEARN MORE</span>
+              <div className="flex items-center space-x-3">
+                <span className="relative z-10">LEARN MORE</span>
+                <ExternalLink className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-r from-green-400 to-blue-400 rounded-2xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
             </Button>
+            <p className="mt-4 text-sm text-gray-600 max-w-md mx-auto">
+              Explore the complete MMR framework and methodology
+            </p>
           </div>
 
           {/* Modern Scroll Indicator */}
