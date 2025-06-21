@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from './ui/button';
-import { Send, MoreHorizontal, Loader2, Brain, Sparkles } from 'lucide-react';
+import { Send, MoreHorizontal, Loader2, Brain, Sparkles, MessageCircle, Clock, CheckCircle2 } from 'lucide-react';
 import '../App.css';
 
 const ChatInterface = () => {
@@ -9,6 +9,7 @@ const ChatInterface = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isThinking, setIsThinking] = useState(false);
   const [sessionToken, setSessionToken] = useState('');
+  const [contextUsed, setContextUsed] = useState([]);
   const messagesEndRef = useRef(null);
 
   // Generate session token on component mount
@@ -91,11 +92,15 @@ const ChatInterface = () => {
     setIsLoading(true);
     setIsThinking(true);
 
+    // Show which previous messages will be used for context
+    const contextMessages = messages.slice(-3);
+    setContextUsed(contextMessages.map(m => m.id));
+
     saveConversation(newMessages);
 
     try {
       // Simulate thinking time for better UX
-      await new Promise(resolve => setTimeout(resolve, 800));
+      await new Promise(resolve => setTimeout(resolve, 1200));
       setIsThinking(false);
 
       const response = await fetch('https://y0h0i3cylxp3.manus.space/api/mmr/query', {
@@ -106,7 +111,7 @@ const ChatInterface = () => {
         body: JSON.stringify({ 
           prompt: userMessage.content,
           sessionToken,
-          conversationHistory: messages.slice(-5)
+          conversationHistory: contextMessages
         }),
       });
 
@@ -121,12 +126,14 @@ const ChatInterface = () => {
         type: 'assistant',
         content: data.response,
         timestamp: new Date().toISOString(),
-        model: data.model || 'MMR-Solidarity'
+        model: data.model || 'MMR-Solidarity',
+        contextUsed: contextMessages.length
       };
 
       const finalMessages = [...newMessages, assistantMessage];
       setMessages(finalMessages);
       saveConversation(finalMessages);
+      setContextUsed([]);
       
     } catch (error) {
       console.error('Error querying MMR model:', error);
@@ -140,6 +147,7 @@ const ChatInterface = () => {
       const finalMessages = [...newMessages, errorMessage];
       setMessages(finalMessages);
       saveConversation(finalMessages);
+      setContextUsed([]);
     } finally {
       setIsLoading(false);
       setIsThinking(false);
@@ -154,8 +162,7 @@ const ChatInterface = () => {
     setIsThinking(true);
     
     try {
-      // Enhanced continue prompt for deeper reasoning
-      await new Promise(resolve => setTimeout(resolve, 600));
+      await new Promise(resolve => setTimeout(resolve, 800));
       setIsThinking(false);
 
       const response = await fetch('https://y0h0i3cylxp3.manus.space/api/mmr/query', {
@@ -179,7 +186,7 @@ const ChatInterface = () => {
       
       const updatedMessages = messages.map(m => 
         m.id === messageId 
-          ? { ...m, content: m.content + '\n\n---\n\n' + data.response }
+          ? { ...m, content: m.content + '\n\n---\n\n**Continued Analysis:**\n\n' + data.response }
           : m
       );
       
@@ -196,6 +203,7 @@ const ChatInterface = () => {
 
   const clearConversation = () => {
     setMessages([]);
+    setContextUsed([]);
     localStorage.removeItem('mmr-conversation');
   };
 
@@ -215,10 +223,31 @@ const ChatInterface = () => {
           </p>
         </div>
 
-        {/* Modern Chat Container with Glassmorphism */}
+        {/* Modern Chat Container with Clear Flow */}
         <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
-          {/* Messages Area with Modern Styling */}
-          <div className="h-[600px] overflow-y-auto p-8 space-y-6 bg-gradient-to-b from-white/50 to-gray-50/50">
+          
+          {/* Conversation Status Bar */}
+          {messages.length > 0 && (
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 px-6 py-3 border-b border-gray-100">
+              <div className="flex items-center justify-between text-sm">
+                <div className="flex items-center space-x-2">
+                  <MessageCircle className="w-4 h-4 text-blue-500" />
+                  <span className="text-gray-600 font-medium">
+                    {messages.length} messages • Session: {sessionToken.slice(0, 8)}...
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle2 className="w-4 h-4 text-green-500" />
+                  <span className="text-gray-600">Context aware</span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Messages Area with Clear Visual Flow */}
+          <div className="h-[600px] overflow-y-auto p-6 space-y-6 bg-gradient-to-b from-white/50 to-gray-50/50">
+            
+            {/* Welcome State */}
             {messages.length === 0 && (
               <div className="text-center py-16">
                 <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -226,63 +255,95 @@ const ChatInterface = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-gray-800 mb-4">Start a conversation with the MMR model</h3>
                 <p className="text-gray-600 max-w-md mx-auto">Ask about solidarity, justice, current events, or any topic you'd like to explore with intersectional analysis.</p>
+                <div className="mt-6 text-sm text-gray-500">
+                  <p>💡 Your messages appear on the right, AI responses on the left</p>
+                  <p>🧠 The AI remembers your recent conversation context</p>
+                </div>
               </div>
             )}
             
-            {messages.map((message) => (
-              <div
-                key={message.id}
-                className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
-              >
-                <div
-                  className={`max-w-4xl px-6 py-4 rounded-2xl ${
-                    message.type === 'user'
-                      ? 'bg-gradient-to-r from-green-500 to-green-600 text-white shadow-lg'
-                      : message.type === 'error'
-                      ? 'bg-red-50 text-red-800 border border-red-200 shadow-sm'
-                      : 'bg-white text-gray-800 border border-gray-100 shadow-lg'
-                  }`}
-                >
-                  {message.type === 'assistant' ? (
-                    <div>
-                      <div 
-                        className="markdown-response text-base leading-relaxed"
-                        dangerouslySetInnerHTML={{ __html: formatResponse(message.content) }}
-                      />
-                      <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
-                        <div className="flex items-center space-x-2">
-                          <Sparkles className="w-4 h-4 text-blue-500" />
-                          <span className="text-sm text-gray-500 font-medium">
-                            {message.model}
-                          </span>
-                        </div>
-                        <Button
-                          onClick={() => continueResponse(message.id)}
-                          disabled={isLoading}
-                          variant="ghost"
-                          size="sm"
-                          className="text-sm h-8 px-4 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-xl"
-                        >
-                          <MoreHorizontal className="w-4 h-4 mr-2" />
-                          Continue Analysis
-                        </Button>
-                      </div>
+            {/* Message Flow */}
+            {messages.map((message, index) => (
+              <div key={message.id} className="fade-in-up">
+                
+                {/* Context Indicator for AI Messages */}
+                {message.type === 'assistant' && message.contextUsed > 0 && (
+                  <div className="flex justify-start mb-2">
+                    <div className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs font-medium flex items-center space-x-1">
+                      <Clock className="w-3 h-3" />
+                      <span>Used context from {message.contextUsed} previous messages</span>
                     </div>
-                  ) : (
-                    <p className="text-base font-medium">{message.content}</p>
-                  )}
-                  
-                  <div className="text-xs opacity-70 mt-3 font-medium">
-                    {new Date(message.timestamp).toLocaleTimeString()}
+                  </div>
+                )}
+
+                {/* Message Bubble */}
+                <div className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`max-w-4xl px-6 py-4 rounded-2xl ${
+                    message.type === 'user'
+                      ? 'chat-bubble-user text-white shadow-lg ml-12'
+                      : message.type === 'error'
+                      ? 'bg-red-50 text-red-800 border border-red-200 shadow-sm mr-12'
+                      : 'chat-bubble-assistant text-gray-800 mr-12'
+                  }`}>
+                    
+                    {/* Message Content */}
+                    {message.type === 'assistant' ? (
+                      <div>
+                        <div 
+                          className="markdown-response text-base leading-relaxed"
+                          dangerouslySetInnerHTML={{ __html: formatResponse(message.content) }}
+                        />
+                        
+                        {/* AI Message Footer */}
+                        <div className="flex items-center justify-between mt-6 pt-4 border-t border-gray-100">
+                          <div className="flex items-center space-x-2">
+                            <Sparkles className="w-4 h-4 text-blue-500" />
+                            <span className="text-sm text-gray-500 font-medium">
+                              {message.model}
+                            </span>
+                            <span className="text-xs text-gray-400">
+                              {new Date(message.timestamp).toLocaleTimeString()}
+                            </span>
+                          </div>
+                          <Button
+                            onClick={() => continueResponse(message.id)}
+                            disabled={isLoading}
+                            variant="ghost"
+                            size="sm"
+                            className="text-sm h-8 px-4 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-xl"
+                          >
+                            <MoreHorizontal className="w-4 h-4 mr-2" />
+                            Continue Analysis
+                          </Button>
+                        </div>
+                      </div>
+                    ) : (
+                      <div>
+                        <p className="text-base font-medium">{message.content}</p>
+                        <div className="text-xs opacity-70 mt-3 font-medium">
+                          {new Date(message.timestamp).toLocaleTimeString()}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
+
+                {/* Context Usage Indicator */}
+                {contextUsed.includes(message.id) && (
+                  <div className="flex justify-start mt-2">
+                    <div className="bg-yellow-50 text-yellow-700 px-3 py-1 rounded-full text-xs font-medium flex items-center space-x-1">
+                      <Brain className="w-3 h-3" />
+                      <span>Being used as context for next response</span>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
             
-            {/* Enhanced Loading Indicator */}
+            {/* Enhanced Loading Indicator with Clear Positioning */}
             {isLoading && (
-              <div className="flex justify-start">
-                <div className="bg-white border border-gray-200 rounded-2xl px-6 py-4 shadow-lg max-w-xs">
+              <div className="flex justify-start fade-in-up">
+                <div className="chat-bubble-assistant max-w-xs mr-12">
                   <div className="flex items-center space-x-3">
                     {isThinking ? (
                       <>
@@ -303,39 +364,48 @@ const ChatInterface = () => {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Modern Input Area */}
+          {/* Modern Input Area with Clear Instructions */}
           <div className="border-t border-gray-200/50 p-6 bg-white/90 backdrop-blur-sm">
-            <form onSubmit={handleSubmit} className="flex space-x-4">
-              <input
-                type="text"
-                value={currentInput}
-                onChange={(e) => setCurrentInput(e.target.value)}
-                placeholder="Ask about solidarity, current events, or any topic..."
-                className="flex-1 border border-gray-300 rounded-2xl px-6 py-4 text-base focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/80 backdrop-blur-sm"
-                disabled={isLoading}
-              />
-              <Button
-                type="submit"
-                disabled={isLoading || !currentInput.trim()}
-                className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-              >
-                <Send className="w-5 h-5" />
-              </Button>
-            </form>
-            
-            {messages.length > 0 && (
-              <div className="flex justify-between items-center mt-4 text-sm text-gray-500">
-                <span className="font-medium">Session: {sessionToken.slice(0, 8)}...</span>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="flex space-x-4">
+                <input
+                  type="text"
+                  value={currentInput}
+                  onChange={(e) => setCurrentInput(e.target.value)}
+                  placeholder="Type your message here... (Your message will appear on the right)"
+                  className="flex-1 border border-gray-300 rounded-2xl px-6 py-4 text-base focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white/80 backdrop-blur-sm"
+                  disabled={isLoading}
+                />
                 <Button
-                  onClick={clearConversation}
-                  variant="ghost"
-                  size="sm"
-                  className="text-sm h-8 hover:bg-red-50 hover:text-red-600 rounded-xl"
+                  type="submit"
+                  disabled={isLoading || !currentInput.trim()}
+                  className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  Clear Chat
+                  <Send className="w-5 h-5" />
                 </Button>
               </div>
-            )}
+              
+              {/* Input Helper Text */}
+              <div className="flex justify-between items-center text-sm text-gray-500">
+                <div className="flex items-center space-x-4">
+                  <span>💬 Your messages appear on the right</span>
+                  <span>🤖 AI responses appear on the left</span>
+                  {messages.length > 0 && (
+                    <span>🧠 Last {Math.min(3, messages.length)} messages used as context</span>
+                  )}
+                </div>
+                {messages.length > 0 && (
+                  <Button
+                    onClick={clearConversation}
+                    variant="ghost"
+                    size="sm"
+                    className="text-sm h-8 hover:bg-red-50 hover:text-red-600 rounded-xl"
+                  >
+                    Clear Chat
+                  </Button>
+                )}
+              </div>
+            </form>
           </div>
         </div>
 
