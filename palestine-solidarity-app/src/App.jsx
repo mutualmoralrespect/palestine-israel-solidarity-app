@@ -1,16 +1,15 @@
 import React from 'react';
 import HeroSection from './components/HeroSection';
-import ChatInterface from './components/ChatInterface-improved';
+import MMRLinkSection from './components/MMRLinkSection';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <HeroSection />
-      <ChatInterface />
+      <MMRLinkSection />
     </div>
   );
 }
 
 export default App;
-
