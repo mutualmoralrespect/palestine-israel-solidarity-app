@@ -1,13 +1,13 @@
 import React from 'react';
 import HeroSection from './components/HeroSection';
-import MMRInterface from './components/MMRInterface';
+import ChatInterface from './components/ChatInterface';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <HeroSection />
-      <MMRInterface />
+      <ChatInterface />
     </div>
   );
 }
