@@ -3,7 +3,7 @@ import { Book, Target, Users, Shield, Search, Heart, Eye, CheckCircle } from 'lu
 
 const MMRDocumentationSection = () => {
   return (
-    <section id="mmr-documentation" className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 py-20">
+    <div id="mmr-documentation" className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50 py-20">
       <div className="container mx-auto px-6">
         
         {/* Header */}
@@ -421,10 +421,10 @@ const MMRDocumentationSection = () => {
           <div className="mt-12 text-center">
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Understanding MMR Assessments</h4>
-            <div className="mt-16 text-center">
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-              These examples demonstrate how the MMR framework provides nuanced, evidence-based evaluations across all seven pillars. The framework reveals both strengths and critical failures in political leadership, helping identify voices that genuinely advance mutual moral respect versus those that perpetuate cycles of polarization and violence.
-            </p>
+              <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+                These examples demonstrate how the MMR framework provides nuanced, evidence-based evaluations across all seven pillars. The framework reveals both strengths and critical failures in political leadership, helping identify voices that genuinely advance mutual moral respect versus those that perpetuate cycles of polarization and violence.
+              </p>
+            </div>
           </div>
         </div>
 
@@ -567,7 +567,7 @@ const MMRDocumentationSection = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 
