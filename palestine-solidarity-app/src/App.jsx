@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroSection from './components/HeroSection';
-import ChatInterface from './components/ChatInterface';
+import ChatInterface from './components/ChatInterface-improved';
 import './App.css';
 
 function App() {
