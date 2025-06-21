@@ -44,8 +44,8 @@ const HeroSection = () => {
               </span>
             </h3>
             
-            <div className="mt-4 sm:mt-6 bg-black/60 backdrop-blur-sm rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 border border-white/20 mx-auto max-w-lg">
-              <p className="text-base sm:text-lg md:text-xl text-white font-bold leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+            <div className="mt-4 sm:mt-6 bg-black/90 backdrop-blur-md rounded-xl sm:rounded-2xl px-4 sm:px-6 py-3 sm:py-4 border border-white/30 mx-auto max-w-lg shadow-2xl">
+              <p className="text-base sm:text-lg md:text-xl text-white font-bold leading-relaxed drop-shadow-[0_4px_8px_rgba(0,0,0,0.9)] [text-shadow:_3px_3px_6px_rgb(0_0_0_/_90%)]">
                 Freedom in Israel, Gaza, and the West Bank
               </p>
             </div>
