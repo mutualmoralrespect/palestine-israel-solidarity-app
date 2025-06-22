@@ -67,7 +67,7 @@ const MMRScansSection = () => {
           categoryGroups={categoryGroups}
           activeCategory={activeCategory}
           onCategoryChange={handleCategoryChange}
-          allFigures={allFigures}
+          totalCount={allFigures.length}
         />
 
         {/* MMR Rollup Dashboard */}

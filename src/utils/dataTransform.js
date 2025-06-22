@@ -118,19 +118,44 @@ export const getOverallStats = () => {
  */
 export const getCategoryGroups = () => {
   const stats = getCategoryStats();
+  const overallStats = getOverallStats();
   const categoryGroups = mmrDatabase.navigation.category_groups;
   
   // Transform JSON category groups to component format with counts and icons
-  return categoryGroups.map(group => ({
-    id: group.id,
-    label: group.label,
-    icon: iconMap[group.icon] || Users,
-    categories: group.categories.map(category => ({
-      id: category.id,
-      label: category.label,
-      icon: iconMap[category.icon] || Users,
-      count: stats[category.id]?.total || 0
-    }))
-  }));
+  return categoryGroups.map(group => {
+    // Special handling for "All Categories" to show total count
+    if (group.id === 'all') {
+      return {
+        id: group.id,
+        label: group.label,
+        icon: iconMap[group.icon] || Users,
+        count: overallStats.total_figures,
+        categories: group.categories.map(category => ({
+          id: category.id,
+          label: category.label,
+          icon: iconMap[category.icon] || Users,
+          count: stats[category.id]?.total || 0
+        }))
+      };
+    }
+    
+    // For other groups, calculate total from their categories
+    const groupTotal = group.categories.reduce((total, category) => {
+      return total + (stats[category.id]?.total || 0);
+    }, 0);
+    
+    return {
+      id: group.id,
+      label: group.label,
+      icon: iconMap[group.icon] || Users,
+      count: groupTotal,
+      categories: group.categories.map(category => ({
+        id: category.id,
+        label: category.label,
+        icon: iconMap[category.icon] || Users,
+        count: stats[category.id]?.total || 0
+      }))
+    };
+  });
 };
 
