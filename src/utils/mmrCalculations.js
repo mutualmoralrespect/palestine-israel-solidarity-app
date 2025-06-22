@@ -54,33 +54,33 @@ export const calculateOverallRating = (pillars) => {
     outcomes[outcome]++;
   });
   
-  // Apply 4-level logic system
+  // Apply 6-level logic system
   let rating, category;
   
-  // 🔴 Fail: If 2+ Fails, or 1 Fail + 2+ Partials, or any red-critical category
-  if (outcomes.fail >= 2 || (outcomes.fail >= 1 && outcomes.partial >= 2)) {
+  if (outcomes.fail > 0) {
+    // 🔴 Fail - Any Fails present
     rating = 'Fail';
     category = 'fail';
-  }
-  // 🟡 Partial: If 1 Fail only, or 2+ Partials with no Fails
-  else if (outcomes.fail === 1 || (outcomes.fail === 0 && outcomes.partial >= 2)) {
-    rating = 'Partial';
-    category = 'partial';
-  }
-  // 🟢 Almost Pass: If no Fails, and exactly 1 Partial (all other pillars must be Pass)
-  else if (outcomes.fail === 0 && outcomes.partial === 1) {
-    rating = 'Almost Pass';
-    category = 'almost_pass';
-  }
-  // ✅ Pass: If no Fails, and 0 Partials (all 7 pillars must be Pass)
-  else if (outcomes.fail === 0 && outcomes.partial === 0) {
+  } else if (outcomes.pass === 7) {
+    // ✅ Pass - All 7 Pass (perfect)
     rating = 'Pass';
     category = 'pass';
-  }
-  // Fallback
-  else {
-    rating = 'Fail';
-    category = 'fail';
+  } else if (outcomes.pass === 6 && outcomes.partial === 1) {
+    // ✅ Almost Pass - No Fails, 6 Pass, 1 Partial
+    rating = 'Almost Pass';
+    category = 'almost_pass';
+  } else if (outcomes.pass >= 4 && outcomes.pass <= 5) {
+    // 🟢 Strong Partial - No Fails, 4-5 Pass, rest Partial
+    rating = 'Strong Partial';
+    category = 'strong_partial';
+  } else if (outcomes.pass >= 2 && outcomes.pass <= 3) {
+    // 🟡 Partial - No Fails, 2-3 Pass, rest Partial
+    rating = 'Partial';
+    category = 'partial';
+  } else {
+    // 🟠 Weak Partial - No Fails, 0-1 Pass, majority Partial
+    rating = 'Weak Partial';
+    category = 'weak_partial';
   }
   
   return {
@@ -91,9 +91,9 @@ export const calculateOverallRating = (pillars) => {
 };
 
 /**
- * Calculate statistics for a group of figures using 4-level system
+ * Calculate statistics for a group of figures using 6-level system
  * @param {Array} figures - Array of figure objects with pillar assessments
- * @returns {Object} - Statistics object with counts for all 4 levels
+ * @returns {Object} - Statistics object with counts for all 6 levels
  */
 export const calculateGroupStatistics = (figures) => {
   if (!figures || !Array.isArray(figures) || figures.length === 0) {
@@ -101,7 +101,9 @@ export const calculateGroupStatistics = (figures) => {
       total: 0,
       pass: 0,
       almost_pass: 0,
+      strong_partial: 0,
       partial: 0,
+      weak_partial: 0,
       fail: 0,
       passRate: 0
     };
@@ -109,7 +111,9 @@ export const calculateGroupStatistics = (figures) => {
   
   let pass = 0;
   let almost_pass = 0;
+  let strong_partial = 0;
   let partial = 0;
+  let weak_partial = 0;
   let fail = 0;
   
   figures.forEach(figure => {
@@ -119,8 +123,12 @@ export const calculateGroupStatistics = (figures) => {
       pass++;
     } else if (overallRating.category === 'almost_pass') {
       almost_pass++;
+    } else if (overallRating.category === 'strong_partial') {
+      strong_partial++;
     } else if (overallRating.category === 'partial') {
       partial++;
+    } else if (overallRating.category === 'weak_partial') {
+      weak_partial++;
     } else {
       fail++;
     }
@@ -133,7 +141,9 @@ export const calculateGroupStatistics = (figures) => {
     total,
     pass,
     almost_pass,
+    strong_partial,
     partial,
+    weak_partial,
     fail,
     passRate
   };
