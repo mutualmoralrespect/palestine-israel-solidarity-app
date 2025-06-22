@@ -1,5 +1,17 @@
-import { Users, Building, FileText, Scale, BookOpen } from 'lucide-react';
+import { Users, Building, FileText, Scale, BookOpen, Heart } from 'lucide-react';
 import mmrDatabase from '../data/mmr_complete_database.json';
+
+/**
+ * Icon mapping for string-based icon names from JSON
+ */
+const iconMap = {
+  'Users': Users,
+  'Building': Building,
+  'FileText': FileText,
+  'Scale': Scale,
+  'BookOpen': BookOpen,
+  'Heart': Heart
+};
 
 /**
  * Transform database profile format to component format
@@ -102,66 +114,23 @@ export const getOverallStats = () => {
 };
 
 /**
- * Get category groups with correct counts from database
+ * Get category groups from JSON database with counts
  */
 export const getCategoryGroups = () => {
   const stats = getCategoryStats();
+  const categoryGroups = mmrDatabase.navigation.category_groups;
   
-  return [
-    {
-      id: 'all',
-      label: 'All Categories',
-      icon: Users,
-      categories: []
-    },
-    {
-      id: 'palestinian',
-      label: 'Palestinian Perspectives',
-      icon: Users,
-      categories: [
-        { id: 'Palestinian Authority', label: 'Palestinian Authority', icon: Users, count: stats['Palestinian Authority']?.total || 0 },
-        { id: 'Hamas Officials', label: 'Hamas Officials', icon: Users, count: stats['Hamas Officials']?.total || 0 },
-        { id: 'Palestinian Voices', label: 'Palestinian Voices', icon: Users, count: stats['Palestinian Voices']?.total || 0 }
-      ]
-    },
-    {
-      id: 'israeli',
-      label: 'Israeli Perspectives',
-      icon: Users,
-      categories: [
-        { id: 'Israeli Politicians', label: 'Israeli Politicians', icon: Users, count: stats['Israeli Politicians']?.total || 0 }
-      ]
-    },
-    {
-      id: 'international',
-      label: 'International Voices',
-      icon: FileText,
-      categories: [
-        { id: 'US Politicians', label: 'US Politicians', icon: Users, count: stats['US Politicians']?.total || 0 },
-        { id: 'Journalists', label: 'Journalists', icon: FileText, count: stats['Journalists']?.total || 0 },
-        { id: 'NGO Leaders', label: 'NGO Leaders', icon: Users, count: stats['NGO Leaders']?.total || 0 }
-      ]
-    },
-    {
-      id: 'peace',
-      label: 'Peace & Advocacy',
-      icon: Users,
-      categories: [
-        { id: 'Peace Advocates', label: 'Peace Advocates', icon: Users, count: stats['Peace Advocates']?.total || 0 },
-        { id: 'Organizations', label: 'Organizations', icon: Building, count: stats['Organizations']?.total || 0 }
-      ]
-    },
-    {
-      id: 'academic',
-      label: 'Academic & Literary',
-      icon: BookOpen,
-      categories: [
-        { id: 'Academics', label: 'Academics', icon: BookOpen, count: 0 }, // Not in current database
-        { id: 'Books', label: 'Books', icon: FileText, count: 0 },
-        { id: 'Legal Scholars', label: 'Legal Scholars', icon: Scale, count: 0 },
-        { id: 'Historians', label: 'Historians', icon: BookOpen, count: 0 }
-      ]
-    }
-  ];
+  // Transform JSON category groups to component format with counts and icons
+  return categoryGroups.map(group => ({
+    id: group.id,
+    label: group.label,
+    icon: iconMap[group.icon] || Users,
+    categories: group.categories.map(category => ({
+      id: category.id,
+      label: category.label,
+      icon: iconMap[category.icon] || Users,
+      count: stats[category.id]?.total || 0
+    }))
+  }));
 };
 
