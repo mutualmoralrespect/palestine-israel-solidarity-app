@@ -4,10 +4,12 @@ import { TrendingDown, TrendingUp } from 'lucide-react';
 const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
   // Calculate statistics from the filtered figures
   const stats = React.useMemo(() => {
-    console.log('CategoryRollupWidget - figures:', figures);
-    console.log('CategoryRollupWidget - figures length:', figures?.length);
+    console.log('=== CategoryRollupWidget Debug ===');
+    console.log('Figures received:', figures);
+    console.log('Figures length:', figures?.length);
     
     if (!figures || figures.length === 0) {
+      console.log('No figures provided');
       return {
         total: 0,
         passing: 0,
@@ -23,14 +25,19 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
 
     figures.forEach((figure, index) => {
       const rating = figure.overall_rating;
-      console.log(`Figure ${index}: ${figure.name} - Rating: ${rating}`);
+      console.log(`Figure ${index}: ${figure.name} - Rating: "${rating}"`);
       
       if (rating === 'Full Pass' || rating === 'Pass') {
         passing++;
+        console.log(`  -> Counted as PASSING`);
       } else if (rating === 'Partial' || rating === 'Mixed') {
         partial++;
+        console.log(`  -> Counted as PARTIAL`);
       } else if (rating === 'Failing' || rating === 'Clear Fail' || rating === 'Fail') {
         failing++;
+        console.log(`  -> Counted as FAILING`);
+      } else {
+        console.log(`  -> UNKNOWN RATING: "${rating}"`);
       }
     });
 
@@ -123,25 +130,25 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
       {/* Progress Bar */}
       <div className="mb-4">
         <div className="flex h-3 bg-gray-200 rounded-full overflow-hidden">
-          {/* Passing section */}
-          {passingPercent > 0 && (
+          {/* Failing section - LEFT */}
+          {failingPercent > 0 && (
             <div 
-              className="bg-green-500 transition-all duration-300"
-              style={{ width: `${passingPercent}%` }}
+              className="bg-red-500 transition-all duration-300"
+              style={{ width: `${failingPercent}%` }}
             />
           )}
-          {/* Partial section */}
+          {/* Partial section - MIDDLE */}
           {partialPercent > 0 && (
             <div 
               className="bg-yellow-500 transition-all duration-300"
               style={{ width: `${partialPercent}%` }}
             />
           )}
-          {/* Failing section */}
-          {failingPercent > 0 && (
+          {/* Passing section - RIGHT */}
+          {passingPercent > 0 && (
             <div 
-              className="bg-red-500 transition-all duration-300"
-              style={{ width: `${failingPercent}%` }}
+              className="bg-green-500 transition-all duration-300"
+              style={{ width: `${passingPercent}%` }}
             />
           )}
         </div>
@@ -150,16 +157,16 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
       {/* Statistics */}
       <div className="flex justify-between items-center text-sm">
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-          <span className="text-gray-700">{stats.passing} Pass</span>
+          <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+          <span className="text-gray-700">{stats.failing} Fail</span>
         </div>
         <div className="flex items-center gap-2">
           <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
           <span className="text-gray-700">{stats.partial} Partial</span>
         </div>
         <div className="flex items-center gap-2">
-          <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-          <span className="text-gray-700">{stats.failing} Fail</span>
+          <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+          <span className="text-gray-700">{stats.passing} Pass</span>
         </div>
       </div>
     </div>
