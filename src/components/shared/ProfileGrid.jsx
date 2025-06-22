@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Search, X, ChevronDown } from 'lucide-react';
 import ProfileCard from './ProfileCard';
+import { computeMMROutcome, mapOutcomeToCategory } from '../../utils/mmrV8Calculations';
 
 const ProfileGrid = ({ 
   figures, 
@@ -15,23 +16,23 @@ const ProfileGrid = ({
   const [expandedCards, setExpandedCards] = useState(new Set());
   const [allExpanded, setAllExpanded] = useState(false);
 
-  // Calculate score for sorting
-  const calculateScore = (pillars) => {
-    if (!pillars || pillars.length === 0) return 0;
+  // Calculate score for sorting using MMR v8 system
+  const calculateScore = (figure) => {
+    if (!figure.pillars || figure.pillars.length === 0) return 0;
     
-    let totalScore = 0;
-    pillars.forEach(pillar => {
-      const assessment = pillar.assessment || pillar.status || '';
-      if (assessment.includes('Strong Pass') || assessment === 'Strong') {
-        totalScore += 2;
-      } else if (assessment.includes('Pass')) {
-        totalScore += 1;
-      } else if (assessment.includes('Partial') || assessment.includes('Mixed')) {
-        totalScore += 0.5;
-      }
-    });
+    const outcome = computeMMROutcome(figure);
+    const category = mapOutcomeToCategory(outcome);
     
-    return totalScore / pillars.length;
+    // Convert MMR v8 outcomes to numeric scores for sorting
+    switch (outcome) {
+      case "High Positive Indicators": return 6;
+      case "Positive Indicators": return 5;
+      case "Emerging Positive Indicators": return 4;
+      case "Partial Indicators": return 3;
+      case "Failing": return 2;
+      case "Systemic Fail": return 1;
+      default: return 0;
+    }
   };
 
   // Process figures with search and sort
@@ -48,11 +49,11 @@ const ProfileGrid = ({
       );
     }
     
-    // Apply sorting
+    // Apply sorting using MMR v8 scores
     if (sortOrder !== 'none') {
       filtered = [...filtered].sort((a, b) => {
-        const scoreA = calculateScore(a.pillars);
-        const scoreB = calculateScore(b.pillars);
+        const scoreA = calculateScore(a);
+        const scoreB = calculateScore(b);
         
         if (sortOrder === 'high-to-low') {
           return scoreB - scoreA;
