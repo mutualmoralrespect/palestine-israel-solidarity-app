@@ -1,9 +1,29 @@
 import React, { useState, useMemo } from 'react';
-import { Users } from 'lucide-react';
 import CategoryNavigation from './shared/CategoryNavigation';
 import ProfileGrid from './shared/ProfileGrid';
 import MMRRollupDashboard from './MMRRollupDashboard';
+import CategoryRollupWidget from './CategoryRollupWidget';
 import { transformCategories, getCategoryGroups, getOverallStats } from '../utils/dataTransform';
+
+// Helper function to get display name for category
+const getCategoryDisplayName = (activeCategory, categoryGroups) => {
+  if (activeCategory === 'All') {
+    return 'All Categories';
+  } else if (activeCategory.startsWith('group:')) {
+    const groupId = activeCategory.replace('group:', '');
+    const group = categoryGroups.find(g => g.id === groupId);
+    return group ? group.label : 'Category Group';
+  } else {
+    // Individual category
+    for (const group of categoryGroups) {
+      const category = group.categories.find(cat => cat.id === activeCategory);
+      if (category) {
+        return category.label;
+      }
+    }
+    return activeCategory;
+  }
+};
 
 const MMRScansSection = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -50,14 +70,13 @@ const MMRScansSection = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-16">
-      <div className="max-w-7xl mx-auto px-4">
-        {/* Header */}
+    <div className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
             MMR Scans by Type
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Comprehensive analysis of public figures across all categories - both those who pass and fail MMR standards
           </p>
         </div>
@@ -70,16 +89,25 @@ const MMRScansSection = () => {
           totalCount={allFigures.length}
         />
 
-        {/* MMR Rollup Dashboard */}
+        {/* MMR Rollup Dashboard - Commented out for later use */}
+        {/* 
         <MMRRollupDashboard 
           figures={allFigures}
           overallStats={overallStats}
         />
+        */}
 
         {/* Profile Grid */}
         <ProfileGrid 
           figures={filteredFigures}
           searchPlaceholder="Search MMR assessments..."
+          categoryRollupWidget={
+            <CategoryRollupWidget 
+              categoryName={getCategoryDisplayName(activeCategory, categoryGroups)}
+              figures={filteredFigures}
+              totalCount={filteredFigures.length}
+            />
+          }
         />
       </div>
     </div>

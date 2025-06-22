@@ -7,7 +7,8 @@ const ProfileGrid = ({
   title = "Profiles",
   showSearch = true,
   showSort = true,
-  showExpandControls = true 
+  showExpandControls = true,
+  categoryRollupWidget = null
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('none');
@@ -153,6 +154,9 @@ const ProfileGrid = ({
           </div>
         </div>
       )}
+
+      {/* Category Rollup Widget */}
+      {categoryRollupWidget}
 
       {/* Figures Display */}
       <div className="space-y-6">
