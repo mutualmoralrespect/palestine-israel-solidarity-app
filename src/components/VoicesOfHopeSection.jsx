@@ -1,16 +1,53 @@
-import React, { useState } from 'react';
-import { Users, Building, FileText, Scale, BookOpen, ChevronDown } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { Users, Building, FileText, Scale, BookOpen } from 'lucide-react';
+import CategoryNavigation from './shared/CategoryNavigation';
+import ProfileGrid from './shared/ProfileGrid';
 
 const VoicesOfHopeSection = () => {
-  const [activeCategory, setActiveCategory] = useState('Peace Advocates');
+  const [activeCategory, setActiveCategory] = useState('All');
 
-  const categories = [
-    { id: 'Peace Advocates', label: 'Peace Advocates', icon: Users, count: 4 },
-    { id: 'Organizations', label: 'Organizations', icon: Building, count: 6 },
-    { id: 'Journalists', label: 'Journalists', icon: FileText, count: 2 },
-    { id: 'Legal Scholars', label: 'Legal Scholars', icon: Scale, count: 2 },
-    { id: 'Historians', label: 'Historians', icon: BookOpen, count: 4 },
-    { id: 'Politicians', label: 'Politicians', icon: Users, count: 1 }
+  // Category groups for better organization
+  const categoryGroups = [
+    {
+      id: 'all',
+      label: 'All Categories',
+      icon: Users,
+      categories: []
+    },
+    {
+      id: 'peace',
+      label: 'Peace & Advocacy',
+      icon: Users,
+      categories: [
+        { id: 'Peace Advocates', label: 'Peace Advocates', icon: Users, count: 4 },
+        { id: 'Organizations', label: 'Organizations', icon: Building, count: 6 }
+      ]
+    },
+    {
+      id: 'media',
+      label: 'Media & Analysis',
+      icon: FileText,
+      categories: [
+        { id: 'Journalists', label: 'Journalists', icon: FileText, count: 2 }
+      ]
+    },
+    {
+      id: 'academic',
+      label: 'Academic & Legal',
+      icon: BookOpen,
+      categories: [
+        { id: 'Legal Scholars', label: 'Legal Scholars', icon: Scale, count: 2 },
+        { id: 'Historians', label: 'Historians', icon: BookOpen, count: 4 }
+      ]
+    },
+    {
+      id: 'political',
+      label: 'Political Voices',
+      icon: Users,
+      categories: [
+        { id: 'Politicians', label: 'Politicians', icon: Users, count: 1 }
+      ]
+    }
   ];
 
   // Only figures who pass or nearly pass MMR
@@ -354,25 +391,52 @@ const VoicesOfHopeSection = () => {
     if (status.includes('Strong Pass') || status.includes('Pass')) return 'green';
     if (status.includes('Partial') || status.includes('Mixed') || status.includes('Thin') || status.includes('N/A')) return 'yellow';
     if (status.includes('Fail')) return 'red';
-    return 'green';
-  };
+    return 'green';  };
 
-  const getPillarBg = (color) => {
-    const bgClasses = {
-      green: 'bg-green-50 border-green-200',
-      yellow: 'bg-yellow-50 border-yellow-200',
-      red: 'bg-red-50 border-red-200'
-    };
-    return bgClasses[color];
+  // Calculate total count and get all figures
+  const allFigures = useMemo(() => {
+    const figuresList = [];
+    Object.values(figures).forEach(categoryFigures => {
+      figuresList.push(...categoryFigures);
+    });
+    return figuresList;
+  }, []);
+
+  // Filter figures based on active category
+  const filteredFigures = useMemo(() => {
+    if (activeCategory === 'All') {
+      return allFigures;
+    } else if (activeCategory.startsWith('group:')) {
+      // Group filtering - combine all categories in the group
+      const groupId = activeCategory.replace('group:', '');
+      const group = categoryGroups.find(g => g.id === groupId);
+      if (group) {
+        let filtered = [];
+        group.categories.forEach(cat => {
+          const categoryFigures = figures[cat.id] || [];
+          filtered = [...filtered, ...categoryFigures];
+        });
+        return filtered;
+      }
+    } else {
+      // Individual category filtering
+      return figures[activeCategory] || [];
+    }
+    return [];
+  }, [activeCategory, allFigures, categoryGroups]);
+
+  const handleCategoryChange = (category) => {
+    setActiveCategory(category);
   };
 
   return (
-    <div className="max-w-6xl mx-auto mb-16">
+    <div className="max-w-7xl mx-auto px-4 py-16" id="voices-of-hope">
+      {/* Header */}
       <div className="text-center mb-12">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-500 to-blue-500 rounded-full mb-6">
-          <span className="text-2xl">💜</span>
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-green-400 to-blue-500 rounded-full mb-6">
+          <span className="text-3xl">🕊️</span>
         </div>
-        <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-green-600 via-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
           Voices of Hope
         </h3>
         <p className="text-lg text-gray-600 max-w-4xl mx-auto">
@@ -381,78 +445,22 @@ const VoicesOfHopeSection = () => {
       </div>
 
       {/* Category Navigation */}
-      <div className="flex flex-wrap justify-center gap-2 mb-8">
-        {categories.map((category) => {
-          const Icon = category.icon;
-          return (
-            <button
-              key={category.id}
-              onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center space-x-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                activeCategory === category.id
-                  ? 'bg-purple-600 text-white shadow-lg'
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-              }`}
-            >
-              <Icon className="w-4 h-4" />
-              <span>{category.label}</span>
-              <span className="bg-white/20 px-2 py-0.5 rounded-full text-xs">
-                {category.count}
-              </span>
-            </button>
-          );
-        })}
-      </div>
+      <CategoryNavigation
+        categoryGroups={categoryGroups}
+        activeCategory={activeCategory}
+        onCategoryChange={handleCategoryChange}
+        allButtonLabel="All Voices"
+        totalCount={allFigures.length}
+      />
 
-      {/* Figures Display */}
-      <div className="space-y-6">
-        {figures[activeCategory]?.map((figure, index) => (
-          <div key={index} className="bg-gradient-to-r from-green-50 to-blue-50 rounded-3xl shadow-xl border border-green-100 overflow-hidden">
-            <div className="p-6 border-b border-green-200">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                  <div className="text-3xl">{figure.icon}</div>
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900">{figure.name}</h4>
-                    <p className="text-gray-600">{figure.title}</p>
-                  </div>
-                </div>
-                {getStatusBadge(figure.status, figure.statusColor)}
-              </div>
-            </div>
-
-            <div className="p-6">
-              <div className="space-y-3">
-                {figure.pillars.map((pillar, pillarIndex) => (
-                  <details key={pillarIndex} className="group">
-                    <summary className={`flex items-center justify-between p-3 rounded-lg cursor-pointer transition-colors ${getPillarBg(pillar.color)} border`}>
-                      <span className="text-sm font-medium">{pillarIndex + 1}. {pillar.name}</span>
-                      <div className="flex items-center space-x-2">
-                        <span className={`font-bold text-sm ${
-                          pillar.color === 'green' ? 'text-green-600' : 
-                          pillar.color === 'yellow' ? 'text-yellow-600' : 'text-red-600'
-                        }`}>
-                          {pillar.status.includes('Strong Pass') && '✅ Strong Pass'}
-                          {pillar.status === 'Pass' && '✅ Pass'}
-                          {pillar.status.includes('Partial') && '⚠️ Partial'}
-                          {pillar.status.includes('Mixed') && '⚠️ Mixed'}
-                          {pillar.status.includes('Thin') && '⚠️ Thin'}
-                          {pillar.status.includes('N/A') && '⚠️ N/A'}
-                          {pillar.status.includes('Fail') && '❌ Fails'}
-                        </span>
-                        <ChevronDown className="w-4 h-4 text-gray-400 group-open:rotate-180 transition-transform" />
-                      </div>
-                    </summary>
-                    <div className="mt-2 p-3 bg-green-25 rounded-lg text-sm text-gray-700">
-                      {pillar.evidence}
-                    </div>
-                  </details>
-                ))}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      {/* Profile Grid */}
+      <ProfileGrid
+        figures={filteredFigures}
+        title="Voices of Hope"
+        showSearch={true}
+        showSort={true}
+        showExpandControls={true}
+      />
 
       {/* Hope Message */}
       <div className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 rounded-3xl p-8 md:p-12 text-white text-center mt-12">
@@ -471,4 +479,3 @@ const VoicesOfHopeSection = () => {
 };
 
 export default VoicesOfHopeSection;
-

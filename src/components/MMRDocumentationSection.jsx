@@ -3,7 +3,7 @@ import { Shield, Users, Building, BarChart3, Heart, Sprout, Eye, Scale } from 'l
 
 const MMRDocumentationSection = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div id="mmr-documentation" className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <div className="container mx-auto px-4 py-16">
         {/* Header */}
         <div className="text-center mb-16">
@@ -103,7 +103,7 @@ const MMRDocumentationSection = () => {
                 </div>
                 <h3 className="text-lg font-bold text-gray-900 mb-2">6. Embrace Coexistence</h3>
                 <p className="text-sm text-gray-600">
-                  Reject eliminationist rhetoric from all sides
+                  Reject eliminationist rhetoric from all sides and embrace coexistence
                 </p>
               </div>
             </div>
