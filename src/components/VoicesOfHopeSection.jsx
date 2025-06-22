@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { Users, Building, FileText, Scale, BookOpen, ChevronDown } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { Users, Building, FileText, Scale, BookOpen } from 'lucide-react';
+import CategoryNavigation from './shared/CategoryNavigation';
+import ProfileGrid from './shared/ProfileGrid';
 
 const VoicesOfHopeSection = () => {
-  const [activeCategory, setActiveCategory] = useState('Peace Advocates');
+  const [activeCategory, setActiveCategory] = useState('All');
 
   const categories = [
     { id: 'Peace Advocates', label: 'Peace Advocates', icon: Users, count: 4 },
