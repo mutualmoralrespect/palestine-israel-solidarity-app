@@ -1,9 +1,9 @@
 import React from 'react';
 import { TrendingDown, TrendingUp, CheckCircle } from 'lucide-react';
-import { calculateGroupStatistics } from '../utils/mmrCalculations';
+import { calculateGroupStatistics } from '../utils/mmrV8Calculations';
 
 const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
-  // Calculate statistics from the filtered figures using dynamic rating calculation
+  // Calculate statistics from the filtered figures using MMR v8 dynamic rating calculation
   const stats = React.useMemo(() => {
     return calculateGroupStatistics(figures);
   }, [figures]);
@@ -63,10 +63,10 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
             />
           )}
           {/* Almost Pass section (light green) */}
-          {stats.almost_pass > 0 && (
+          {stats.almostPass > 0 && (
             <div 
               className="bg-green-400" 
-              style={{ width: `${(stats.almost_pass / stats.total) * 100}%` }}
+              style={{ width: `${(stats.almostPass / stats.total) * 100}%` }}
             />
           )}
           {/* Pass section (dark green, rightmost) */}
@@ -91,7 +91,7 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
         </div>
         <div className="flex items-center gap-1">
           <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-          <span>{stats.almost_pass} Almost Pass</span>
+          <span>{stats.almostPass} Almost Pass</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-3 h-3 bg-green-600 rounded-full"></div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
-import { calculateOverallRating } from '../../utils/mmrCalculations';
+import { computeMMROutcome, getOutcomeColor, getOutcomeIcon, mapOutcomeToCategory } from '../../utils/mmrV8Calculations';
 
 const ProfileCard = ({ 
   figure, 
@@ -8,25 +8,30 @@ const ProfileCard = ({
   isExpanded, 
   onToggleExpansion 
 }) => {
-  // Calculate the overall rating dynamically from pillars
-  const calculatedRating = calculateOverallRating(figure.pillars);
+  // Calculate the overall rating dynamically using MMR v8 system
+  const mmrOutcome = computeMMROutcome(figure);
+  const outcomeCategory = mapOutcomeToCategory(mmrOutcome);
+  const outcomeColor = getOutcomeColor(mmrOutcome);
+  const outcomeIcon = getOutcomeIcon(mmrOutcome);
   
-  // Determine status display based on calculated rating
-  const getStatusDisplay = (category, rating) => {
-    switch (category) {
-      case 'pass':
-        return { color: 'green', icon: '✅', text: rating };
-      case 'almost_pass':
-        return { color: 'green', icon: '🟢', text: rating };
-      case 'partial':
-        return { color: 'yellow', icon: '⚠️', text: rating };
-      case 'fail':
-      default:
-        return { color: 'red', icon: '❌', text: rating };
-    }
+  // Determine status display based on MMR v8 outcome
+  const getStatusDisplay = (outcome, category) => {
+    const colorMap = {
+      'Pass': 'green',
+      'Almost Pass': 'green', 
+      'Partial': 'yellow',
+      'Fail': 'red'
+    };
+    
+    return { 
+      color: colorMap[category] || 'red', 
+      icon: outcomeIcon, 
+      text: outcome,
+      hexColor: outcomeColor
+    };
   };
   
-  const statusDisplay = getStatusDisplay(calculatedRating.category, calculatedRating.rating);
+  const statusDisplay = getStatusDisplay(mmrOutcome, outcomeCategory);
 
   return (
     <div className="bg-white rounded-lg shadow-md border-l-4 border-blue-500">
@@ -66,7 +71,7 @@ const ProfileCard = ({
       {/* Card Details - Collapsible */}
       {isExpanded && (
         <div className="px-6 pb-6 border-t border-gray-100">
-          {/* Overall Assessment Section - Now shows calculated rating */}
+          {/* Overall Assessment Section - Now shows MMR v8 outcome */}
           <div className="mt-4 mb-6 p-4 bg-gray-50 rounded-lg border">
             <h4 className="font-semibold text-gray-800 mb-2">Overall MMR Assessment</h4>
             <div className={`text-lg font-medium ${
@@ -74,10 +79,10 @@ const ProfileCard = ({
               statusDisplay.color === 'yellow' ? 'text-yellow-700' :
               'text-red-700'
             }`}>
-              {statusDisplay.icon} {calculatedRating.rating}
+              {statusDisplay.icon} {mmrOutcome}
             </div>
             <div className="text-sm text-gray-600 mt-1">
-              Pillar Outcomes: {calculatedRating.outcomes.pass} Pass, {calculatedRating.outcomes.partial} Partial, {calculatedRating.outcomes.fail} Fail
+              Category: {outcomeCategory} | MMR v8 Scoring System
             </div>
           </div>
 
