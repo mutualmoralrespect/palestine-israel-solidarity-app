@@ -198,6 +198,44 @@ const MMRScansSection = () => {
           { name: 'Vision for Dignity & Peace', status: 'Strong Pass', color: 'green', evidence: 'Clear vision for equality and peace.' }
         ]
       }
+    ],
+    'Israeli Politicians': [
+      {
+        name: 'Benjamin Netanyahu',
+        title: 'Israeli Prime Minister',
+        status: 'Failing',
+        statusColor: 'red',
+        icon: Users,
+        overall: '🏁 Overall MMR Alignment: ❌ Failing',
+        reflection: 'Strong on Hamas accountability but fails on Israeli extremism, Palestinian empathy, and peace vision.',
+        pillars: [
+          { name: 'Reject Targeting of Civilians', status: 'Partial', color: 'yellow', evidence: 'Rhetorically affirms minimizing civilian casualties but uses scorched-earth metaphors and praises military actions with high civilian tolls.' },
+          { name: 'Accountability for Hamas/Militant Rejectionists', status: 'Strong Pass', color: 'green', evidence: 'Repeatedly condemns Hamas\'s October 7 attack, labels them equivalent to ISIS.' },
+          { name: 'Accountability for Israeli Right/Ultra-Nationalists', status: 'Fail', color: 'red', evidence: 'Enables extremists in coalitions, tolerates anti-Palestinian discourse, does not condemn settler extremism.' },
+          { name: 'Use Verified, Truthful Sources', status: 'Mixed', color: 'yellow', evidence: 'Often speaks factually but sometimes selectively framed or hyperbolic.' },
+          { name: 'Humanize Both Peoples', status: 'Fail', color: 'red', evidence: 'Frames Palestinians collectively as threats; almost no empathetic tone towards Palestinian civilians.' },
+          { name: 'Reject Eliminationism', status: 'Partial', color: 'yellow', evidence: 'Opposes Hamas eliminationism but tolerates Israeli domestic extremists.' },
+          { name: 'Vision for Dignity & Peace', status: 'Fail', color: 'red', evidence: 'Lacks any public framework for Palestinian dignity or state legitimacy; security-centered approach only.' }
+        ]
+      },
+      {
+        name: 'Yair Golan',
+        title: 'Labor party leader',
+        status: 'Full Pass',
+        statusColor: 'green',
+        icon: Users,
+        overall: '🏁 Overall MMR Alignment: ✅ Full Pass',
+        reflection: 'Exemplifies clear MMR-aligned voice — balancing accountability, empathy, and vision of shared dignity.',
+        pillars: [
+          { name: 'Reject Targeting of Civilians', status: 'Strong Pass', color: 'green', evidence: 'Condemned IDF excesses; upholds moral norms.' },
+          { name: 'Accountability for Hamas/Militant Rejectionists', status: 'Pass', color: 'green', evidence: 'Consistently denounces Hamas terror.' },
+          { name: 'Accountability for Israeli Right/Ultra-Nationalists', status: 'Strong Pass', color: 'green', evidence: 'Publicly warns against Israeli fascism.' },
+          { name: 'Use Verified, Truthful Sources', status: 'Strong Pass', color: 'green', evidence: 'Grounded in verified sources and military knowledge.' },
+          { name: 'Humanize Both Peoples', status: 'Pass', color: 'green', evidence: 'Speaks of Palestinian dignity and rights.' },
+          { name: 'Reject Eliminationism', status: 'Strong Pass', color: 'green', evidence: 'Opposes all forms of eliminationist ideology.' },
+          { name: 'Vision for Dignity & Peace', status: 'Pass', color: 'green', evidence: 'Advocates for a shared future rooted in dignity.' }
+        ]
+      }
     ]
   };
 
