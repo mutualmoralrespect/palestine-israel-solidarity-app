@@ -11,18 +11,19 @@ const ProfileCard = ({
   // Use status from transformed data instead of overall_rating from raw JSON
   const overallRating = figure.status || "Unknown";
   
-  // Determine status display based on simplified 3-level system
+  // Determine status display with updated emojis
   const getStatusDisplay = (rating) => {
-    // Simplify to 3 categories
-    const simplifiedRating = getSimplifiedRating(rating);
-    
-    switch (simplifiedRating) {
+    switch (rating) {
+      case 'Strong Pass':
+        return { color: 'green', icon: '✅', text: 'Strong Pass', hexColor: '#16a34a' };
       case 'Pass':
-        return { color: 'green', icon: '✅', text: 'Pass', hexColor: '#16a34a' };
+        return { color: 'green', icon: '🟢', text: 'Pass', hexColor: '#16a34a' };
       case 'Partial':
-        return { color: 'yellow', icon: '🟡', text: 'Partial', hexColor: '#f59e0b' };
+        return { color: 'yellow', icon: '⚠️', text: 'Partial', hexColor: '#f59e0b' };
       case 'Fail':
         return { color: 'red', icon: '❌', text: 'Fail', hexColor: '#ef4444' };
+      case 'Clear Fail':
+        return { color: 'red', icon: '❌❌', text: 'Clear Fail', hexColor: '#ef4444' };
       default:
         return { color: 'gray', icon: '❓', text: 'Unknown', hexColor: '#6b7280' };
     }

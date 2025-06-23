@@ -18,20 +18,24 @@ const iconMap = {
  */
 export const transformProfile = (profile) => {
   // Map overall ratings to status
+  // Map JSON overall_rating to display format with updated emojis
   const statusMap = {
-    'Full Pass': 'Full Pass',
-    'Pass': 'Pass', 
+    'Full Pass': 'Strong Pass',  // Change Full Pass to Strong Pass in display
+    'Strong Pass': 'Strong Pass',
+    'Pass': 'Pass',
     'Partial': 'Partial',
-    'Failing': 'Failing',
+    'Mixed': 'Partial',
+    'Failing': 'Fail',
+    'Fail': 'Fail',
     'Clear Fail': 'Clear Fail'
   };
   
   // Map status to colors
   const colorMap = {
-    'Full Pass': 'green',
+    'Strong Pass': 'green',
     'Pass': 'green',
-    'Partial': 'yellow', 
-    'Failing': 'red',
+    'Partial': 'yellow',
+    'Fail': 'red',
     'Clear Fail': 'red'
   };
   
@@ -89,34 +93,32 @@ export const transformProfile = (profile) => {
     }
   });
   
-  // Calculate sorting score based on pillar composition
-  // Logic: fewer fails = better, fewer partials = better, more passes = better
-  // Use a multi-tier scoring system for accurate sorting
+  // Calculate sorting score based on pillar composition (for sorting only)
   const calculateSortingScore = () => {
     const totalFails = pillarCounts.fail + pillarCounts.clearFail;
     const totalPartials = pillarCounts.partial + pillarCounts.mixed;
     const totalPasses = pillarCounts.strongPass + pillarCounts.pass;
     
-    // Create a composite score: 
-    // - Fails are most important (multiply by 10000 to ensure they dominate)
-    // - Partials are second (multiply by 100)
-    // - Passes are least important but positive (multiply by 1)
-    // Lower scores are better for fails/partials, higher scores are better for passes
     return (totalFails * -10000) + (totalPartials * -100) + (totalPasses * 1);
   };
   
   const sortingScore = calculateSortingScore();
   
-  // Generate overall assessment text
+  // Generate overall assessment text with updated emojis
   const getOverallText = (status) => {
     switch(status) {
-      case 'Full Pass':
-      case 'Pass':
+      case 'Strong Pass':
         return `🏁 Overall MMR Alignment: ✅ ${status}`;
+      case 'Pass':
+        return `🏁 Overall MMR Alignment: 🟢 ${status}`;
       case 'Partial':
         return `🏁 Overall MMR Alignment: ⚠️ ${status}`;
-      default:
+      case 'Fail':
         return `🏁 Overall MMR Alignment: ❌ ${status}`;
+      case 'Clear Fail':
+        return `🏁 Overall MMR Alignment: ❌❌ ${status}`;
+      default:
+        return `🏁 Overall MMR Alignment: ⚠️ ${status}`;
     }
   };
   
