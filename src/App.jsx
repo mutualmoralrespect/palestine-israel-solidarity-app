@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from './components/HeroSection';
 import MMRDocumentationSection from './components/MMRDocumentationSection';
-import MMRScansSection from './components/MMRScansSection';
+import MMRScansSection from './components/MMRScansSection_refactored';
 import VoicesOfHopeSection from './components/VoicesOfHopeSection';
 import MMRLinkSection from './components/MMRLinkSection';
 import './App.css';

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
+// import { computeMMROutcome, getOutcomeColor, getOutcomeIcon, mapOutcomeToCategory } from '../../utils/mmrV8Calculations';
 
 const ProfileCard = ({ 
   figure, 
@@ -7,6 +8,47 @@ const ProfileCard = ({
   isExpanded, 
   onToggleExpansion 
 }) => {
+  // Use status from transformed data instead of overall_rating from raw JSON
+  const overallRating = figure.status || "Unknown";
+  
+  // Determine status display based on simplified 3-level system
+  const getStatusDisplay = (rating) => {
+    // Simplify to 3 categories
+    const simplifiedRating = getSimplifiedRating(rating);
+    
+    switch (simplifiedRating) {
+      case 'Pass':
+        return { color: 'green', icon: '✅', text: 'Pass', hexColor: '#16a34a' };
+      case 'Partial':
+        return { color: 'yellow', icon: '🟡', text: 'Partial', hexColor: '#f59e0b' };
+      case 'Fail':
+        return { color: 'red', icon: '❌', text: 'Fail', hexColor: '#ef4444' };
+      default:
+        return { color: 'gray', icon: '❓', text: 'Unknown', hexColor: '#6b7280' };
+    }
+  };
+  
+  // Helper function to map JSON ratings to simplified 3-level system
+  const getSimplifiedRating = (rating) => {
+    switch (rating) {
+      case 'Full Pass':
+      case 'Strong Pass':
+      case 'Pass':
+        return 'Pass';
+      case 'Mixed':
+      case 'Partial':
+        return 'Partial';
+      case 'Failing':
+      case 'Clear Fail':
+      case 'Fail':
+        return 'Fail';
+      default:
+        return 'Unknown';
+    }
+  };
+  
+  const statusDisplay = getStatusDisplay(overallRating);
+
   return (
     <div className="bg-white rounded-lg shadow-md border-l-4 border-blue-500">
       {/* Card Header - Always Visible */}
@@ -24,16 +66,15 @@ const ProfileCard = ({
           </div>
           <div className="flex-1">
             <h3 className="text-xl font-semibold text-gray-800">{figure.name}</h3>
-            <p className="text-gray-600">{figure.title}</p>
+            <p className="text-gray-600">{figure.role || figure.title}</p>
           </div>
           <div className="flex items-center gap-3">
             <div className={`px-3 py-1 rounded-full text-sm font-medium ${
-              figure.statusColor === 'green' ? 'bg-green-100 text-green-800' :
-              figure.statusColor === 'yellow' ? 'bg-yellow-100 text-yellow-800' :
+              statusDisplay.color === 'green' ? 'bg-green-100 text-green-800' :
+              statusDisplay.color === 'yellow' ? 'bg-yellow-100 text-yellow-800' :
               'bg-red-100 text-red-800'
             }`}>
-              {figure.statusColor === 'green' ? '✅' : 
-               figure.statusColor === 'yellow' ? '⚠️' : '❌'} {figure.status}
+              {statusDisplay.icon} {statusDisplay.text}
             </div>
             <ChevronDown 
               className={`transition-transform text-gray-400 ${isExpanded ? 'rotate-180' : ''}`} 
@@ -46,13 +87,20 @@ const ProfileCard = ({
       {/* Card Details - Collapsible */}
       {isExpanded && (
         <div className="px-6 pb-6 border-t border-gray-100">
-          {/* Overall Assessment Section */}
-          {figure.overall && (
-            <div className="mt-4 mb-6 p-4 bg-gray-50 rounded-lg border">
-              <h4 className="font-semibold text-gray-800 mb-2">Overall MMR Assessment</h4>
-              <div className="text-lg font-medium text-gray-700">{figure.overall}</div>
+          {/* Overall Assessment Section - Now shows simplified 3-level rating */}
+          <div className="mt-4 mb-6 p-4 bg-gray-50 rounded-lg border">
+            <h4 className="font-semibold text-gray-800 mb-2">Overall MMR Assessment</h4>
+            <div className={`text-lg font-medium ${
+              statusDisplay.color === 'green' ? 'text-green-700' :
+              statusDisplay.color === 'yellow' ? 'text-yellow-700' :
+              'text-red-700'
+            }`}>
+              {statusDisplay.icon} {statusDisplay.text}
             </div>
-          )}
+            <div className="text-sm text-gray-600 mt-1">
+              Simplified 3-level system | Original: {overallRating}
+            </div>
+          </div>
 
           {/* Reflection Section */}
           {figure.reflection && (
@@ -73,7 +121,7 @@ const ProfileCard = ({
                   'border-red-500 bg-red-50'
                 } hover:shadow-sm transition-shadow duration-200`}>
                   <div className="flex items-center justify-between">
-                    <span className="font-medium text-gray-800">{pillar.title || pillar.name}</span>
+                    <span className="font-medium text-gray-800">{pillar.pillar || pillar.title || pillar.name}</span>
                     <span className={`text-sm font-medium ${
                       (pillar.assessment || pillar.status)?.includes('Pass') || (pillar.assessment || pillar.status) === 'Strong' ? 'text-green-600' :
                       (pillar.assessment || pillar.status)?.includes('Partial') || (pillar.assessment || pillar.status)?.includes('Mixed') ? 'text-yellow-600' :

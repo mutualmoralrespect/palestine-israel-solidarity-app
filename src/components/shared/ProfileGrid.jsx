@@ -1,36 +1,52 @@
 import React, { useState, useMemo } from 'react';
 import { Search, X, ChevronDown } from 'lucide-react';
 import ProfileCard from './ProfileCard';
+// import { computeMMROutcome, mapOutcomeToCategory } from '../../utils/mmrV8Calculations';
 
 const ProfileGrid = ({ 
   figures, 
   title = "Profiles",
   showSearch = true,
   showSort = true,
-  showExpandControls = true 
+  showExpandControls = true,
+  categoryRollupWidget = null
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortOrder, setSortOrder] = useState('none');
   const [expandedCards, setExpandedCards] = useState(new Set());
   const [allExpanded, setAllExpanded] = useState(false);
 
-  // Calculate score for sorting
-  const calculateScore = (pillars) => {
-    if (!pillars || pillars.length === 0) return 0;
+  // Calculate score for sorting using simplified 3-level system
+  const calculateScore = (figure) => {
+    if (!figure.status) return 0;
     
-    let totalScore = 0;
-    pillars.forEach(pillar => {
-      const assessment = pillar.assessment || pillar.status || '';
-      if (assessment.includes('Strong Pass') || assessment === 'Strong') {
-        totalScore += 2;
-      } else if (assessment.includes('Pass')) {
-        totalScore += 1;
-      } else if (assessment.includes('Partial') || assessment.includes('Mixed')) {
-        totalScore += 0.5;
+    // Helper function to map JSON ratings to simplified 3-level system
+    const getSimplifiedRating = (rating) => {
+      switch (rating) {
+        case 'Full Pass':
+        case 'Strong Pass':
+        case 'Pass':
+          return 'Pass';
+        case 'Mixed':
+        case 'Partial':
+          return 'Partial';
+        case 'Failing':
+        case 'Clear Fail':
+        case 'Fail':
+          return 'Fail';
+        default:
+          return 'Unknown';
       }
-    });
+    };
     
-    return totalScore / pillars.length;
+    // Convert simplified rating to numeric scores for sorting
+    const simplified = getSimplifiedRating(figure.status);
+    switch (simplified) {
+      case "Pass": return 3;
+      case "Partial": return 2;
+      case "Fail": return 1;
+      default: return 0;
+    }
   };
 
   // Process figures with search and sort
@@ -47,11 +63,11 @@ const ProfileGrid = ({
       );
     }
     
-    // Apply sorting
+    // Apply sorting using MMR v8 scores
     if (sortOrder !== 'none') {
       filtered = [...filtered].sort((a, b) => {
-        const scoreA = calculateScore(a.pillars);
-        const scoreB = calculateScore(b.pillars);
+        const scoreA = calculateScore(a);
+        const scoreB = calculateScore(b);
         
         if (sortOrder === 'high-to-low') {
           return scoreB - scoreA;
@@ -153,6 +169,9 @@ const ProfileGrid = ({
           </div>
         </div>
       )}
+
+      {/* Category Rollup Widget */}
+      {categoryRollupWidget}
 
       {/* Figures Display */}
       <div className="space-y-6">

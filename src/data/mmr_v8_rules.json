@@ -1,0 +1,83 @@
+{
+  "pillar_bands": {
+    "Positive Indicators": [
+      "Pass",
+      "Strong Pass"
+    ],
+    "Partial Indicators": [
+      "Partial",
+      "Mixed"
+    ],
+    "Fail Indicators": [
+      "Fail",
+      "Clear Fail"
+    ]
+  },
+  "priority_pillars": [
+    "Reject Targeting of Civilians",
+    "Humanize Both Peoples",
+    "Vision for Dignity & Peace"
+  ],
+  "outcome_levels": [
+    {
+      "rating": "Systemic Fail",
+      "priority": 1,
+      "conditions": {
+        "eliminationist_flag": true
+      }
+    },
+    {
+      "rating": "Systemic Fail",
+      "priority": 1,
+      "conditions": {
+        "min_fails": 4
+      }
+    },
+    {
+      "rating": "Failing",
+      "priority": 2,
+      "conditions": {
+        "min_fails": 1,
+        "max_fails": 3
+      }
+    },
+    {
+      "rating": "Partial Indicators",
+      "priority": 3,
+      "conditions": {
+        "max_fails": 0,
+        "min_partial_or_mixed": 3
+      }
+    },
+    {
+      "rating": "Emerging Positive Indicators",
+      "priority": 4,
+      "conditions": {
+        "max_fails": 0,
+        "min_pass_or_strong": 5,
+        "max_partial_or_mixed": 2,
+        "min_priority_pass": 2
+      }
+    },
+    {
+      "rating": "Positive Indicators",
+      "priority": 5,
+      "conditions": {
+        "max_fails": 0,
+        "min_pass_or_strong": 4
+      }
+    },
+    {
+      "rating": "High Positive Indicators",
+      "priority": 6,
+      "conditions": {
+        "max_fails": 0,
+        "min_strong_pass": 2,
+        "min_pass_or_strong": 6
+      },
+      "notes": "If any priority pillar Fail → Failing. If 2+ priority Partial/Mixed → cap to Partial Indicators"
+    }
+  ],
+  "leadership_flag": "TBD"
+}
+

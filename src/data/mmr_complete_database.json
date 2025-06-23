@@ -1,0 +1,1697 @@
+{
+  "metadata": {
+    "title": "Mutual Moral Respect (MMR) Scans Database",
+    "description": "Comprehensive analysis of public figures across all categories - both those who pass and fail MMR standards",
+    "version": "2.0",
+    "last_updated": "2025-06-21",
+    "total_profiles": 35,
+    "categories": 9,
+    "framework": {
+      "name": "Mutual Moral Respect (MMR)",
+      "pillars": [
+        "Reject Targeting of Civilians",
+        "Accountability for Hamas / Militant Rejectionists", 
+        "Accountability for Israeli Right / Ultra-Nationalists",
+        "Use Verified, Truthful Sources",
+        "Humanize Both Peoples",
+        "Reject Eliminationism", 
+        "Vision for Dignity & Peace"
+      ],
+      "assessment_scale": ["Strong Pass", "Pass", "Partial", "Mixed", "Fail", "Clear Fail"],
+      "overall_ratings": ["Full Pass", "Pass", "Partial", "Failing", "Clear Fail"]
+    }
+  },
+  "statistics": {
+    "overall_performance": {
+      "total_figures": 35,
+      "passing": 14,
+      "partial": 7,
+      "failing": 14,
+      "pass_rate": "40%"
+    },
+    "by_category": {
+      "Peace Advocates": {"total": 2, "passing": 2, "partial": 0, "failing": 0},
+      "Organizations": {"total": 3, "passing": 3, "partial": 0, "failing": 0},
+      "Israeli Politicians": {"total": 9, "passing": 1, "partial": 5, "failing": 3},
+      "Palestinian Authority": {"total": 4, "passing": 3, "partial": 1, "failing": 0},
+      "Hamas Officials": {"total": 5, "passing": 0, "partial": 0, "failing": 5},
+      "Palestinian Voices": {"total": 2, "passing": 2, "partial": 0, "failing": 0},
+      "US Politicians": {"total": 1, "passing": 1, "partial": 0, "failing": 0},
+      "Journalists": {"total": 5, "passing": 1, "partial": 3, "failing": 1},
+      "NGO Leaders": {"total": 4, "passing": 1, "partial": 3, "failing": 0}
+    }
+  },
+  "navigation": {
+    "category_groups": [
+      {
+        "id": "all",
+        "label": "All Categories",
+        "icon": "Users",
+        "categories": []
+      },
+      {
+        "id": "palestinian",
+        "label": "Palestinian Perspectives", 
+        "icon": "Users",
+        "categories": [
+          {
+            "id": "Palestinian Authority",
+            "label": "Palestinian Authority",
+            "icon": "Users"
+          },
+          {
+            "id": "Hamas Officials", 
+            "label": "Hamas Officials",
+            "icon": "Users"
+          },
+          {
+            "id": "Palestinian Voices",
+            "label": "Palestinian Voices", 
+            "icon": "Users"
+          }
+        ]
+      },
+      {
+        "id": "israeli",
+        "label": "Israeli Perspectives",
+        "icon": "Users", 
+        "categories": [
+          {
+            "id": "Israeli Politicians",
+            "label": "Israeli Politicians",
+            "icon": "Users"
+          }
+        ]
+      },
+      {
+        "id": "international",
+        "label": "International Voices",
+        "icon": "FileText",
+        "categories": [
+          {
+            "id": "US Politicians",
+            "label": "US Politicians", 
+            "icon": "Users"
+          },
+          {
+            "id": "Journalists",
+            "label": "Journalists",
+            "icon": "FileText"
+          },
+          {
+            "id": "NGO Leaders",
+            "label": "NGO Leaders",
+            "icon": "Users"
+          }
+        ]
+      },
+      {
+        "id": "peace",
+        "label": "Peace & Advocacy",
+        "icon": "Heart",
+        "categories": [
+          {
+            "id": "Peace Advocates",
+            "label": "Peace Advocates",
+            "icon": "Users"
+          },
+          {
+            "id": "Organizations", 
+            "label": "Organizations",
+            "icon": "Building"
+          }
+        ]
+      },
+      {
+        "id": "academic",
+        "label": "Academic & Literary",
+        "icon": "BookOpen",
+        "categories": [
+          {
+            "id": "Academics",
+            "label": "Academics", 
+            "icon": "BookOpen"
+          },
+          {
+            "id": "Books",
+            "label": "Books",
+            "icon": "FileText"
+          },
+          {
+            "id": "Legal Scholars",
+            "label": "Legal Scholars",
+            "icon": "Scale"
+          },
+          {
+            "id": "Historians",
+            "label": "Historians",
+            "icon": "BookOpen"
+          }
+        ]
+      }
+    ]
+  },
+  "profiles": [
+    {
+      "category": "Peace Advocates",
+      "name": "Maoz Inon & Aziz Abu Sara",
+      "role": "Israeli and Palestinian peace duo",
+      "overall_rating": "Full Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Both lost family members to violence and advocate for civilian protection."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Strong Pass", 
+          "evidence": "Abu Sara condemns Hamas violence while advocating for Palestinian rights."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass",
+          "evidence": "Inon criticizes Israeli extremism and settlement expansion."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Both speak from personal experience and documented peace work."
+        },
+        {
+          "pillar": "Humanize Both Peoples", 
+          "assessment": "Strong Pass",
+          "evidence": "Core mission is humanizing the other side through shared grief and hope."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Strong Pass", 
+          "evidence": "Actively work together despite personal losses to promote coexistence."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Strong Pass",
+          "evidence": "Advocate for two-state solution with dignity for both peoples."
+        }
+      ],
+      "reflection": "Exemplary MMR leadership through personal transformation of grief into bridge-building."
+    },
+    {
+      "category": "Peace Advocates",
+      "name": "Gershon Baskin",
+      "role": "Israeli mediator, co-founder IPCRI",
+      "overall_rating": "Full Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Consistently advocates for civilian protection and opposes violence against all civilians."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Engages with Hamas for negotiations while maintaining criticism of violence."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists", 
+          "assessment": "Strong Pass",
+          "evidence": "Vocal critic of Israeli settlement expansion and occupation policies."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Draws on decades of mediation experience and documented peace initiatives."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Strong Pass", 
+          "evidence": "Dedicated career to building bridges and understanding between communities."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Strong Pass",
+          "evidence": "Founded organizations specifically for Israeli-Palestinian cooperation."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Strong Pass",
+          "evidence": "Advocates for negotiated two-state solution with mutual recognition."
+        }
+      ],
+      "reflection": "Veteran peace mediator with decades of bridge-building experience and consistent MMR alignment."
+    },
+    {
+      "category": "Palestinian Voices", 
+      "name": "Sulaiman Khatib",
+      "role": "Combatants for Peace, West Bank nonviolent activist",
+      "overall_rating": "Full Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Former militant turned nonviolent activist, rejects all violence against civilians."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Strong Pass",
+          "evidence": "Openly criticizes militant approaches and advocates for nonviolent resistance."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass", 
+          "evidence": "Challenges occupation and settlement policies through nonviolent means."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Speaks from personal experience and documented activism with Combatants for Peace."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Strong Pass",
+          "evidence": "Works directly with former Israeli soldiers to build mutual understanding."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Strong Pass",
+          "evidence": "Co-leads binational movement for coexistence and mutual recognition."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Strong Pass", 
+          "evidence": "Advocates for nonviolent path to Palestinian liberation and Israeli security."
+        }
+      ],
+      "reflection": "Powerful example of transformation from militancy to nonviolent leadership with full MMR alignment."
+    },
+    {
+      "category": "Palestinian Voices",
+      "name": "Sally Abed", 
+      "role": "Palestinian-Israeli city councilor, Standing Together",
+      "overall_rating": "Full Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Advocates for civilian protection and opposes violence against all civilians."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Opposes militant violence while focusing on systemic change and equality."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass",
+          "evidence": "Actively campaigns against discrimination and ultra-nationalist policies."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Transparent political work and documented activism with Standing Together."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Strong Pass",
+          "evidence": "Emphasizes 'radical empathy' between communities and shared struggles."
+        },
+        {
+          "pillar": "Reject Eliminationism", 
+          "assessment": "Strong Pass",
+          "evidence": "Seeks joint narratives and partnership through grassroots organizing."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Strong Pass",
+          "evidence": "Works toward grassroots political change and two-state solution through Standing Together."
+        }
+      ],
+      "reflection": "Grassroots political leader demonstrating full MMR alignment through binational organizing."
+    },
+    {
+      "category": "Organizations",
+      "name": "Combatants for Peace",
+      "role": "Ex-combatants (Israeli soldiers & Palestinian fighters)",
+      "overall_rating": "Full Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Founded on principle of nonviolence and civilian protection."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Strong Pass",
+          "evidence": "Palestinian members reject militant approaches, advocate nonviolence."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass",
+          "evidence": "Israeli members critique military occupation and extremism."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Transparent documentation of activities and member testimonies."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Strong Pass",
+          "evidence": "Brings together former enemies to share stories and build empathy."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Strong Pass",
+          "evidence": "Core mission is coexistence and mutual recognition."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Strong Pass",
+          "evidence": "Bi-national nonviolent movement working toward peace and justice."
+        }
+      ],
+      "reflection": "Transformative organization turning former combatants into peace advocates with exemplary MMR alignment."
+    },
+    {
+      "category": "Organizations",
+      "name": "Standing Together",
+      "role": "Israel's largest grassroots Arab-Jewish movement", 
+      "overall_rating": "Full Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Advocates for civilian protection and opposes violence against all civilians."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Opposes militant violence while focusing on systemic change."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass",
+          "evidence": "Actively campaigns against occupation and ultra-nationalist policies."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Transparent grassroots organizing with documented activities."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Strong Pass",
+          "evidence": "Brings Arabs and Jews together for shared political action."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Strong Pass",
+          "evidence": "Core mission is equality and coexistence within shared society."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Strong Pass",
+          "evidence": "Works toward equality, social justice, and end of occupation."
+        }
+      ],
+      "reflection": "Leading grassroots movement demonstrating practical coexistence and political change with full MMR alignment."
+    },
+    {
+      "category": "Organizations",
+      "name": "Women Wage Peace",
+      "role": "Jewish Israeli & Palestinian women's collaboration",
+      "overall_rating": "Full Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Women-led advocacy for civilian protection and peace."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Advocates nonviolent approaches to conflict resolution."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Pass",
+          "evidence": "Challenges militaristic approaches and occupation policies."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Transparent women's movement with documented activities."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Strong Pass",
+          "evidence": "Brings together women across ethnic and religious lines."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Strong Pass",
+          "evidence": "Collaborates across communities for shared peace vision."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Strong Pass",
+          "evidence": "Women-led peace movement with international recognition."
+        }
+      ],
+      "reflection": "Women-led peace movement demonstrating cross-community collaboration with strong MMR alignment."
+    },
+    {
+      "category": "Israeli Politicians",
+      "name": "Benjamin Netanyahu",
+      "role": "Israeli Prime Minister",
+      "overall_rating": "Failing",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Partial",
+          "evidence": "Rhetorically affirms minimizing civilian casualties but uses scorched-earth metaphors and praises military actions with high civilian tolls."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Strong Pass",
+          "evidence": "Repeatedly condemns Hamas's October 7 attack, labels them equivalent to ISIS."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Fail",
+          "evidence": "Enables extremists in coalitions, tolerates anti-Palestinian discourse, does not condemn settler extremism."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Mixed",
+          "evidence": "Often speaks factually but sometimes selectively framed or hyperbolic."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Fail",
+          "evidence": "Frames Palestinians collectively as threats; almost no empathetic tone towards Palestinian civilians."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Partial",
+          "evidence": "Opposes Hamas eliminationism but tolerates Israeli domestic extremists."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Fail",
+          "evidence": "Lacks any public framework for Palestinian dignity or state legitimacy; security-centered approach only."
+        }
+      ],
+      "reflection": "Strong on Hamas accountability but fails on Israeli extremism, Palestinian empathy, and peace vision."
+    },
+    {
+      "category": "Israeli Politicians",
+      "name": "Itamar Ben-Gvir",
+      "role": "Israeli National Security Minister",
+      "overall_rating": "Clear Fail",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Fail",
+          "evidence": "Advocates collective punishment and policies that harm Palestinian civilians."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Strong condemnation of Hamas as genocidal."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Fail",
+          "evidence": "Core far-right figure who promotes rather than critiques settler violence and ultra-nationalism."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Mixed",
+          "evidence": "Uses verified events but distorts framing with supremacist ideology."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Fail",
+          "evidence": "Repeatedly dehumanizes Palestinians, questions their national identity and rights."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Fail",
+          "evidence": "Explicitly opposes Palestinian statehood, advocates permanent subjugation."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Fail",
+          "evidence": "No dignity-based or peace-oriented vision; advocates permanent control over Palestinians."
+        }
+      ],
+      "reflection": "Represents eliminationist ultra-nationalism with clear failure across most MMR pillars."
+    },
+    {
+      "category": "Israeli Politicians",
+      "name": "Bezalel Smotrich",
+      "role": "Israeli Finance Minister",
+      "overall_rating": "Clear Fail",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Fail",
+          "evidence": "Called for Huwara to be 'wiped out,' defends settler violence, promotes military actions with civilian disregard."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Strong condemnation of Hamas as genocidal."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Fail",
+          "evidence": "Core far-right figure who promotes rather than critiques settler violence and ultra-nationalism."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Mixed",
+          "evidence": "Uses verified events but distorts framing with supremacist ideology."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Fail",
+          "evidence": "Dehumanizes Palestinians, denies their national identity, shows no empathy."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Fail",
+          "evidence": "Advocates annexation and permanent subjugation of Palestinians."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Fail",
+          "evidence": "Supports stability and security but does not articulate dignity-based peace vision."
+        }
+      ],
+      "reflection": "Extremist politician promoting settler supremacism with clear MMR failure across most pillars."
+    },
+    {
+      "category": "Israeli Politicians",
+      "name": "Benny Gantz",
+      "role": "National Unity Party leader, former Defense Minister",
+      "overall_rating": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Partial",
+          "evidence": "Supported humanitarian corridors but defended IDF operations with high civilian tolls; no consistent moral framing rejecting civilian harm."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Clearly blames Hamas for Oct 7 atrocities; supports dismantling militant networks."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Pass",
+          "evidence": "Opposed far-right cabinet influence; resigned when civilian-focused governance was blocked."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Generally fact-based in public statements."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Partial",
+          "evidence": "Centers Israeli trauma; limited empathy for Palestinian civilians."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Rejects extremist eliminationist rhetoric."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Security-focused approach; lacks comprehensive dignity-based peace framework."
+        }
+      ],
+      "reflection": "Pragmatic centrist with some MMR alignment but falls short on civilian protection standards and Palestinian empathy."
+    },
+    {
+      "category": "Israeli Politicians",
+      "name": "Yair Lapid",
+      "role": "Opposition Leader, Yesh Atid party",
+      "overall_rating": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Pass",
+          "evidence": "Urged restraint after Gaza operations, called for minimizing civilian casualties."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Strong Pass",
+          "evidence": "Condemns October 7 as terror, supports dismantling Hamas capabilities."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass",
+          "evidence": "Criticizes government's ultra-nationalist agenda, warns against annexation."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "Cites human rights reports and operational data when critiquing actions."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Pass",
+          "evidence": "Apologized for civilian suffering on both sides, emphasized shared humanity."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Advocates two-state solution and condemns extremist rhetoric on all sides."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Supports renewed negotiations but lacks detailed mutual dignity framework."
+        }
+      ],
+      "reflection": "Centrist leader with strong accountability standards but limited on comprehensive peace vision."
+    },
+    {
+      "category": "Israeli Politicians",
+      "name": "Avigdor Lieberman",
+      "role": "Yisrael Beiteinu party leader",
+      "overall_rating": "Failing",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Partial",
+          "evidence": "Supports military operations with limited concern for civilian impact."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Strong Pass",
+          "evidence": "Hardline against Hamas terror."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Partial",
+          "evidence": "Opposes ultra-Orthodox influence but limited critique of settler extremism."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Generally grounded in security-based factual discourse."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Partial",
+          "evidence": "Limited empathy for Palestinians; focuses on Israeli security concerns."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Opposes eliminationist framing."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Security-driven framing; lacks dignity-based peace vision."
+        }
+      ],
+      "reflection": "Hardline security-focused politician with limited MMR alignment beyond Hamas accountability."
+    },
+    {
+      "category": "Israeli Politicians",
+      "name": "Naftali Bennett",
+      "role": "Former Prime Minister",
+      "overall_rating": "Failing",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Partial",
+          "evidence": "Supports military operations with limited civilian protection standards."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Strong Pass",
+          "evidence": "Hardline against Hamas terror."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Partial",
+          "evidence": "Center-right framing; little public critique of Israeli extremists."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Generally grounded in governance-based factual discourse."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Partial",
+          "evidence": "Limited empathy for Palestinians."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Opposes eliminationist framing."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Security-driven framing; lacks dignity-based peace vision."
+        }
+      ],
+      "reflection": "Pragmatic right-centrism but falls short of MMR leadership in empathy or peace-building."
+    },
+    {
+      "category": "Israeli Politicians",
+      "name": "Gideon Sa'ar",
+      "role": "New Hope party leader",
+      "overall_rating": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Partial",
+          "evidence": "Supports military operations with limited civilian protection standards."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Strong Pass",
+          "evidence": "Hardline against Hamas terror."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Partial",
+          "evidence": "Center-right framing; little public critique of Israeli extremists."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Generally grounded in governance-based factual discourse."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Partial",
+          "evidence": "Limited empathy for Palestinians."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Opposes eliminationist framing."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Security-driven framing; lacks dignity-based peace vision."
+        }
+      ],
+      "reflection": "Reflects pragmatic right-centrism but falls short of MMR leadership in empathy or peace-building."
+    },
+    {
+      "category": "Israeli Politicians",
+      "name": "Yair Golan",
+      "role": "Labor party leader",
+      "overall_rating": "Full Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Condemned IDF excesses; upholds moral norms."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Consistently denounces Hamas terror."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass",
+          "evidence": "Publicly warns against Israeli fascism."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "Grounded in verified sources and military knowledge."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Pass",
+          "evidence": "Speaks of Palestinian dignity and rights."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Strong Pass",
+          "evidence": "Opposes all forms of eliminationist ideology."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Pass",
+          "evidence": "Advocates for a shared future rooted in dignity."
+        }
+      ],
+      "reflection": "Exemplifies clear MMR-aligned voice — balancing accountability, empathy, and vision of shared dignity."
+    },
+    {
+      "category": "Palestinian Authority Officials",
+      "name": "Mahmoud Abbas",
+      "role": "PA President",
+      "overall_rating": "Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Stated: 'We reject the practices of killing civilians or abusing them on both sides...' — clear rejection of civilian targeting."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Strong Pass",
+          "evidence": "Called Hamas 'sons of dogs,' demanded hostages be released, stated Oct 7 attacks 'don't represent Palestinians.'"
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass",
+          "evidence": "Consistently called out Israeli far-right violence and settler extremism in UN forums."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "Grounds public statements in UN resolutions, international law, and credible casualty data."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Partial",
+          "evidence": "Highlights Palestinian suffering and Israeli hostages but less empathy for Israeli civilian fears."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Advocates two-state solution, rejects collective enmity."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Pass",
+          "evidence": "Pushed for ceasefire, PA-led governance in Gaza, and long-term two-state peace vision."
+        }
+      ],
+      "reflection": "Demonstrates moral clarity and leadership— condemning civilian harm, rebuking Hamas, asserting international justice, and envisioning Palestinian statehood. Could deepen MMR by more fully acknowledging Israeli civilian fears."
+    },
+    {
+      "category": "Palestinian Authority Officials",
+      "name": "Hussein al-Sheikh",
+      "role": "PA Secretary-General",
+      "overall_rating": "Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Pass",
+          "evidence": "Advocates for civilian protection and condemns targeting of innocents."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Supports political integration of Hamas while opposing violence."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Pass",
+          "evidence": "Criticizes Israeli settlement expansion and extremist policies."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Pass",
+          "evidence": "Bases statements on documented policies and international law."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Pass",
+          "evidence": "Frames Hamas as part of the people needing reform, not eradication."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Advocates for political solutions and integration rather than elimination."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Pass",
+          "evidence": "Works toward Palestinian statehood through diplomatic and political means."
+        }
+      ],
+      "reflection": "Presents forward-looking stance — backing ceasefire, political integration, and eventual statehood with consistent MMR alignment."
+    },
+    {
+      "category": "Palestinian Authority Officials",
+      "name": "Majed Faraj",
+      "role": "PA Intelligence Chief",
+      "overall_rating": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Partial",
+          "evidence": "Limited public statements on civilian protection standards."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Partial",
+          "evidence": "Security cooperation against militants but limited public moral accountability."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Partial",
+          "evidence": "Limited public criticism of Israeli extremism."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Partial",
+          "evidence": "Limited public statements to assess sourcing standards."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Partial",
+          "evidence": "Limited public statements on humanization."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Partial",
+          "evidence": "Security role suggests pragmatic approach but limited public statements."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Security-focused role with limited public peace vision."
+        }
+      ],
+      "reflection": "Intelligence role limits public MMR assessment; appears pragmatic but insufficient public data for full evaluation."
+    },
+    {
+      "category": "Palestinian Authority Officials",
+      "name": "Rami Hamdallah",
+      "role": "Former PA Prime Minister",
+      "overall_rating": "Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Pass",
+          "evidence": "Advocated for non-violence and civilian protection during tenure."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Partial",
+          "evidence": "Criticized incitement and called for Palestinian unity, but muted on specific Hamas accountability."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Pass",
+          "evidence": "Called out Israeli settler violence and ultra-nationalist rhetoric."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Partial",
+          "evidence": "Grounded in UN and international law references, but political framing at times outweighs transparent sourcing."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Pass",
+          "evidence": "Advocated for non-violence and rights for both Palestinians and Israelis."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Consistently promoted peaceful resolution and opposed extremism."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Pass",
+          "evidence": "Advocated for two-state solution grounded in mutual dignity."
+        }
+      ],
+      "reflection": "Consistently supported peaceful, rights-based solutions and non-violence, though less direct in confronting Hamas rejectionism. Reflects constructive moderate voice within the PA."
+    },
+    {
+      "category": "Hamas Officials",
+      "name": "Yahya Sinwar",
+      "role": "Hamas Gaza leader",
+      "overall_rating": "Clear Fail",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Fail",
+          "evidence": "Orchestrated October 7 attacks targeting Israeli civilians; frames civilian casualties as acceptable for resistance."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Fail",
+          "evidence": "Hamas leader who justifies and directs militant operations; no self-accountability."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Fail",
+          "evidence": "Frames all Israelis as legitimate targets; no moral distinction between civilians and extremists."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Fail",
+          "evidence": "Uses propaganda and inflammatory rhetoric rather than verified information."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Fail",
+          "evidence": "Dehumanizes Israelis as occupiers and enemies; shows no empathy for Israeli civilians."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Fail",
+          "evidence": "Advocates for elimination of Israel and supports armed struggle until total victory."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Fail",
+          "evidence": "No peace vision; only continued resistance and armed struggle until Israeli defeat."
+        }
+      ],
+      "reflection": "Represents eliminationist militancy with complete failure across all MMR pillars."
+    },
+    {
+      "category": "Hamas Officials",
+      "name": "Khaled Meshaal",
+      "role": "Hamas Political Bureau head",
+      "overall_rating": "Failing",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Fail",
+          "evidence": "Explicitly endorsed Oct 7 attacks, which targeted Israeli civilians; consistently framed violence against civilians as justified 'resistance.'"
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Fail",
+          "evidence": "Top Hamas rejectionist leader; no evidence of moral accountability for Hamas actions."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Partial",
+          "evidence": "Denounces Israeli policies rhetorically but in polarizing, dehumanizing terms, without distinction between Israeli far-right and broader Israeli public."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Fail",
+          "evidence": "Relies on ideological, propagandistic framing; no consistent use of verified sources."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Fail",
+          "evidence": "Frames Israelis collectively as occupiers/enemies; no evidence of empathy toward Israeli civilians."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Fail",
+          "evidence": "Advocates elimination of Israel through armed resistance; rejects coexistence."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Fail",
+          "evidence": "No peace framework beyond continued resistance; rejects mutual recognition."
+        }
+      ],
+      "reflection": "Embodies eliminationist rhetoric: praising civilian-targeted violence, rejecting mutual recognition, and framing perpetual jihad as the solution."
+    },
+    {
+      "category": "Hamas Officials",
+      "name": "Mousa Abu Marzook",
+      "role": "Deputy Hamas Political Bureau chief",
+      "overall_rating": "Failing",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Fail",
+          "evidence": "Defends Oct 7 attacks despite civilian targeting; frames civilian harm as unavoidable resistance consequence."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Fail",
+          "evidence": "Hamas leadership position; defends all Hamas actions without moral accountability."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Fail",
+          "evidence": "Frames all Israelis as aggressors; no moral distinction between civilians and extremists."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Fail",
+          "evidence": "Uses ideological framing and propaganda rather than verified sources."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Fail",
+          "evidence": "Dehumanizing rhetoric toward Israelis; no empathy for Israeli civilians."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Fail",
+          "evidence": "Supports Hamas eliminationist ideology and armed struggle until Israeli defeat."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Fail",
+          "evidence": "No vision beyond resistance and struggle; rejects shared dignity concepts."
+        }
+      ],
+      "reflection": "Hamas deputy leader promoting eliminationist ideology with complete MMR failure across all pillars."
+    },
+    {
+      "category": "Hamas Officials",
+      "name": "Osama Hamdan",
+      "role": "Hamas spokesperson",
+      "overall_rating": "Failing",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Fail",
+          "evidence": "Justifies Oct 7 civilian targeting as legitimate resistance; denies Hamas responsibility for civilian harm."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Fail",
+          "evidence": "Official Hamas spokesperson defending all actions; no internal accountability."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Fail",
+          "evidence": "Frames all Israelis as aggressors; no moral distinction between civilians and extremists."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Fail",
+          "evidence": "Spreads conspiracy theories and denies documented Hamas actions; propaganda-based messaging."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Fail",
+          "evidence": "Dehumanizing rhetoric toward Israelis; no empathy for Israeli civilians."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Fail",
+          "evidence": "Promotes Hamas eliminationist ideology and rejects coexistence."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Fail",
+          "evidence": "No peace vision; only continued resistance until Israeli defeat."
+        }
+      ],
+      "reflection": "Official Hamas spokesperson promoting denialism and eliminationist ideology with complete MMR failure."
+    },
+    {
+      "category": "Hamas Officials",
+      "name": "Sami Abu Zuhri",
+      "role": "Hamas spokesperson",
+      "overall_rating": "Failing",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Fail",
+          "evidence": "Justifies mass killing of Israeli civilians as 'legitimate resistance.'"
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Fail",
+          "evidence": "Spokesperson defending all Hamas actions — no internal accountability."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Fail",
+          "evidence": "Frames all Israelis as aggressors; no moral distinction."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Fail",
+          "evidence": "Public statements use inflammatory rhetoric; no fact-based grounding."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Fail",
+          "evidence": "Dehumanizing rhetoric toward Israelis; no empathy for civilians."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Fail",
+          "evidence": "Supports Hamas eliminationist ideology."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Fail",
+          "evidence": "No vision beyond resistance and struggle; rejects shared dignity concepts."
+        }
+      ],
+      "reflection": "Abu Zuhri's role centers on promoting Hamas's rejectionist and eliminationist ideology — fails every MMR pillar by example."
+    },
+    {
+      "category": "US Politicians",
+      "name": "Rep. Ritchie Torres",
+      "role": "U.S. Representative (D-NY)",
+      "overall_rating": "Strong Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Clear and repeated moral condemnation of Hamas, calling them a genocidal terrorist organization. Criticizes Palestinian Authority's glorification of violence and failure to embrace peaceful state-building. Explicit that Palestinian leadership bears responsibility for rejectionist stances."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Strong Pass",
+          "evidence": "Clear and repeated moral condemnation of Hamas, calling them a genocidal terrorist organization. Criticizes Palestinian Authority's glorification of violence and failure to embrace peaceful state-building."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass",
+          "evidence": "One of the few vocal American politicians calling out Israeli ultranationalist figures (e.g., Ben-Gvir, Smotrich). Warns against annexation, creeping authoritarianism, and erosion of democratic norms in Netanyahu's coalition. Calls for holding Israeli extremists accountable."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "Bases statements on hostage-taking, war crime claims, and ICC process."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Pass",
+          "evidence": "Highlights Palestinian suffering and Israeli hostages but less empathy for Israeli civilian fears."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Advocates two-state solution, rejects collective enmity."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Pass",
+          "evidence": "Pushed for ceasefire, PA-led governance in Gaza, and long-term two-state peace vision."
+        }
+      ],
+      "reflection": "Torres demonstrates moral clarity and leadership— condemning civilian harm, rebuking Hamas, asserting international justice, and envisioning Palestinian statehood. He could deepen MMR by more fully acknowledging Israeli civilian fears."
+    },
+    {
+      "category": "Journalists & Media Figures",
+      "name": "Mehdi Hasan",
+      "role": "Former MSNBC host / Zeteo News",
+      "overall_rating": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Pass",
+          "evidence": "Repeatedly condemned the killing of civilians on both sides."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Partial",
+          "evidence": "Condemned Hamas war crimes but avoids clear labeling of Hamas as terrorist; emphasis leans toward Israeli accountability."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Pass",
+          "evidence": "Consistently criticizes Israeli far-right figures and policies."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "Highly fact-based, with legal and verified sourcing."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Partial",
+          "evidence": "Centers Palestinian suffering; less public empathy toward Israeli civilian trauma."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Opposes eliminationist ideologies."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Advocates justice-focused approach but limited comprehensive peace framework."
+        }
+      ],
+      "reflection": "Strong journalistic standards and Israeli accountability, but limited Hamas accountability and Palestinian-centered framing reduces full MMR alignment."
+    },
+    {
+      "category": "Journalists & Media Figures",
+      "name": "Christiane Amanpour",
+      "role": "CNN International anchor",
+      "overall_rating": "Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Consistently condemns civilian targeting by all parties."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Reports on Hamas actions and holds them accountable for violence."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Pass",
+          "evidence": "Covers Israeli government policies and extremist actions critically."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "Renowned for rigorous fact-checking and verified reporting."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Strong Pass",
+          "evidence": "Gives voice to civilians on both sides; empathetic interviewing style."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Strong Pass",
+          "evidence": "Opposes extremist narratives; promotes dialogue and understanding."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Focuses on current events reporting rather than comprehensive peace frameworks."
+        }
+      ],
+      "reflection": "Veteran journalist with strong MMR alignment through balanced, empathetic reporting and rigorous standards."
+    },
+    {
+      "category": "Journalists & Media Figures",
+      "name": "Anderson Cooper",
+      "role": "CNN anchor",
+      "overall_rating": "Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Pass",
+          "evidence": "Condemns civilian casualties and highlights human cost of conflict."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Reports on Hamas actions and their impact on civilians."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Pass",
+          "evidence": "Covers Israeli policies and their effects on Palestinian civilians."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "Known for fact-based reporting and verification standards."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Pass",
+          "evidence": "Focuses on human stories and civilian experiences on both sides."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Avoids inflammatory rhetoric; focuses on factual reporting."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "News reporting role limits explicit peace advocacy."
+        }
+      ],
+      "reflection": "Solid journalistic standards with balanced human-focused reporting, though limited by news format constraints."
+    },
+    {
+      "category": "Journalists & Media Figures",
+      "name": "Clarissa Ward",
+      "role": "CNN Chief International Correspondent",
+      "overall_rating": "Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Extensive on-ground reporting highlighting civilian suffering."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Reports on militant actions and their consequences for civilians."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Pass",
+          "evidence": "Covers Israeli military actions and policy impacts."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "Rigorous field reporting with verified sources and documentation."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Strong Pass",
+          "evidence": "Powerful human interest reporting from conflict zones."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Focuses on human cost rather than political rhetoric."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Reporting role limits explicit peace advocacy."
+        }
+      ],
+      "reflection": "Exceptional conflict correspondent with strong humanitarian focus and balanced reporting standards."
+    },
+    {
+      "category": "Journalists & Media Figures",
+      "name": "Jeremy Bowen",
+      "role": "BBC Middle East Editor",
+      "overall_rating": "Full Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Strong Pass",
+          "evidence": "Longstanding condemnation of civilian targeting."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Pass",
+          "evidence": "Reports accurately on Hamas rejectionist actions."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Pass",
+          "evidence": "Covers Israeli far-right trends and actions."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "Highly regarded for depth, accuracy, and context."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Strong Pass",
+          "evidence": "Empathetic reporting toward civilians on all sides."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Strong Pass",
+          "evidence": "Frames reporting through rights and dignity."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Pass",
+          "evidence": "Gives voice to actors supporting coexistence and dignity."
+        }
+      ],
+      "reflection": "MMR-aligned journalist whose balanced, rights-based reporting consistently affirms empathy and dignity for all civilians."
+    },
+    {
+      "category": "NGO Leaders",
+      "name": "Omar Shakir",
+      "role": "Human Rights Watch Israel/Palestine Director",
+      "overall_rating": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Pass",
+          "evidence": "Condemns targeting of civilians by all sides; HRW reports under his leadership have documented Israeli and Palestinian violations."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Partial",
+          "evidence": "HRW under Shakir's leadership documents Hamas abuses but public statements often foreground Israeli violations over clear moral agency for Hamas leadership."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass",
+          "evidence": "Extensively documents and critiques Israeli ultra-nationalist policies and abuses."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "HRW investigations under Shakir are known for rigorous verification and documentation."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Partial",
+          "evidence": "Centering Palestinian suffering; limited empathy toward Israeli civilian fears and trauma."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Advocates universal human rights; rejects eliminationist frames."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Justice-oriented framing; lacks detailed vision for mutual dignity peace."
+        }
+      ],
+      "reflection": "Strong human rights documentation but leans justice-centered — offering limited Hamas accountability and mutual empathy."
+    },
+    {
+      "category": "NGO Leaders",
+      "name": "Hagai El-Ad",
+      "role": "Former B'Tselem Director",
+      "overall_rating": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Pass",
+          "evidence": "Condemns civilian targeting; focuses on Israeli military actions affecting Palestinian civilians."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Partial",
+          "evidence": "Limited focus on Hamas accountability; primarily critiques Israeli actions."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass",
+          "evidence": "Extensive documentation and criticism of Israeli occupation and settler violence."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "B'Tselem known for rigorous field documentation and verification."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Partial",
+          "evidence": "Centers Palestinian suffering; limited empathy for Israeli civilian concerns."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Advocates human rights for all; opposes eliminationist rhetoric."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Rights-focused approach; limited comprehensive peace framework."
+        }
+      ],
+      "reflection": "Strong Israeli human rights advocate but limited on Hamas accountability and mutual empathy."
+    },
+    {
+      "category": "NGO Leaders",
+      "name": "Yuli Novak",
+      "role": "Former Breaking the Silence Director",
+      "overall_rating": "Pass",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Pass",
+          "evidence": "Documents and opposes military actions that harm civilians."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Partial",
+          "evidence": "Limited focus on Hamas; primarily documents Israeli military conduct."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Strong Pass",
+          "evidence": "Breaking the Silence extensively documents military abuses and occupation policies."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "Organization known for soldier testimonies and verified documentation."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Pass",
+          "evidence": "Focuses on humanizing Palestinian experiences; some empathy for Israeli soldiers' moral dilemmas."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Advocates for accountability and change rather than elimination."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Pass",
+          "evidence": "Works toward ending occupation and promoting accountability for peace."
+        }
+      ],
+      "reflection": "Strong Israeli military accountability advocate with good MMR alignment, though limited on Hamas accountability."
+    },
+    {
+      "category": "NGO Leaders",
+      "name": "Kenneth Roth",
+      "role": "Former Human Rights Watch Executive Director",
+      "overall_rating": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject Targeting of Civilians",
+          "assessment": "Pass",
+          "evidence": "Condemns targeting of civilians by all parties."
+        },
+        {
+          "pillar": "Accountability for Hamas / Militant Rejectionists",
+          "assessment": "Partial",
+          "evidence": "Under Roth's leadership, HRW often foregrounded Israeli violations over moral agency for Hamas leadership."
+        },
+        {
+          "pillar": "Accountability for Israeli Right / Ultra-Nationalists",
+          "assessment": "Pass",
+          "evidence": "Critiques Israeli state policies and ultra-nationalist figures."
+        },
+        {
+          "pillar": "Use Verified, Truthful Sources",
+          "assessment": "Strong Pass",
+          "evidence": "Built HRW's reputation on rigorous, verified human rights documentation."
+        },
+        {
+          "pillar": "Humanize Both Peoples",
+          "assessment": "Partial",
+          "evidence": "Centers Palestinian suffering; less articulation of Israeli civilian trauma."
+        },
+        {
+          "pillar": "Reject Eliminationism",
+          "assessment": "Pass",
+          "evidence": "Advocates universal human rights; rejects eliminationist frames."
+        },
+        {
+          "pillar": "Vision for Dignity & Peace",
+          "assessment": "Partial",
+          "evidence": "Justice-oriented framing; lacks detailed vision for mutual dignity peace."
+        }
+      ],
+      "reflection": "Built global rights accountability but leaned justice-centered — offering limited humanization and future dignity vision."
+    }
+  ]
+}
+
