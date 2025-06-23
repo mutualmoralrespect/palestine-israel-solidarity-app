@@ -83,11 +83,11 @@ const MMRProfilesSection = ({
       // Handle Unsorted category - show profiles with categories not in navigation
       const allDefinedCategories = new Set();
       categoryGroups.forEach(group => {
-        if (group.id !== 'unsorted_group') {
-          group.categories.forEach(cat => {
+        group.categories.forEach(cat => {
+          if (cat.id !== 'Unsorted') { // Exclude the Unsorted category itself
             allDefinedCategories.add(cat.id);
-          });
-        }
+          }
+        });
       });
       
       let unsortedFigures = [];

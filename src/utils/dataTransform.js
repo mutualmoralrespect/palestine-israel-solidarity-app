@@ -259,18 +259,17 @@ export const getCategoryGroups = (filterByStatus = null) => {
   
   // Add Unsorted category if there are unsorted profiles
   if (unsortedCount > 0) {
-    processedGroups.push({
-      id: 'unsorted_group',
-      label: 'Unsorted',
-      icon: FileText, // Use FileText icon for unsorted
-      count: unsortedCount,
-      categories: [{
+    // Add Unsorted as a standalone category in the "All Categories" group
+    const allCategoriesGroup = processedGroups.find(group => group.id === 'all');
+    if (allCategoriesGroup) {
+      allCategoriesGroup.categories.push({
         id: 'Unsorted',
         label: 'Unsorted Profiles',
         icon: FileText,
         count: unsortedCount
-      }]
-    });
+      });
+      allCategoriesGroup.count += unsortedCount;
+    }
   }
   
   return processedGroups;
