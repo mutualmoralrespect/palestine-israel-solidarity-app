@@ -69,8 +69,7 @@ const ProfileCard = ({
       {isExpanded && (
         <div className="px-6 pb-6 border-t border-gray-100">
           {/* Overall Assessment Section - COMMENTED OUT (redundant with header display)
-             Uncomment for debugging when changing scoring algorithms */}
-          {/*
+             Uncomment for debugging when changing scoring algorithms 
           <div className="mt-4 mb-6 p-4 bg-gray-50 rounded-lg border">
             <h4 className="font-semibold text-gray-800 mb-2">Overall MMR Assessment</h4>
             <div className={`text-lg font-medium ${
@@ -84,7 +83,7 @@ const ProfileCard = ({
               Simplified 3-level system | Original: {overallRating}
             </div>
           </div>
-          */
+          */}
 
           {/* Reflection Section */}
           {figure.reflection && (
