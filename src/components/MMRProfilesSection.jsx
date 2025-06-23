@@ -35,7 +35,7 @@ const MMRProfilesSection = ({
 
   // Load data from JSON file
   const figures = useMemo(() => transformCategories(), []);
-  const categoryGroups = useMemo(() => getCategoryGroups(), []);
+  const categoryGroups = useMemo(() => getCategoryGroups(filterByStatus), [filterByStatus]);
   const overallStats = useMemo(() => getOverallStats(), []);
 
   // Calculate total count and get all figures
@@ -79,6 +79,53 @@ const MMRProfilesSection = ({
   const filteredFigures = useMemo(() => {
     if (activeCategory === 'All') {
       return allFigures;
+    } else if (activeCategory === 'Unsorted') {
+      // Handle Unsorted category - show profiles with categories not in navigation
+      const allDefinedCategories = new Set();
+      categoryGroups.forEach(group => {
+        if (group.id !== 'unsorted_group') {
+          group.categories.forEach(cat => {
+            allDefinedCategories.add(cat.id);
+          });
+        }
+      });
+      
+      let unsortedFigures = [];
+      Object.keys(figures).forEach(categoryId => {
+        if (!allDefinedCategories.has(categoryId)) {
+          let categoryFigures = figures[categoryId] || [];
+          
+          // Apply status filter if specified
+          if (filterByStatus) {
+            const getSimplifiedRating = (rating) => {
+              switch (rating) {
+                case 'Full Pass':
+                case 'Strong Pass':
+                case 'Pass':
+                  return 'Pass';
+                case 'Mixed':
+                case 'Partial':
+                  return 'Partial';
+                case 'Failing':
+                case 'Clear Fail':
+                case 'Fail':
+                  return 'Fail';
+                default:
+                  return 'Unknown';
+              }
+            };
+            
+            categoryFigures = categoryFigures.filter(figure => {
+              const simplified = getSimplifiedRating(figure.status);
+              return simplified === filterByStatus;
+            });
+          }
+          
+          unsortedFigures = [...unsortedFigures, ...categoryFigures];
+        }
+      });
+      
+      return unsortedFigures;
     } else if (activeCategory.startsWith('group:')) {
       // Group filtering - combine all categories in the group
       const groupId = activeCategory.replace('group:', '');
