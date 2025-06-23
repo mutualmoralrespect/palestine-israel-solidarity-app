@@ -95,11 +95,27 @@ export const transformProfile = (profile) => {
   
   // Calculate sorting score based on pillar composition (for sorting only)
   const calculateSortingScore = () => {
-    const totalFails = pillarCounts.fail + pillarCounts.clearFail;
-    const totalPartials = pillarCounts.partial + pillarCounts.mixed;
-    const totalPasses = pillarCounts.strongPass + pillarCounts.pass;
+    // Use individual pillar counts for more nuanced scoring
+    // Clear Fail is worse than Fail, Strong Pass is better than Pass
     
-    return (totalFails * -10000) + (totalPartials * -100) + (totalPasses * 1);
+    // Scoring weights (more negative = worse, more positive = better):
+    const weights = {
+      clearFail: -15000,    // Worst possible score
+      fail: -10000,         // Bad but not as bad as Clear Fail
+      mixed: -200,          // Slightly worse than Partial
+      partial: -100,        // Mediocre
+      pass: 10,             // Good
+      strongPass: 20        // Best possible score
+    };
+    
+    return (
+      pillarCounts.clearFail * weights.clearFail +
+      pillarCounts.fail * weights.fail +
+      pillarCounts.mixed * weights.mixed +
+      pillarCounts.partial * weights.partial +
+      pillarCounts.pass * weights.pass +
+      pillarCounts.strongPass * weights.strongPass
+    );
   };
   
   const sortingScore = calculateSortingScore();
