@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Search, X, ChevronDown } from 'lucide-react';
 import ProfileCard from './ProfileCard';
-import { computeMMROutcome, mapOutcomeToCategory } from '../../utils/mmrV8Calculations';
+// import { computeMMROutcome, mapOutcomeToCategory } from '../../utils/mmrV8Calculations';
 
 const ProfileGrid = ({ 
   figures, 
@@ -16,21 +16,35 @@ const ProfileGrid = ({
   const [expandedCards, setExpandedCards] = useState(new Set());
   const [allExpanded, setAllExpanded] = useState(false);
 
-  // Calculate score for sorting using MMR v8 system
+  // Calculate score for sorting using simplified 3-level system
   const calculateScore = (figure) => {
-    if (!figure.pillars || figure.pillars.length === 0) return 0;
+    if (!figure.overall_rating) return 0;
     
-    const outcome = computeMMROutcome(figure);
-    const category = mapOutcomeToCategory(outcome);
+    // Helper function to map JSON ratings to simplified 3-level system
+    const getSimplifiedRating = (rating) => {
+      switch (rating) {
+        case 'Full Pass':
+        case 'Strong Pass':
+        case 'Pass':
+          return 'Pass';
+        case 'Mixed':
+        case 'Partial':
+          return 'Partial';
+        case 'Failing':
+        case 'Clear Fail':
+        case 'Fail':
+          return 'Fail';
+        default:
+          return 'Unknown';
+      }
+    };
     
-    // Convert MMR v8 outcomes to numeric scores for sorting
-    switch (outcome) {
-      case "High Positive Indicators": return 6;
-      case "Positive Indicators": return 5;
-      case "Emerging Positive Indicators": return 4;
-      case "Partial Indicators": return 3;
-      case "Failing": return 2;
-      case "Systemic Fail": return 1;
+    // Convert simplified rating to numeric scores for sorting
+    const simplified = getSimplifiedRating(figure.overall_rating);
+    switch (simplified) {
+      case "Pass": return 3;
+      case "Partial": return 2;
+      case "Fail": return 1;
       default: return 0;
     }
   };

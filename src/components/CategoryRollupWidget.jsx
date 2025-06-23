@@ -1,11 +1,67 @@
 import React from 'react';
 import { TrendingDown, TrendingUp, CheckCircle } from 'lucide-react';
-import { calculateGroupStatistics } from '../utils/mmrV8Calculations';
+// import { calculateGroupStatistics } from '../utils/mmrV8Calculations';
 
 const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
-  // Calculate statistics from the filtered figures using MMR v8 dynamic rating calculation
+  // Calculate statistics from overall_rating field using simplified 3-level system
   const stats = React.useMemo(() => {
-    return calculateGroupStatistics(figures);
+    if (!figures || figures.length === 0) {
+      return {
+        total: 0,
+        pass: 0,
+        partial: 0,
+        fail: 0,
+        passRate: 0
+      };
+    }
+
+    const counts = {
+      total: figures.length,
+      pass: 0,
+      partial: 0,
+      fail: 0
+    };
+
+    // Helper function to map JSON ratings to simplified 3-level system
+    const getSimplifiedRating = (rating) => {
+      switch (rating) {
+        case 'Full Pass':
+        case 'Strong Pass':
+        case 'Pass':
+          return 'Pass';
+        case 'Mixed':
+        case 'Partial':
+          return 'Partial';
+        case 'Failing':
+        case 'Clear Fail':
+        case 'Fail':
+          return 'Fail';
+        default:
+          return 'Unknown';
+      }
+    };
+
+    figures.forEach(figure => {
+      const rating = figure.overall_rating || "Unknown";
+      const simplified = getSimplifiedRating(rating);
+      
+      switch (simplified) {
+        case "Pass":
+          counts.pass++;
+          break;
+        case "Partial":
+          counts.partial++;
+          break;
+        case "Fail":
+          counts.fail++;
+          break;
+      }
+    });
+
+    // Calculate pass rate
+    counts.passRate = Math.round((counts.pass / counts.total) * 100);
+
+    return counts;
   }, [figures]);
 
   // Determine performance level and styling
@@ -45,7 +101,7 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
         </div>
       </div>
 
-      {/* Progress Bar */}
+      {/* Progress Bar - Simplified 3-level system */}
       <div className="mb-3">
         <div className="flex h-3 rounded-full overflow-hidden bg-gray-200">
           {/* Fail section (red, leftmost) */}
@@ -62,14 +118,7 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
               style={{ width: `${(stats.partial / stats.total) * 100}%` }}
             />
           )}
-          {/* Almost Pass section (light green) */}
-          {stats.almostPass > 0 && (
-            <div 
-              className="bg-green-400" 
-              style={{ width: `${(stats.almostPass / stats.total) * 100}%` }}
-            />
-          )}
-          {/* Pass section (dark green, rightmost) */}
+          {/* Pass section (green, rightmost) */}
           {stats.pass > 0 && (
             <div 
               className="bg-green-600" 
@@ -79,7 +128,7 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
         </div>
       </div>
 
-      {/* Statistics */}
+      {/* Statistics - Simplified 3-level system */}
       <div className="flex justify-between text-sm">
         <div className="flex items-center gap-1">
           <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -88,10 +137,6 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
         <div className="flex items-center gap-1">
           <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
           <span>{stats.partial} Partial</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="w-3 h-3 bg-green-400 rounded-full"></div>
-          <span>{stats.almostPass} Almost Pass</span>
         </div>
         <div className="flex items-center gap-1">
           <div className="w-3 h-3 bg-green-600 rounded-full"></div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
-import { computeMMROutcome, getOutcomeColor, getOutcomeIcon, mapOutcomeToCategory } from '../../utils/mmrV8Calculations';
+// import { computeMMROutcome, getOutcomeColor, getOutcomeIcon, mapOutcomeToCategory } from '../../utils/mmrV8Calculations';
 
 const ProfileCard = ({ 
   figure, 
@@ -8,30 +8,46 @@ const ProfileCard = ({
   isExpanded, 
   onToggleExpansion 
 }) => {
-  // Calculate the overall rating dynamically using MMR v8 system
-  const mmrOutcome = computeMMROutcome(figure);
-  const outcomeCategory = mapOutcomeToCategory(mmrOutcome);
-  const outcomeColor = getOutcomeColor(mmrOutcome);
-  const outcomeIcon = getOutcomeIcon(mmrOutcome);
+  // Use overall_rating from JSON data instead of calculated MMR v8 outcome
+  const overallRating = figure.overall_rating || "Unknown";
   
-  // Determine status display based on MMR v8 outcome
-  const getStatusDisplay = (outcome, category) => {
-    const colorMap = {
-      'Pass': 'green',
-      'Almost Pass': 'green', 
-      'Partial': 'yellow',
-      'Fail': 'red'
-    };
+  // Determine status display based on simplified 3-level system
+  const getStatusDisplay = (rating) => {
+    // Simplify to 3 categories
+    const simplifiedRating = getSimplifiedRating(rating);
     
-    return { 
-      color: colorMap[category] || 'red', 
-      icon: outcomeIcon, 
-      text: outcome,
-      hexColor: outcomeColor
-    };
+    switch (simplifiedRating) {
+      case 'Pass':
+        return { color: 'green', icon: '✅', text: 'Pass', hexColor: '#16a34a' };
+      case 'Partial':
+        return { color: 'yellow', icon: '🟡', text: 'Partial', hexColor: '#f59e0b' };
+      case 'Fail':
+        return { color: 'red', icon: '❌', text: 'Fail', hexColor: '#ef4444' };
+      default:
+        return { color: 'gray', icon: '❓', text: 'Unknown', hexColor: '#6b7280' };
+    }
   };
   
-  const statusDisplay = getStatusDisplay(mmrOutcome, outcomeCategory);
+  // Helper function to map JSON ratings to simplified 3-level system
+  const getSimplifiedRating = (rating) => {
+    switch (rating) {
+      case 'Full Pass':
+      case 'Strong Pass':
+      case 'Pass':
+        return 'Pass';
+      case 'Mixed':
+      case 'Partial':
+        return 'Partial';
+      case 'Failing':
+      case 'Clear Fail':
+      case 'Fail':
+        return 'Fail';
+      default:
+        return 'Unknown';
+    }
+  };
+  
+  const statusDisplay = getStatusDisplay(overallRating);
 
   return (
     <div className="bg-white rounded-lg shadow-md border-l-4 border-blue-500">
@@ -71,7 +87,7 @@ const ProfileCard = ({
       {/* Card Details - Collapsible */}
       {isExpanded && (
         <div className="px-6 pb-6 border-t border-gray-100">
-          {/* Overall Assessment Section - Now shows MMR v8 outcome */}
+          {/* Overall Assessment Section - Now shows simplified 3-level rating */}
           <div className="mt-4 mb-6 p-4 bg-gray-50 rounded-lg border">
             <h4 className="font-semibold text-gray-800 mb-2">Overall MMR Assessment</h4>
             <div className={`text-lg font-medium ${
@@ -79,10 +95,10 @@ const ProfileCard = ({
               statusDisplay.color === 'yellow' ? 'text-yellow-700' :
               'text-red-700'
             }`}>
-              {statusDisplay.icon} {mmrOutcome}
+              {statusDisplay.icon} {statusDisplay.text}
             </div>
             <div className="text-sm text-gray-600 mt-1">
-              Category: {outcomeCategory} | MMR v8 Scoring System
+              Simplified 3-level system | Original: {overallRating}
             </div>
           </div>
 
