@@ -93,29 +93,38 @@ export const transformProfile = (profile) => {
     }
   });
   
-  // Calculate sorting score based on pillar composition (for sorting only)
+  // Calculate sorting score using two-tier system: overall rating first, then pillar breakdown
   const calculateSortingScore = () => {
-    // Use individual pillar counts for more nuanced scoring
-    // Clear Fail is worse than Fail, Strong Pass is better than Pass
-    
-    // Scoring weights (more negative = worse, more positive = better):
-    const weights = {
-      clearFail: -15000,    // Worst possible score
-      fail: -10000,         // Bad but not as bad as Clear Fail
-      mixed: -200,          // Slightly worse than Partial
-      partial: -100,        // Mediocre
-      pass: 10,             // Good
-      strongPass: 20        // Best possible score
+    // Overall rating ranks (primary sort key)
+    const overallRank = {
+      "Clear Fail": 0,
+      "Failing": 1,
+      "Fail": 1,
+      "Partial": 2,
+      "Pass": 3,
+      "Full Pass": 4,
+      "Strong Pass": 4
     };
-    
-    return (
-      pillarCounts.clearFail * weights.clearFail +
-      pillarCounts.fail * weights.fail +
-      pillarCounts.mixed * weights.mixed +
-      pillarCounts.partial * weights.partial +
-      pillarCounts.pass * weights.pass +
-      pillarCounts.strongPass * weights.strongPass
+
+    // Get overall rating from JSON and normalize
+    let overall = profile.overall_rating;
+    if (overall === "Full Pass") overall = "Strong Pass";
+    if (overall === "Failing") overall = "Fail";
+
+    const rank = overallRank[overall] !== undefined ? overallRank[overall] : -99;
+
+    // Compute pillar-weighted score (secondary sort key - tiebreaker)
+    const pillarScore = (
+      3 * pillarCounts.strongPass +
+      2 * pillarCounts.pass +
+      1 * (pillarCounts.partial + pillarCounts.mixed) +
+      (-2) * pillarCounts.fail +
+      (-5) * pillarCounts.clearFail
     );
+
+    // Return composite score: rank * 10000 + pillarScore
+    // This ensures overall rating dominates, pillar score breaks ties
+    return rank * 10000 + pillarScore;
   };
   
   const sortingScore = calculateSortingScore();
