@@ -19,9 +19,9 @@ const ProfileCard = ({
       case 'Pass':
         return { color: 'green', icon: '🟢', text: 'Pass', hexColor: '#4CAF50' };
       case 'Partial':
-        return { color: 'yellow', icon: '⚠️', text: 'Partial', hexColor: '#f59e0b' };
+        return { color: 'yellow', icon: '⚠️', text: 'Partial', hexColor: '#d97706' };
       case 'Fail':
-        return { color: 'red', icon: '❌', text: 'Fail', hexColor: '#ef4444' };
+        return { color: 'red', icon: '❌', text: 'Fail', hexColor: '#dc2626' };
       case 'Strong Fail':
         return { color: 'darkred', icon: '❌❌', text: 'Strong Fail', hexColor: '#8B0000' };
       default:
@@ -112,22 +112,25 @@ const ProfileCard = ({
               const icon = isPass ? '✅' : isPartial ? '⚠️' : '❌';
               
               return (
-                <details key={pillarIndex} className="group">
-                  <summary className={`cursor-pointer p-3 rounded-lg border-l-4 ${borderColor} hover:shadow-sm transition-shadow duration-200`}>
-                    <div className="flex items-center justify-between">
-                      <span className="font-medium text-gray-800">{pillar.pillar || pillar.title || pillar.name}</span>
-                      <span className={`text-sm font-medium ${textColor}`}>
-                        {icon} {assessment}
-                        <ChevronDown className="inline ml-1 group-open:rotate-180 transition-transform duration-200" size={16} />
-                      </span>
-                    </div>
-                  </summary>
-                  <div className="mt-2 p-3 bg-white rounded border-l-4 border-gray-200">
-                    <p className="text-gray-700 text-sm">{pillar.evidence}</p>
+                <div key={pillarIndex} className={`p-3 rounded-lg border-l-4 ${borderColor}`}>
+                  {/* Top line: Pillar title and score */}
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-medium text-gray-800">{pillar.pillar || pillar.title || pillar.name}</span>
+                    <span className={`text-sm font-medium ${textColor}`}>
+                      {icon} {assessment}
+                    </span>
                   </div>
-                </details>
+                  {/* Second line: Evidence text */}
+                  <p className="text-gray-700 text-sm leading-relaxed">{pillar.evidence}</p>
+                </div>
               );
             })}
+            {/* 
+            NOTE: Expand/collapse functionality removed as all pillar information is now visible.
+            If additional detailed information is added to individual pillars in the future,
+            consider restoring the <details>/<summary> structure with ChevronDown icons
+            to allow users to expand/collapse for more detailed pillar analysis.
+            */}
           </div>
         </div>
       )}
