@@ -29,25 +29,6 @@ const ProfileCard = ({
     }
   };
   
-  // Helper function to map JSON ratings to simplified 3-level system
-  const getSimplifiedRating = (rating) => {
-    switch (rating) {
-      case 'Full Pass':
-      case 'Strong Pass':
-      case 'Pass':
-        return 'Pass';
-      case 'Mixed':
-      case 'Partial':
-        return 'Partial';
-      case 'Failing':
-      case 'Clear Fail':
-      case 'Fail':
-        return 'Fail';
-      default:
-        return 'Unknown';
-    }
-  };
-  
   const statusDisplay = getStatusDisplay(overallRating);
 
   return (

@@ -3,49 +3,36 @@ import { TrendingDown, TrendingUp, CheckCircle } from 'lucide-react';
 // import { calculateGroupStatistics } from '../utils/mmrV8Calculations';
 
 const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
-  // Calculate statistics from overall_rating field using simplified 3-level system
+  // Calculate statistics from status field using the correct 5-level system
   const stats = React.useMemo(() => {
     if (!figures || figures.length === 0) {
       return {
         total: 0,
+        strongPass: 0,
         pass: 0,
         partial: 0,
         fail: 0,
+        clearFail: 0,
         passRate: 0
       };
     }
 
     const counts = {
       total: figures.length,
+      strongPass: 0,
       pass: 0,
       partial: 0,
-      fail: 0
-    };
-
-    // Helper function to map JSON ratings to simplified 3-level system
-    const getSimplifiedRating = (rating) => {
-      switch (rating) {
-        case 'Full Pass':
-        case 'Strong Pass':
-        case 'Pass':
-          return 'Pass';
-        case 'Mixed':
-        case 'Partial':
-          return 'Partial';
-        case 'Failing':
-        case 'Clear Fail':
-        case 'Fail':
-          return 'Fail';
-        default:
-          return 'Unknown';
-      }
+      fail: 0,
+      clearFail: 0
     };
 
     figures.forEach(figure => {
       const rating = figure.status || "Unknown";
-      const simplified = getSimplifiedRating(rating);
       
-      switch (simplified) {
+      switch (rating) {
+        case "Strong Pass":
+          counts.strongPass++;
+          break;
         case "Pass":
           counts.pass++;
           break;
@@ -55,11 +42,15 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
         case "Fail":
           counts.fail++;
           break;
+        case "Clear Fail":
+          counts.clearFail++;
+          break;
       }
     });
 
-    // Calculate pass rate
-    counts.passRate = Math.round((counts.pass / counts.total) * 100);
+    // Calculate pass rate (Strong Pass + Pass)
+    const totalPassing = counts.strongPass + counts.pass;
+    counts.passRate = Math.round((totalPassing / counts.total) * 100);
 
     return counts;
   }, [figures]);
