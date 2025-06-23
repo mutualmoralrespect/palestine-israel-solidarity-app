@@ -114,34 +114,134 @@ export const getOverallStats = () => {
 };
 
 /**
- * Get category groups from JSON database with counts
+ * Get category groups from JSON database with counts and smart filtering
  */
-export const getCategoryGroups = () => {
+export const getCategoryGroups = (filterByStatus = null) => {
   const stats = getCategoryStats();
   const overallStats = getOverallStats();
   const categoryGroups = mmrDatabase.navigation.category_groups;
   
-  // Transform JSON category groups to component format with counts and icons
-  return categoryGroups.map(group => {
+  // Get actual profile counts based on current data and filtering
+  const getActualCounts = () => {
+    const figures = transformCategories();
+    const actualStats = {};
+    let totalCount = 0;
+    let unsortedCount = 0;
+    
+    // Count profiles in each category
+    Object.keys(figures).forEach(categoryId => {
+      let categoryFigures = figures[categoryId] || [];
+      
+      // Apply status filter if specified
+      if (filterByStatus) {
+        const getSimplifiedRating = (rating) => {
+          switch (rating) {
+            case 'Full Pass':
+            case 'Strong Pass':
+            case 'Pass':
+              return 'Pass';
+            case 'Mixed':
+            case 'Partial':
+              return 'Partial';
+            case 'Failing':
+            case 'Clear Fail':
+            case 'Fail':
+              return 'Fail';
+            default:
+              return 'Unknown';
+          }
+        };
+        
+        categoryFigures = categoryFigures.filter(figure => {
+          const simplified = getSimplifiedRating(figure.status);
+          return simplified === filterByStatus;
+        });
+      }
+      
+      actualStats[categoryId] = categoryFigures.length;
+      totalCount += categoryFigures.length;
+    });
+    
+    // Check for unsorted profiles (profiles with categories not in our navigation)
+    const allDefinedCategories = new Set();
+    categoryGroups.forEach(group => {
+      group.categories.forEach(cat => {
+        allDefinedCategories.add(cat.id);
+      });
+    });
+    
+    // Count profiles in categories not defined in navigation
+    Object.keys(figures).forEach(categoryId => {
+      if (!allDefinedCategories.has(categoryId)) {
+        let categoryFigures = figures[categoryId] || [];
+        
+        // Apply status filter if specified
+        if (filterByStatus) {
+          const getSimplifiedRating = (rating) => {
+            switch (rating) {
+              case 'Full Pass':
+              case 'Strong Pass':
+              case 'Pass':
+                return 'Pass';
+              case 'Mixed':
+              case 'Partial':
+                return 'Partial';
+              case 'Failing':
+              case 'Clear Fail':
+              case 'Fail':
+                return 'Fail';
+              default:
+                return 'Unknown';
+            }
+          };
+          
+          categoryFigures = categoryFigures.filter(figure => {
+            const simplified = getSimplifiedRating(figure.status);
+            return simplified === filterByStatus;
+          });
+        }
+        
+        unsortedCount += categoryFigures.length;
+      }
+    });
+    
+    return { actualStats, totalCount, unsortedCount };
+  };
+  
+  const { actualStats, totalCount, unsortedCount } = getActualCounts();
+  
+  // Transform JSON category groups to component format with smart filtering
+  const processedGroups = categoryGroups.map(group => {
     // Special handling for "All Categories" to show total count
     if (group.id === 'all') {
       return {
         id: group.id,
         label: group.label,
         icon: iconMap[group.icon] || Users,
-        count: overallStats.total_figures,
-        categories: group.categories.map(category => ({
-          id: category.id,
-          label: category.label,
-          icon: iconMap[category.icon] || Users,
-          count: stats[category.id]?.total || 0
-        }))
+        count: totalCount,
+        categories: group.categories
+          .map(category => ({
+            id: category.id,
+            label: category.label,
+            icon: iconMap[category.icon] || Users,
+            count: actualStats[category.id] || 0
+          }))
+          .filter(category => category.count > 0) // Hide categories with 0 profiles
       };
     }
     
-    // For other groups, calculate total from their categories
-    const groupTotal = group.categories.reduce((total, category) => {
-      return total + (stats[category.id]?.total || 0);
+    // For other groups, calculate total from their categories and filter empty ones
+    const filteredCategories = group.categories
+      .map(category => ({
+        id: category.id,
+        label: category.label,
+        icon: iconMap[category.icon] || Users,
+        count: actualStats[category.id] || 0
+      }))
+      .filter(category => category.count > 0); // Hide categories with 0 profiles
+    
+    const groupTotal = filteredCategories.reduce((total, category) => {
+      return total + category.count;
     }, 0);
     
     return {
@@ -149,13 +249,29 @@ export const getCategoryGroups = () => {
       label: group.label,
       icon: iconMap[group.icon] || Users,
       count: groupTotal,
-      categories: group.categories.map(category => ({
-        id: category.id,
-        label: category.label,
-        icon: iconMap[category.icon] || Users,
-        count: stats[category.id]?.total || 0
-      }))
+      categories: filteredCategories
     };
+  })
+  .filter(group => {
+    // Hide groups that have no categories with profiles (except "All Categories")
+    return group.id === 'all' || group.categories.length > 0;
   });
+  
+  // Add Unsorted category if there are unsorted profiles
+  if (unsortedCount > 0) {
+    // Add Unsorted as a standalone category in the "All Categories" group
+    const allCategoriesGroup = processedGroups.find(group => group.id === 'all');
+    if (allCategoriesGroup) {
+      allCategoriesGroup.categories.push({
+        id: 'Unsorted',
+        label: 'Unsorted Profiles',
+        icon: FileText,
+        count: unsortedCount
+      });
+      allCategoriesGroup.count += unsortedCount;
+    }
+  }
+  
+  return processedGroups;
 };
 
