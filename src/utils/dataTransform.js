@@ -17,26 +17,25 @@ const iconMap = {
  * Transform database profile format to component format
  */
 export const transformProfile = (profile) => {
-  // Map overall ratings to status
-  // Map JSON overall_rating to display format with updated emojis
+  // Map JSON overall_rating to display values with updated colors
   const statusMap = {
-    'Full Pass': 'Strong Pass',  // Change Full Pass to Strong Pass in display
-    'Strong Pass': 'Strong Pass',
+    'Full Pass': 'Strong Pass',
+    'Strong Pass': 'Strong Pass', 
     'Pass': 'Pass',
     'Partial': 'Partial',
     'Mixed': 'Partial',
     'Failing': 'Fail',
     'Fail': 'Fail',
-    'Clear Fail': 'Clear Fail'
+    'Clear Fail': 'Strong Fail'
   };
-  
-  // Map status to colors
+
+  // Updated 5-level color mapping
   const colorMap = {
-    'Strong Pass': 'green',
-    'Pass': 'green',
-    'Partial': 'yellow',
-    'Fail': 'red',
-    'Clear Fail': 'red'
+    'Strong Pass': '#00796B',    // Darker Green/Teal
+    'Pass': '#4CAF50',           // Medium Green
+    'Partial': '#FFC107',        // Gold/Amber
+    'Fail': '#E53935',           // Bright Red
+    'Strong Fail': '#8B0000'     // Dark Red
   };
   
   // Map pillar assessments to colors
@@ -97,7 +96,8 @@ export const transformProfile = (profile) => {
   const calculateSortingScore = () => {
     // Overall rating ranks (primary sort key)
     const overallRank = {
-      "Clear Fail": 0,
+      "Strong Fail": 0,
+      "Clear Fail": 0,  // Legacy support
       "Failing": 1,
       "Fail": 1,
       "Partial": 2,
@@ -140,7 +140,7 @@ export const transformProfile = (profile) => {
         return `🏁 Overall MMR Alignment: ⚠️ ${status}`;
       case 'Fail':
         return `🏁 Overall MMR Alignment: ❌ ${status}`;
-      case 'Clear Fail':
+      case 'Strong Fail':
         return `🏁 Overall MMR Alignment: ❌❌ ${status}`;
       default:
         return `🏁 Overall MMR Alignment: ⚠️ ${status}`;

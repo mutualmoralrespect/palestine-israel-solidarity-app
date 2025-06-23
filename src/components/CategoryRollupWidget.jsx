@@ -12,7 +12,7 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
         pass: 0,
         partial: 0,
         fail: 0,
-        clearFail: 0,
+        strongFail: 0,
         passRate: 0
       };
     }
@@ -23,7 +23,7 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
       pass: 0,
       partial: 0,
       fail: 0,
-      clearFail: 0
+      strongFail: 0
     };
 
     figures.forEach(figure => {
@@ -42,8 +42,8 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
         case "Fail":
           counts.fail++;
           break;
-        case "Clear Fail":
-          counts.clearFail++;
+        case "Strong Fail":
+          counts.strongFail++;
           break;
       }
     });
@@ -92,46 +92,83 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
         </div>
       </div>
 
-      {/* Progress Bar - Simplified 3-level system */}
+      {/* Progress Bar - 5-level system with updated colors */}
       <div className="mb-3">
         <div className="flex h-3 rounded-full overflow-hidden bg-gray-200">
-          {/* Fail section (red, leftmost) */}
+          {/* Strong Fail section (dark red, leftmost) */}
+          {stats.strongFail > 0 && (
+            <div 
+              className="bg-red-900" 
+              style={{ 
+                width: `${(stats.strongFail / stats.total) * 100}%`,
+                backgroundColor: '#8B0000'
+              }}
+            />
+          )}
+          {/* Fail section (bright red) */}
           {stats.fail > 0 && (
             <div 
               className="bg-red-500" 
-              style={{ width: `${(stats.fail / stats.total) * 100}%` }}
+              style={{ 
+                width: `${(stats.fail / stats.total) * 100}%`,
+                backgroundColor: '#E53935'
+              }}
             />
           )}
-          {/* Partial section (yellow) */}
+          {/* Partial section (gold/amber) */}
           {stats.partial > 0 && (
             <div 
               className="bg-yellow-500" 
-              style={{ width: `${(stats.partial / stats.total) * 100}%` }}
+              style={{ 
+                width: `${(stats.partial / stats.total) * 100}%`,
+                backgroundColor: '#FFC107'
+              }}
             />
           )}
-          {/* Pass section (green, rightmost) */}
+          {/* Pass section (medium green) */}
           {stats.pass > 0 && (
             <div 
-              className="bg-green-600" 
-              style={{ width: `${(stats.pass / stats.total) * 100}%` }}
+              className="bg-green-500" 
+              style={{ 
+                width: `${(stats.pass / stats.total) * 100}%`,
+                backgroundColor: '#4CAF50'
+              }}
+            />
+          )}
+          {/* Strong Pass section (dark green/teal, rightmost) */}
+          {stats.strongPass > 0 && (
+            <div 
+              className="bg-teal-700" 
+              style={{ 
+                width: `${(stats.strongPass / stats.total) * 100}%`,
+                backgroundColor: '#00796B'
+              }}
             />
           )}
         </div>
       </div>
 
-      {/* Statistics - Simplified 3-level system */}
-      <div className="flex justify-between text-sm">
+      {/* Statistics - 5-level system */}
+      <div className="grid grid-cols-5 gap-2 text-xs">
         <div className="flex items-center gap-1">
-          <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+          <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#8B0000' }}></div>
+          <span>{stats.strongFail} Strong Fail</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#E53935' }}></div>
           <span>{stats.fail} Fail</span>
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+          <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#FFC107' }}></div>
           <span>{stats.partial} Partial</span>
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-3 h-3 bg-green-600 rounded-full"></div>
+          <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#4CAF50' }}></div>
           <span>{stats.pass} Pass</span>
+        </div>
+        <div className="flex items-center gap-1">
+          <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#00796B' }}></div>
+          <span>{stats.strongPass} Strong Pass</span>
         </div>
       </div>
     </div>
