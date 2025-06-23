@@ -115,13 +115,13 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
               }}
             />
           )}
-          {/* Partial section (amber) */}
+          {/* Partial section (yellow) */}
           {stats.partial > 0 && (
             <div 
               className="bg-yellow-500" 
               style={{ 
                 width: `${(stats.partial / stats.total) * 100}%`,
-                backgroundColor: '#d97706'
+                backgroundColor: '#eab308'
               }}
             />
           )}
@@ -159,7 +159,7 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
           <span>{stats.fail} Fail</span>
         </div>
         <div className="flex items-center gap-1">
-          <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#d97706' }}></div>
+          <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#eab308' }}></div>
           <span>{stats.partial} Partial</span>
         </div>
         <div className="flex items-center gap-1">

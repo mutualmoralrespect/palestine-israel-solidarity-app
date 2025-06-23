@@ -19,7 +19,7 @@ const ProfileCard = ({
       case 'Pass':
         return { color: 'green', icon: '🟢', text: 'Pass', hexColor: '#4CAF50' };
       case 'Partial':
-        return { color: 'yellow', icon: '⚠️', text: 'Partial', hexColor: '#d97706' };
+        return { color: 'yellow', icon: '⚠️', text: 'Partial', hexColor: '#eab308' };
       case 'Fail':
         return { color: 'red', icon: '❌', text: 'Fail', hexColor: '#dc2626' };
       case 'Strong Fail':
