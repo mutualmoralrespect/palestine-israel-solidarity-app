@@ -18,7 +18,7 @@ const ProfileGrid = ({
 
   // Calculate score for sorting using simplified 3-level system
   const calculateScore = (figure) => {
-    if (!figure.overall_rating) return 0;
+    if (!figure.status) return 0;
     
     // Helper function to map JSON ratings to simplified 3-level system
     const getSimplifiedRating = (rating) => {
@@ -40,7 +40,7 @@ const ProfileGrid = ({
     };
     
     // Convert simplified rating to numeric scores for sorting
-    const simplified = getSimplifiedRating(figure.overall_rating);
+    const simplified = getSimplifiedRating(figure.status);
     switch (simplified) {
       case "Pass": return 3;
       case "Partial": return 2;

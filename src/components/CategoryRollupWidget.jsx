@@ -42,7 +42,7 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
     };
 
     figures.forEach(figure => {
-      const rating = figure.overall_rating || "Unknown";
+      const rating = figure.status || "Unknown";
       const simplified = getSimplifiedRating(rating);
       
       switch (simplified) {

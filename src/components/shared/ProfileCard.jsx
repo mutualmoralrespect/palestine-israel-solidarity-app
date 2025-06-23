@@ -8,8 +8,8 @@ const ProfileCard = ({
   isExpanded, 
   onToggleExpansion 
 }) => {
-  // Use overall_rating from JSON data instead of calculated MMR v8 outcome
-  const overallRating = figure.overall_rating || "Unknown";
+  // Use status from transformed data instead of overall_rating from raw JSON
+  const overallRating = figure.status || "Unknown";
   
   // Determine status display based on simplified 3-level system
   const getStatusDisplay = (rating) => {
