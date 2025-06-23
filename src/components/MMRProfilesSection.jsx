@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import CategoryNavigation from './shared/CategoryNavigation';
 import ProfileGrid from './shared/ProfileGrid';
 import CategoryRollupWidget from './CategoryRollupWidget';
@@ -32,6 +32,7 @@ const MMRProfilesSection = ({
   bgColor = "bg-gray-50"
 }) => {
   const [activeCategory, setActiveCategory] = useState('All');
+  const profileGridRef = useRef(null);
 
   // Load data from JSON file
   const figures = useMemo(() => transformCategories(), []);
@@ -203,6 +204,16 @@ const MMRProfilesSection = ({
 
   const handleCategoryChange = (category) => {
     setActiveCategory(category);
+    
+    // Scroll to profile grid after a short delay to allow state update
+    setTimeout(() => {
+      if (profileGridRef.current) {
+        profileGridRef.current.scrollIntoView({ 
+          behavior: 'smooth', 
+          block: 'start' 
+        });
+      }
+    }, 100);
   };
 
   // Create category rollup widget if showing rollup
@@ -235,11 +246,13 @@ const MMRProfilesSection = ({
         />
 
         {/* Profile Grid with optional rollup */}
-        <ProfileGrid
-          figures={filteredFigures}
-          title={getCategoryDisplayName(activeCategory, categoryGroups)}
-          categoryRollupWidget={categoryRollupWidget}
-        />
+        <div ref={profileGridRef}>
+          <ProfileGrid
+            figures={filteredFigures}
+            title={getCategoryDisplayName(activeCategory, categoryGroups)}
+            categoryRollupWidget={categoryRollupWidget}
+          />
+        </div>
       </div>
     </div>
   );

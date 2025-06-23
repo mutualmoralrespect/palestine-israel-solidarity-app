@@ -17,22 +17,25 @@ const iconMap = {
  * Transform database profile format to component format
  */
 export const transformProfile = (profile) => {
-  // Map overall ratings to status
+  // Map JSON overall_rating to display values with updated colors
   const statusMap = {
-    'Full Pass': 'Full Pass',
-    'Pass': 'Pass', 
+    'Full Pass': 'Strong Pass',
+    'Strong Pass': 'Strong Pass', 
+    'Pass': 'Pass',
     'Partial': 'Partial',
-    'Failing': 'Failing',
-    'Clear Fail': 'Clear Fail'
+    'Mixed': 'Partial',
+    'Failing': 'Fail',
+    'Fail': 'Fail',
+    'Clear Fail': 'Strong Fail'
   };
-  
-  // Map status to colors
+
+  // Updated 5-level color mapping
   const colorMap = {
-    'Full Pass': 'green',
-    'Pass': 'green',
-    'Partial': 'yellow', 
-    'Failing': 'red',
-    'Clear Fail': 'red'
+    'Strong Pass': '#00796B',    // Darker Green/Teal
+    'Pass': '#4CAF50',           // Medium Green
+    'Partial': '#FFC107',        // Gold/Amber
+    'Fail': '#E53935',           // Bright Red
+    'Strong Fail': '#8B0000'     // Dark Red
   };
   
   // Map pillar assessments to colors
@@ -56,16 +59,91 @@ export const transformProfile = (profile) => {
     evidence: pillar.evidence
   }));
   
-  // Generate overall assessment text
+  // Calculate pillar score breakdown for sorting only (doesn't affect display)
+  const pillarCounts = {
+    strongPass: 0,
+    pass: 0,
+    partial: 0,
+    mixed: 0,
+    fail: 0,
+    clearFail: 0
+  };
+  
+  profile.pillars.forEach(pillar => {
+    switch (pillar.assessment) {
+      case 'Strong Pass':
+        pillarCounts.strongPass++;
+        break;
+      case 'Pass':
+        pillarCounts.pass++;
+        break;
+      case 'Partial':
+        pillarCounts.partial++;
+        break;
+      case 'Mixed':
+        pillarCounts.mixed++;
+        break;
+      case 'Fail':
+        pillarCounts.fail++;
+        break;
+      case 'Clear Fail':
+        pillarCounts.clearFail++;
+        break;
+    }
+  });
+  
+  // Calculate sorting score using two-tier system: overall rating first, then pillar breakdown
+  const calculateSortingScore = () => {
+    // Overall rating ranks (primary sort key)
+    const overallRank = {
+      "Strong Fail": 0,
+      "Clear Fail": 0,  // Legacy support
+      "Failing": 1,
+      "Fail": 1,
+      "Partial": 2,
+      "Pass": 3,
+      "Full Pass": 4,
+      "Strong Pass": 4
+    };
+
+    // Get overall rating from JSON and normalize
+    let overall = profile.overall_rating;
+    if (overall === "Full Pass") overall = "Strong Pass";
+    if (overall === "Failing") overall = "Fail";
+
+    const rank = overallRank[overall] !== undefined ? overallRank[overall] : -99;
+
+    // Compute pillar-weighted score (secondary sort key - tiebreaker)
+    const pillarScore = (
+      3 * pillarCounts.strongPass +
+      2 * pillarCounts.pass +
+      1 * (pillarCounts.partial + pillarCounts.mixed) +
+      (-2) * pillarCounts.fail +
+      (-5) * pillarCounts.clearFail
+    );
+
+    // Return composite score: rank * 10000 + pillarScore
+    // This ensures overall rating dominates, pillar score breaks ties
+    return rank * 10000 + pillarScore;
+  };
+  
+  const sortingScore = calculateSortingScore();
+  
+  // Generate overall assessment text with updated emojis
   const getOverallText = (status) => {
     switch(status) {
-      case 'Full Pass':
-      case 'Pass':
+      case 'Strong Pass':
         return `🏁 Overall MMR Alignment: ✅ ${status}`;
+      case 'Pass':
+        return `🏁 Overall MMR Alignment: 🟢 ${status}`;
       case 'Partial':
         return `🏁 Overall MMR Alignment: ⚠️ ${status}`;
-      default:
+      case 'Fail':
         return `🏁 Overall MMR Alignment: ❌ ${status}`;
+      case 'Strong Fail':
+        return `🏁 Overall MMR Alignment: ❌❌ ${status}`;
+      default:
+        return `🏁 Overall MMR Alignment: ⚠️ ${status}`;
     }
   };
   
@@ -77,7 +155,8 @@ export const transformProfile = (profile) => {
     icon: Users, // Default icon, can be customized per category
     overall: getOverallText(status),
     reflection: profile.reflection,
-    pillars: transformedPillars
+    pillars: transformedPillars,
+    sortingScore: sortingScore  // For sorting only, doesn't affect display
   };
 };
 

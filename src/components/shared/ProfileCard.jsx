@@ -11,39 +11,21 @@ const ProfileCard = ({
   // Use status from transformed data instead of overall_rating from raw JSON
   const overallRating = figure.status || "Unknown";
   
-  // Determine status display based on simplified 3-level system
+  // Determine status display with updated colors
   const getStatusDisplay = (rating) => {
-    // Simplify to 3 categories
-    const simplifiedRating = getSimplifiedRating(rating);
-    
-    switch (simplifiedRating) {
+    switch (rating) {
+      case 'Strong Pass':
+        return { color: 'teal', icon: '✅', text: 'Strong Pass', hexColor: '#00796B' };
       case 'Pass':
-        return { color: 'green', icon: '✅', text: 'Pass', hexColor: '#16a34a' };
+        return { color: 'green', icon: '🟢', text: 'Pass', hexColor: '#4CAF50' };
       case 'Partial':
-        return { color: 'yellow', icon: '🟡', text: 'Partial', hexColor: '#f59e0b' };
+        return { color: 'yellow', icon: '⚠️', text: 'Partial', hexColor: '#eab308' };
       case 'Fail':
-        return { color: 'red', icon: '❌', text: 'Fail', hexColor: '#ef4444' };
+        return { color: 'red', icon: '❌', text: 'Fail', hexColor: '#dc2626' };
+      case 'Strong Fail':
+        return { color: 'darkred', icon: '❌❌', text: 'Strong Fail', hexColor: '#8B0000' };
       default:
         return { color: 'gray', icon: '❓', text: 'Unknown', hexColor: '#6b7280' };
-    }
-  };
-  
-  // Helper function to map JSON ratings to simplified 3-level system
-  const getSimplifiedRating = (rating) => {
-    switch (rating) {
-      case 'Full Pass':
-      case 'Strong Pass':
-      case 'Pass':
-        return 'Pass';
-      case 'Mixed':
-      case 'Partial':
-        return 'Partial';
-      case 'Failing':
-      case 'Clear Fail':
-      case 'Fail':
-        return 'Fail';
-      default:
-        return 'Unknown';
     }
   };
   
@@ -69,11 +51,10 @@ const ProfileCard = ({
             <p className="text-gray-600">{figure.role || figure.title}</p>
           </div>
           <div className="flex items-center gap-3">
-            <div className={`px-3 py-1 rounded-full text-sm font-medium ${
-              statusDisplay.color === 'green' ? 'bg-green-100 text-green-800' :
-              statusDisplay.color === 'yellow' ? 'bg-yellow-100 text-yellow-800' :
-              'bg-red-100 text-red-800'
-            }`}>
+            <div 
+              className="px-3 py-1 rounded-full text-sm font-medium text-white"
+              style={{ backgroundColor: statusDisplay.hexColor }}
+            >
               {statusDisplay.icon} {statusDisplay.text}
             </div>
             <ChevronDown 
@@ -87,7 +68,8 @@ const ProfileCard = ({
       {/* Card Details - Collapsible */}
       {isExpanded && (
         <div className="px-6 pb-6 border-t border-gray-100">
-          {/* Overall Assessment Section - Now shows simplified 3-level rating */}
+          {/* Overall Assessment Section - COMMENTED OUT (redundant with header display)
+             Uncomment for debugging when changing scoring algorithms 
           <div className="mt-4 mb-6 p-4 bg-gray-50 rounded-lg border">
             <h4 className="font-semibold text-gray-800 mb-2">Overall MMR Assessment</h4>
             <div className={`text-lg font-medium ${
@@ -101,6 +83,7 @@ const ProfileCard = ({
               Simplified 3-level system | Original: {overallRating}
             </div>
           </div>
+          */}
 
           {/* Reflection Section */}
           {figure.reflection && (
@@ -113,31 +96,41 @@ const ProfileCard = ({
           {/* Detailed Pillar Breakdown */}
           <div className="space-y-2">
             <h4 className="font-semibold text-gray-800 mb-3">Detailed Pillar Analysis</h4>
-            {figure.pillars.map((pillar, pillarIndex) => (
-              <details key={pillarIndex} className="group">
-                <summary className={`cursor-pointer p-3 rounded-lg border-l-4 ${
-                  (pillar.assessment || pillar.status)?.includes('Pass') || (pillar.assessment || pillar.status) === 'Strong' ? 'border-green-500 bg-green-50' :
-                  (pillar.assessment || pillar.status)?.includes('Partial') || (pillar.assessment || pillar.status)?.includes('Mixed') ? 'border-yellow-500 bg-yellow-50' :
-                  'border-red-500 bg-red-50'
-                } hover:shadow-sm transition-shadow duration-200`}>
-                  <div className="flex items-center justify-between">
+            {figure.pillars && figure.pillars.map((pillar, pillarIndex) => {
+              const assessment = pillar.assessment || pillar.status || 'Unknown';
+              const isPass = assessment.includes('Pass') || assessment === 'Strong';
+              const isPartial = assessment.includes('Partial') || assessment.includes('Mixed');
+              
+              const borderColor = isPass ? 'border-green-500 bg-green-50' : 
+                                 isPartial ? 'border-yellow-500 bg-yellow-50' : 
+                                 'border-red-500 bg-red-50';
+              
+              const textColor = isPass ? 'text-green-600' : 
+                               isPartial ? 'text-yellow-600' : 
+                               'text-red-600';
+              
+              const icon = isPass ? '✅' : isPartial ? '⚠️' : '❌';
+              
+              return (
+                <div key={pillarIndex} className={`p-3 rounded-lg border-l-4 ${borderColor}`}>
+                  {/* Top line: Pillar title and score */}
+                  <div className="flex items-center justify-between mb-2">
                     <span className="font-medium text-gray-800">{pillar.pillar || pillar.title || pillar.name}</span>
-                    <span className={`text-sm font-medium ${
-                      (pillar.assessment || pillar.status)?.includes('Pass') || (pillar.assessment || pillar.status) === 'Strong' ? 'text-green-600' :
-                      (pillar.assessment || pillar.status)?.includes('Partial') || (pillar.assessment || pillar.status)?.includes('Mixed') ? 'text-yellow-600' :
-                      'text-red-600'
-                    }`}>
-                      {(pillar.assessment || pillar.status)?.includes('Pass') || (pillar.assessment || pillar.status) === 'Strong' ? '✅' :
-                       (pillar.assessment || pillar.status)?.includes('Partial') || (pillar.assessment || pillar.status)?.includes('Mixed') ? '⚠️' : '❌'} {pillar.assessment || pillar.status}
-                      <ChevronDown className="inline ml-1 group-open:rotate-180 transition-transform duration-200" size={16} />
+                    <span className={`text-sm font-medium ${textColor}`}>
+                      {icon} {assessment}
                     </span>
                   </div>
-                </summary>
-                <div className="mt-2 p-3 bg-white rounded border-l-4 border-gray-200">
-                  <p className="text-gray-700 text-sm">{pillar.evidence}</p>
+                  {/* Second line: Evidence text */}
+                  <p className="text-gray-700 text-sm leading-relaxed">{pillar.evidence}</p>
                 </div>
-              </details>
-            ))}
+              );
+            })}
+            {/* 
+            NOTE: Expand/collapse functionality removed as all pillar information is now visible.
+            If additional detailed information is added to individual pillars in the future,
+            consider restoring the <details>/<summary> structure with ChevronDown icons
+            to allow users to expand/collapse for more detailed pillar analysis.
+            */}
           </div>
         </div>
       )}
