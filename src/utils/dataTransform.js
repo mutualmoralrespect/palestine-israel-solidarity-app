@@ -56,6 +56,57 @@ export const transformProfile = (profile) => {
     evidence: pillar.evidence
   }));
   
+  // Calculate pillar score breakdown for sorting only (doesn't affect display)
+  const pillarCounts = {
+    strongPass: 0,
+    pass: 0,
+    partial: 0,
+    mixed: 0,
+    fail: 0,
+    clearFail: 0
+  };
+  
+  profile.pillars.forEach(pillar => {
+    switch (pillar.assessment) {
+      case 'Strong Pass':
+        pillarCounts.strongPass++;
+        break;
+      case 'Pass':
+        pillarCounts.pass++;
+        break;
+      case 'Partial':
+        pillarCounts.partial++;
+        break;
+      case 'Mixed':
+        pillarCounts.mixed++;
+        break;
+      case 'Fail':
+        pillarCounts.fail++;
+        break;
+      case 'Clear Fail':
+        pillarCounts.clearFail++;
+        break;
+    }
+  });
+  
+  // Calculate sorting score based on pillar composition
+  // Logic: fewer fails = better, fewer partials = better, more passes = better
+  // Use a multi-tier scoring system for accurate sorting
+  const calculateSortingScore = () => {
+    const totalFails = pillarCounts.fail + pillarCounts.clearFail;
+    const totalPartials = pillarCounts.partial + pillarCounts.mixed;
+    const totalPasses = pillarCounts.strongPass + pillarCounts.pass;
+    
+    // Create a composite score: 
+    // - Fails are most important (multiply by 10000 to ensure they dominate)
+    // - Partials are second (multiply by 100)
+    // - Passes are least important but positive (multiply by 1)
+    // Lower scores are better for fails/partials, higher scores are better for passes
+    return (totalFails * -10000) + (totalPartials * -100) + (totalPasses * 1);
+  };
+  
+  const sortingScore = calculateSortingScore();
+  
   // Generate overall assessment text
   const getOverallText = (status) => {
     switch(status) {
@@ -77,7 +128,8 @@ export const transformProfile = (profile) => {
     icon: Users, // Default icon, can be customized per category
     overall: getOverallText(status),
     reflection: profile.reflection,
-    pillars: transformedPillars
+    pillars: transformedPillars,
+    sortingScore: sortingScore  // For sorting only, doesn't affect display
   };
 };
 

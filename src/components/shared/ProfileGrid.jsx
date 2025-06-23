@@ -16,37 +16,11 @@ const ProfileGrid = ({
   const [expandedCards, setExpandedCards] = useState(new Set());
   const [allExpanded, setAllExpanded] = useState(false);
 
-  // Calculate score for sorting using simplified 3-level system
+  // Calculate score for sorting based on pillar composition
   const calculateScore = (figure) => {
-    if (!figure.status) return 0;
-    
-    // Helper function to map JSON ratings to simplified 3-level system
-    const getSimplifiedRating = (rating) => {
-      switch (rating) {
-        case 'Full Pass':
-        case 'Strong Pass':
-        case 'Pass':
-          return 'Pass';
-        case 'Mixed':
-        case 'Partial':
-          return 'Partial';
-        case 'Failing':
-        case 'Clear Fail':
-        case 'Fail':
-          return 'Fail';
-        default:
-          return 'Unknown';
-      }
-    };
-    
-    // Convert simplified rating to numeric scores for sorting
-    const simplified = getSimplifiedRating(figure.status);
-    switch (simplified) {
-      case "Pass": return 3;
-      case "Partial": return 2;
-      case "Fail": return 1;
-      default: return 0;
-    }
+    // Use the sortingScore calculated during data transformation
+    // Higher scores are better (more passes, fewer fails/partials)
+    return figure.sortingScore || 0;
   };
 
   // Process figures with search and sort
