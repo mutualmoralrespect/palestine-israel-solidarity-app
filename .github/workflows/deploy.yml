@@ -44,7 +44,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./palestine-solidarity-app
-        run: pnpm install --no-frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Run ESLint
         working-directory: ./palestine-solidarity-app
