@@ -44,12 +44,8 @@ jobs:
             
       - name: Install dependencies
         working-directory: ./palestine-solidarity-app
-        run: |
-          if [ -f "pnpm-lock.yaml" ]; then
-            pnpm install --frozen-lockfile
-          else
-            pnpm install --no-frozen-lockfile
-          fi
+        run: pnpm install --no-frozen-lockfile
+    
         
       - name: Run ESLint (allow warnings)
         working-directory: ./palestine-solidarity-app
