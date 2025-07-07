@@ -1,4 +1,4 @@
-name: Test and Deploy React App
+name: Test and Deploy React App to S3
 
 on:
   push:
@@ -45,7 +45,6 @@ jobs:
       - name: Install dependencies
         working-directory: ./palestine-solidarity-app
         run: pnpm install --no-frozen-lockfile
-    
         
       - name: Run ESLint (allow warnings)
         working-directory: ./palestine-solidarity-app
@@ -54,13 +53,36 @@ jobs:
         
       - name: Build application
         working-directory: ./palestine-solidarity-app
-        run: pnpm run build
+        run: |
+          echo "Building React app..."
+          pnpm run build
+          echo "Build completed. Checking output..."
+          ls -la dist/
+          echo "Checking for assets..."
+          ls -la dist/assets/ || echo "No assets folder found"
+        
+      - name: Verify build output
+        working-directory: ./palestine-solidarity-app
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "ERROR: dist directory not found!"
+            exit 1
+          fi
+          if [ ! -f "dist/index.html" ]; then
+            echo "ERROR: index.html not found in dist!"
+            exit 1
+          fi
+          if [ ! -d "dist/assets" ]; then
+            echo "ERROR: assets directory not found in dist!"
+            exit 1
+          fi
+          echo "✅ Build verification passed"
         
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-files-${{ github.sha }}
-          path: ./palestine-solidarity-app/dist
+          path: ./palestine-solidarity-app/dist/
           retention-days: 1
 
   deploy-dev:
@@ -80,6 +102,12 @@ jobs:
           name: build-files-${{ github.sha }}
           path: ./dist
           
+      - name: Verify downloaded artifacts
+        run: |
+          echo "Checking downloaded artifacts..."
+          ls -la ./dist/
+          ls -la ./dist/assets/ || echo "No assets folder in downloaded artifacts"
+          
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -90,8 +118,14 @@ jobs:
       - name: Deploy to S3 Development Bucket
         id: deploy
         run: |
+          echo "Deploying to S3..."
           aws s3 sync ./dist s3://${{ secrets.DEV_S3_BUCKET_NAME }} --delete --cache-control "max-age=86400"
+          echo "Deployment completed"
           echo "website-url=https://${{ secrets.DEV_S3_BUCKET_NAME }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com" >> $GITHUB_OUTPUT
+          
+      - name: Set S3 bucket website configuration
+        run: |
+          aws s3 website s3://${{ secrets.DEV_S3_BUCKET_NAME }} --index-document index.html --error-document index.html
           
       - name: Invalidate CloudFront Distribution (if configured)
         if: ${{ vars.DEV_CLOUDFRONT_DISTRIBUTION_ID }}
@@ -115,6 +149,12 @@ jobs:
           name: build-files-${{ github.sha }}
           path: ./dist
           
+      - name: Verify downloaded artifacts
+        run: |
+          echo "Checking downloaded artifacts..."
+          ls -la ./dist/
+          ls -la ./dist/assets/ || echo "No assets folder in downloaded artifacts"
+          
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -125,8 +165,14 @@ jobs:
       - name: Deploy to S3 Production Bucket
         id: deploy
         run: |
+          echo "Deploying to S3..."
           aws s3 sync ./dist s3://${{ secrets.PROD_S3_BUCKET_NAME }} --delete --cache-control "max-age=31536000"
+          echo "Deployment completed"
           echo "website-url=https://${{ secrets.PROD_S3_BUCKET_NAME }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com" >> $GITHUB_OUTPUT
+          
+      - name: Set S3 bucket website configuration
+        run: |
+          aws s3 website s3://${{ secrets.PROD_S3_BUCKET_NAME }} --index-document index.html --error-document index.html
           
       - name: Invalidate CloudFront Distribution (if configured)
         if: ${{ vars.PROD_CLOUDFRONT_DISTRIBUTION_ID }}
