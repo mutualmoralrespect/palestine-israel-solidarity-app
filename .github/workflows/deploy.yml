@@ -1,4 +1,4 @@
-name: Test and Deploy React App to S3
+name: Diagnostic S3 Deployment
 
 on:
   push:
@@ -11,8 +11,8 @@ env:
   PNPM_VERSION: '8'
 
 jobs:
-  test:
-    name: Run Tests and Linting
+  diagnostic-build:
+    name: Diagnostic Build and Deploy
     runs-on: ubuntu-latest
     
     steps:
@@ -29,112 +29,97 @@ jobs:
         with:
           version: ${{ env.PNPM_VERSION }}
           
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-          
-      - name: Setup pnpm cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-            
       - name: Install dependencies
         working-directory: ./palestine-solidarity-app
-        run: pnpm install --no-frozen-lockfile
+        run: |
+          echo "Installing dependencies..."
+          pnpm install --no-frozen-lockfile
+          echo "Dependencies installed"
         
-      - name: Run ESLint (allow warnings)
-        working-directory: ./palestine-solidarity-app
-        run: pnpm run lint --max-warnings=50
-        continue-on-error: true
-        
-      - name: Build application
+      - name: Check Vite config
         working-directory: ./palestine-solidarity-app
         run: |
-          echo "Building React app..."
+          echo "=== Checking Vite Configuration ==="
+          if [ -f "vite.config.js" ]; then
+            echo "✅ vite.config.js found"
+            cat vite.config.js
+          else
+            echo "❌ vite.config.js not found"
+          fi
+          
+      - name: Check package.json scripts
+        working-directory: ./palestine-solidarity-app
+        run: |
+          echo "=== Package.json Scripts ==="
+          cat package.json | grep -A 10 '"scripts"'
+          
+      - name: Clean and build
+        working-directory: ./palestine-solidarity-app
+        run: |
+          echo "=== Cleaning previous build ==="
+          rm -rf dist/
+          echo "=== Building application ==="
           pnpm run build
-          echo "Build completed. Checking output..."
-          ls -la dist/
-          echo "Checking for assets..."
-          ls -la dist/assets/ || echo "No assets folder found"
+          echo "=== Build completed ==="
         
-      - name: Verify build output
+      - name: Detailed build analysis
         working-directory: ./palestine-solidarity-app
         run: |
-          if [ ! -d "dist" ]; then
-            echo "ERROR: dist directory not found!"
+          echo "=== Build Output Analysis ==="
+          if [ -d "dist" ]; then
+            echo "✅ dist directory exists"
+            echo "--- Directory structure ---"
+            find dist -type f -exec ls -la {} \;
+            echo "--- File contents check ---"
+            if [ -f "dist/index.html" ]; then
+              echo "✅ index.html exists"
+              echo "--- index.html content (first 50 lines) ---"
+              head -50 dist/index.html
+            else
+              echo "❌ index.html missing"
+            fi
+            if [ -d "dist/assets" ]; then
+              echo "✅ assets directory exists"
+              echo "--- Assets directory contents ---"
+              ls -la dist/assets/
+            else
+              echo "❌ assets directory missing"
+            fi
+          else
+            echo "❌ dist directory does not exist"
             exit 1
           fi
-          if [ ! -f "dist/index.html" ]; then
-            echo "ERROR: index.html not found in dist!"
-            exit 1
+          
+      - name: Test local build
+        working-directory: ./palestine-solidarity-app
+        run: |
+          echo "=== Testing if build is a proper React app ==="
+          # Check if index.html contains React app structure
+          if grep -q "id=\"root\"" dist/index.html; then
+            echo "✅ React root div found"
+          else
+            echo "❌ React root div not found"
           fi
-          if [ ! -d "dist/assets" ]; then
-            echo "ERROR: assets directory not found in dist!"
-            exit 1
+          
+          # Check for JavaScript modules
+          if ls dist/assets/*.js 1> /dev/null 2>&1; then
+            echo "✅ JavaScript files found in assets"
+            ls -la dist/assets/*.js
+          else
+            echo "❌ No JavaScript files found in assets"
           fi
-          echo "✅ Build verification passed"
-        
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-files-${{ github.sha }}
-          path: ./palestine-solidarity-app/dist/
-          retention-days: 1
+          
+          # Check for CSS files
+          if ls dist/assets/*.css 1> /dev/null 2>&1; then
+            echo "✅ CSS files found in assets"
+            ls -la dist/assets/*.css
+          else
+            echo "❌ No CSS files found in assets"
+          fi
 
-  deploy-dev:
-    name: Deploy to Development S3
-    needs: test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
-    
-    environment:
-      name: development
-      url: ${{ steps.deploy.outputs.website-url }}
-    
-    steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
-        with:
-          name: build-files-${{ github.sha }}
-          path: ./dist
-          
-      - name: Verify downloaded artifacts
-        run: |
-          echo "Checking downloaded artifacts..."
-          ls -la ./dist/
-          ls -la ./dist/assets/ || echo "No assets folder in downloaded artifacts"
-          
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
-          
-      - name: Deploy to S3 Development Bucket
-        id: deploy
-        run: |
-          echo "Deploying to S3..."
-          aws s3 sync ./dist s3://${{ secrets.DEV_S3_BUCKET_NAME }} --delete --cache-control "max-age=86400"
-          echo "Deployment completed"
-          echo "website-url=https://${{ secrets.DEV_S3_BUCKET_NAME }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com" >> $GITHUB_OUTPUT
-          
-      - name: Set S3 bucket website configuration
-        run: |
-          aws s3 website s3://${{ secrets.DEV_S3_BUCKET_NAME }} --index-document index.html --error-document index.html
-          
-      - name: Invalidate CloudFront Distribution (if configured)
-        if: ${{ vars.DEV_CLOUDFRONT_DISTRIBUTION_ID }}
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ vars.DEV_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
-
-  deploy-prod:
-    name: Deploy to Production S3
-    needs: test
+  deploy-with-correct-url:
+    name: Deploy with Correct S3 Website URL
+    needs: diagnostic-build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     
@@ -143,17 +128,35 @@ jobs:
       url: ${{ steps.deploy.outputs.website-url }}
     
     steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          name: build-files-${{ github.sha }}
-          path: ./dist
+          node-version: ${{ env.NODE_VERSION }}
           
-      - name: Verify downloaded artifacts
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+          
+      - name: Install and build
+        working-directory: ./palestine-solidarity-app
         run: |
-          echo "Checking downloaded artifacts..."
-          ls -la ./dist/
-          ls -la ./dist/assets/ || echo "No assets folder in downloaded artifacts"
+          pnpm install --no-frozen-lockfile
+          rm -rf dist/
+          pnpm run build
+          
+      - name: Final verification before deploy
+        working-directory: ./palestine-solidarity-app
+        run: |
+          echo "=== Final Build Verification ==="
+          if [ ! -d "dist" ] || [ ! -f "dist/index.html" ] || [ ! -d "dist/assets" ]; then
+            echo "❌ Build verification failed"
+            exit 1
+          fi
+          echo "✅ Build verification passed"
           
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -162,25 +165,26 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
           
-      - name: Deploy to S3 Production Bucket
+      - name: Deploy to S3 with correct configuration
         id: deploy
+        working-directory: ./palestine-solidarity-app
         run: |
-          echo "Deploying to S3..."
+          echo "=== Deploying to S3 ==="
           aws s3 sync ./dist s3://${{ secrets.PROD_S3_BUCKET_NAME }} --delete --cache-control "max-age=31536000"
-          echo "Deployment completed"
-          echo "website-url=https://${{ secrets.PROD_S3_BUCKET_NAME }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com" >> $GITHUB_OUTPUT
           
-      - name: Set S3 bucket website configuration
-        run: |
+          echo "=== Configuring S3 website ==="
           aws s3 website s3://${{ secrets.PROD_S3_BUCKET_NAME }} --index-document index.html --error-document index.html
           
-      - name: Invalidate CloudFront Distribution (if configured)
-        if: ${{ vars.PROD_CLOUDFRONT_DISTRIBUTION_ID }}
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ vars.PROD_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+          echo "=== Setting correct website URL ==="
+          WEBSITE_URL="https://${{ secrets.PROD_S3_BUCKET_NAME }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com"
+          echo "website-url=$WEBSITE_URL" >> $GITHUB_OUTPUT
+          echo "🚀 Deployment completed!"
+          echo "📍 Website URL: $WEBSITE_URL"
           
-      - name: Notify deployment success
+      - name: Verify deployment
         run: |
-          echo "🚀 Production deployment successful!"
-          echo "Website URL: ${{ steps.deploy.outputs.website-url }}"
+          echo "=== Verifying S3 deployment ==="
+          aws s3 ls s3://${{ secrets.PROD_S3_BUCKET_NAME }}/ --recursive
+          echo "=== Checking website configuration ==="
+          aws s3api get-bucket-website --bucket ${{ secrets.PROD_S3_BUCKET_NAME }}
 
