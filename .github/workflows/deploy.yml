@@ -1,0 +1,85 @@
+name: Deploy React App
+
+on:
+  push:
+    branches: [main, dev]
+
+env:
+  NODE_ENV: production
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        working-directory: ./palestine-solidarity-app
+        run: npm ci
+
+      - name: Build application
+        working-directory: ./palestine-solidarity-app
+        run: npm run build
+
+      - name: Verify build
+        working-directory: ./palestine-solidarity-app
+        run: |
+          echo "Build verification:"
+          ls -la dist/
+          # Check for essential files
+          test -f dist/index.html || (echo "❌ index.html missing" && exit 1)
+          test -d dist/assets || (echo "❌ assets directory missing" && exit 1)
+          echo "✅ Build verification passed"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy to S3
+        working-directory: ./palestine-solidarity-app
+        run: |
+          # Determine bucket based on branch
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            BUCKET="${{ secrets.PROD_S3_BUCKET }}"
+            echo "🚀 Deploying to PRODUCTION"
+          else
+            BUCKET="${{ secrets.DEV_S3_BUCKET }}"
+            echo "🚀 Deploying to DEVELOPMENT"
+          fi
+          
+          # Deploy static assets with long cache
+          aws s3 sync dist/ s3://$BUCKET/ --delete \
+            --cache-control "public, max-age=31536000" \
+            --exclude "*.html" \
+            --exclude "*.json"
+          
+          # Deploy HTML/JSON with no cache
+          aws s3 sync dist/ s3://$BUCKET/ \
+            --cache-control "public, max-age=0, must-revalidate" \
+            --include "*.html" \
+            --include "*.json"
+          
+          # Configure website hosting
+          aws s3 website s3://$BUCKET \
+            --index-document index.html \
+            --error-document index.html
+          
+          echo "✅ Deployment complete to: https://$BUCKET.s3-website-us-east-1.amazonaws.com"
+
+      - name: Invalidate CloudFront
+        if: github.ref == 'refs/heads/main'
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
