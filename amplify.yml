@@ -5,15 +5,25 @@ applications:
       phases:
         preBuild:
           commands:
-            - echo "Installing pnpm..."
-            - npm install -g pnpm@8
+            - echo "Node version:"
+            - node --version
+            - echo "Installing pnpm globally..."
+            - corepack enable
+            - corepack prepare pnpm@latest --activate
+            - echo "pnpm version:"
+            - pnpm --version
             - echo "Installing dependencies..."
-            - pnpm install --no-frozen-lockfile
+            - pnpm install --frozen-lockfile || pnpm install --no-frozen-lockfile
+            - echo "Dependencies installed successfully"
         build:
           commands:
-            - echo "Building React app..."
+            - echo "Starting Vite build..."
             - pnpm run build
-            - echo "Build completed"
+            - echo "Build completed, checking output..."
+            - ls -la dist/
+            - echo "Verifying critical files exist..."
+            - test -f dist/index.html && echo "✅ index.html found" || echo "❌ index.html missing"
+            - test -d dist/assets && echo "✅ assets directory found" || echo "❌ assets directory missing"
       artifacts:
         baseDirectory: dist
         files:
@@ -21,5 +31,4 @@ applications:
       cache:
         paths:
           - node_modules/**/*
-          - .pnpm-store/**/*
-
+          - ~/.pnpm-store/**/*
