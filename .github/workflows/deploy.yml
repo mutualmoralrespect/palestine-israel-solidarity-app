@@ -92,9 +92,12 @@ jobs:
           echo "website-url=https://${{ secrets.DEV_S3_BUCKET_NAME }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com" >> $GITHUB_OUTPUT
           
       - name: Invalidate CloudFront Distribution (if configured)
-        if: ${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID != '' }}
-        run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+  run: |
+    if [ -n "${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }}" ]; then
+      aws cloudfront create-invalidation --distribution-id ${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+    else
+      echo "No CloudFront distribution ID provided, skipping invalidation."
+    fi
 
   deploy-prod:
     name: Deploy to Production S3
