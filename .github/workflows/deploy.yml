@@ -74,10 +74,10 @@ jobs:
         run: |
           # Determine bucket based on branch
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
-            BUCKET="${{ secrets.PROD_S3_BUCKET }}"
+            BUCKET="${{ secrets.PROD_S3_BUCKET_NAME }}"
             echo "🚀 Deploying to PRODUCTION"
           else
-            BUCKET="${{ secrets.DEV_S3_BUCKET }}"
+            BUCKET="${{ secrets.DEV_S3_BUCKET_NAME }}"
             echo "🚀 Deploying to DEVELOPMENT"
           fi
           
