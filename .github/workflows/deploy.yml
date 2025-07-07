@@ -99,10 +99,3 @@ jobs:
             --error-document index.html
           
           echo "✅ Deployment complete to: https://$BUCKET.s3-website-us-east-1.amazonaws.com"
-
-      - name: Invalidate CloudFront
-        if: github.ref == 'refs/heads/main'
-        run: |
-          aws cloudfront create-invalidation \
-            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
