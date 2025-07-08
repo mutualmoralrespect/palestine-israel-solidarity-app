@@ -50,7 +50,7 @@ jobs:
 
       - name: Build application
         working-directory: ./palestine-solidarity-app
-        run: pnpm run build
+        run: pnpm build
 
       - name: Verify build
         working-directory: ./palestine-solidarity-app
