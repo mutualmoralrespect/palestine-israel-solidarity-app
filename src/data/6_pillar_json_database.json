@@ -1413,7 +1413,112 @@
       "Military policies result in high civilian harm without internal accountability."
     ],
     "full_conclusion": "Benjamin Netanyahu embodies a morally asymmetrical posture under the MMR framework. While he forcefully condemns Hamas and articulates the traumas facing Israeli Jews, he simultaneously empowers ultra-nationalist forces that promote permanent subjugation of Palestinians. His policy record reflects rejection of equal dignity, with no genuine peace proposal on the table. In public statements, Netanyahu justifies Israeli actions primarily through the lens of Jewish historical trauma and existential threat. But this framework often erases Palestinian civilian suffering and leaves no room for a shared future. His rejection of Palestinian statehood, tolerance of settler violence, and alliances with religious extremists result in an MMR profile that fails on humanization, vision, and proportionality. Despite a coherent security narrative, his overall leadership does not meet the structural, moral, or emotional requirements of Mutual Moral Respect."
+  },
+  {
+    "subject": "Mahmoud Abbas",
+    "role": "President of the Palestinian Authority",
+    "affiliation": "Palestinian Authority (Fatah, West Bank governance)",
+    "category": "palestinian-authority",
+    "source_context": "Public speeches, policy rhetoric, PA funding policies, international diplomacy, historical statements",
+    "pillars": [
+      {
+        "pillar": "Reject targeting of civilians",
+        "assessment": "Mixed",
+        "evidence": "Abbas has condemned specific terror attacks (e.g., 2014 synagogue attack) and reaffirmed opposition to violence in speeches. However, he also praises 'martyrs' in Palestinian rhetoric and has funded families of attackers through PA mechanisms, muddying his stance."
+      },
+      {
+        "pillar": "Accountability for Hamas / PA rejectionism",
+        "assessment": "Mixed",
+        "evidence": "He distances from Hamas ideologically and has criticized their rule in Gaza, but often avoids full public condemnation of their rejectionism or rocket attacks. PA-Hamas rivalry sometimes suppresses accountability for shared rejectionism."
+      },
+      {
+        "pillar": "Accountability for Israeli far-right rejectionism",
+        "assessment": "Pass",
+        "evidence": "Frequently criticizes Israeli settler violence and Netanyahu-aligned far-right policies that block a two-state solution. Abbas highlights Israeli rejectionism in international forums, including appeals to the UN."
+      },
+      {
+        "pillar": "Verified, truthful sources",
+        "assessment": "Fail",
+        "evidence": "Abbas has repeated inflammatory and historically inaccurate claims, such as Holocaust distortion and denial of Jewish historical connection to the land. These moments undermine his credibility as a moral narrator."
+      },
+      {
+        "pillar": "Humanize both peoples",
+        "assessment": "Partial",
+        "evidence": "Speaks frequently of Palestinian suffering with emotional gravity but rarely offers parallel moral recognition of Israeli Jewish grief, trauma, or humanity. His narrative is justice-centered but not symmetrically humanizing."
+      },
+      {
+        "pillar": "Vision for Dignity, Coexistence & Peace",
+        "assessment": "Partial",
+        "evidence": "Advocates for a two-state solution and international recognition of Palestine, but does not articulate a compelling shared future for both peoples. His vision is state-based and grievance-framed rather than emotionally dignified or morally integrative."
+      }
+    ],
+    "overall_alignment": "Fail",
+    "strengths": [
+      "Endorses two-state framework publicly",
+      "Holds Israeli far-right accountable in diplomatic venues",
+      "Maintains nonviolent diplomatic stance broadly"
+    ],
+    "weaknesses": [
+      "Undermines credibility with inflammatory or false claims",
+      "Avoids symmetrical humanization",
+      "Avoids full accountability for Palestinian rejectionism or incitement",
+      "Does not clearly articulate dignity-based future for both peoples"
+    ],
+    "full_conclusion": "Mahmoud Abbas straddles the moral line between diplomatic moderation and grievance-centered nationalism. His public rhetoric rejects violence and endorses a two-state solution, offering the contours of a peaceful vision. Yet, repeated failures to hold his own institutions morally accountable — especially in regard to martyr glorification and Holocaust distortion — fracture that vision.\n\nAbbas does not frame a future of shared dignity for both peoples. His humanization is asymmetrical, and his diplomatic appeals often center Palestinian justice without equal emotional recognition of Israeli suffering. While he avoids overt incitement, his omissions, distortions, and lack of a reconciliatory vision result in an MMR score that fails structurally — despite his apparent moderation."
+  },
+  {
+    "subject": "Yahya Sinwar",
+    "role": "Leader of Hamas in Gaza",
+    "affiliation": "Hamas",
+    "category": "hamas-officials",
+    "source_context": "Public speeches, interviews, wartime communications, 2023-2024 Gaza War context",
+    "overall_alignment": "Fail",
+    "pillars": [
+      {
+        "pillar": "Reject targeting of civilians",
+        "assessment": "❌ Fail",
+        "evidence": "Sinwar has openly praised attacks targeting Israeli civilians, including the October 7th massacre. He presents civilian targeting as legitimate resistance and strategically uses civilian casualties to mobilize support. His framing glorifies martyrdom, violating core MMR norms."
+      },
+      {
+        "pillar": "Accountability for Hamas / PA rejectionism",
+        "assessment": "❌ Fail",
+        "evidence": "As Hamas leader, Sinwar embodies organizational rejectionism. He refuses Israel's right to exist, undermines ceasefires, and rejects international peace frameworks. There is no internal critique or acknowledgment of Hamas's failures or provocations."
+      },
+      {
+        "pillar": "Accountability for Israeli far-right rejectionism",
+        "assessment": "❌ Fail",
+        "evidence": "Sinwar consistently invokes Israeli aggression but never distinguishes between extremist settler violence and broader Jewish society. His framing erases distinctions and treats all Israeli political forms as inherently illegitimate."
+      },
+      {
+        "pillar": "Verified, truthful sources",
+        "assessment": "❌ Fail",
+        "evidence": "Sinwar’s speeches frequently use apocalyptic and religiously charged rhetoric. He promotes conspiracy narratives, denies atrocities committed by Hamas, and manipulates information to serve theological and political aims."
+      },
+      {
+        "pillar": "Humanize both peoples",
+        "assessment": "❌ Fail",
+        "evidence": "His rhetoric glorifies Palestinian suffering and erases Israeli humanity. He does not acknowledge Israeli civilian grief, trauma, or personhood, and frames all Jews in Israel as occupiers or enemies."
+      },
+      {
+        "pillar": "Vision for Dignity, Coexistence & Peace",
+        "assessment": "❌ Fail",
+        "evidence": "Sinwar articulates a vision of continued struggle until the elimination of the Israeli state. He offers no future of coexistence or shared dignity, only triumph through resistance and sacrifice."
+      }
+    ],
+    "strengths": [
+      "Commands legitimacy among parts of the Palestinian public",
+      "Frames his struggle in anti-colonial and religious language that resonates regionally",
+      "Taps into deep feelings of dispossession and despair in Gaza"
+    ],
+    "weaknesses": [
+      "Glorifies violence and martyrdom over mutual dignity",
+      "Denies Israeli civilian humanity",
+      "Actively rejects coexistence or peace",
+      "Disseminates false and inciting narratives"
+    ],
+    "full_conclusion": "Yahya Sinwar represents the most structurally noncompliant profile under the MMR framework. He glorifies violence, erases Israeli humanity, and strategically instrumentalizes Palestinian suffering for ideological and political gain. His leadership doctrine centers on resistance through sacrifice, not reconciliation or cohabitation. Though he speaks to genuine grievances and resonates with anti-colonial discourses, his framework is zero-sum, triumphalist, and eliminationist. Sinwar makes no gesture toward shared moral futures or mutual recognition. Under MMR standards, his narrative is a profound betrayal of the Palestinian civilians he claims to defend."
   }
+  
   
   
 ]
