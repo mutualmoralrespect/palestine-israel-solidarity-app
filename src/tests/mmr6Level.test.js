@@ -7,7 +7,7 @@ import { calculateOverallRating, calculateGroupStatistics, getAssessmentOutcome 
 import fs from 'fs';
 
 // Load real JSON data
-const jsonData = JSON.parse(fs.readFileSync('./src/data/mmr_complete_database.json', 'utf8'));
+const jsonData = JSON.parse(fs.readFileSync('./src/data/6_pillar_json_database.json', 'utf8'));
 const profiles = jsonData.profiles;
 
 // Test runner

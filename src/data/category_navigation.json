@@ -1,0 +1,110 @@
+{
+    "category_groups": [
+      {
+        "id": "all",
+        "label": "All Categories",
+        "icon": "Users",
+        "categories": []
+      },
+      {
+        "id": "palestinian",
+        "label": "Palestinian Perspectives",
+        "icon": "Users",
+        "categories": [
+          {
+            "id": "Palestinian Authority",
+            "label": "Palestinian Authority",
+            "icon": "Users"
+          },
+          {
+            "id": "Hamas Officials",
+            "label": "Hamas Officials",
+            "icon": "Users"
+          },
+          {
+            "id": "Palestinian Voices",
+            "label": "Palestinian Voices",
+            "icon": "Users"
+          }
+        ]
+      },
+      {
+        "id": "israeli",
+        "label": "Israeli Perspectives",
+        "icon": "Users",
+        "categories": [
+          {
+            "id": "Israeli Politicians",
+            "label": "Israeli Politicians",
+            "icon": "Users"
+          }
+        ]
+      },
+      {
+        "id": "international",
+        "label": "International Voices",
+        "icon": "FileText",
+        "categories": [
+          {
+            "id": "US Politicians",
+            "label": "US Politicians",
+            "icon": "Users"
+          },
+          {
+            "id": "Journalists",
+            "label": "Journalists",
+            "icon": "FileText"
+          },
+          {
+            "id": "NGO Leaders",
+            "label": "NGO Leaders",
+            "icon": "Users"
+          }
+        ]
+      },
+      {
+        "id": "peace",
+        "label": "Peace & Advocacy",
+        "icon": "Heart",
+        "categories": [
+          {
+            "id": "Peace Advocates",
+            "label": "Peace Advocates",
+            "icon": "Users"
+          },
+          {
+            "id": "Organizations",
+            "label": "Organizations",
+            "icon": "Building"
+          }
+        ]
+      },
+      {
+        "id": "academic",
+        "label": "Academic & Literary",
+        "icon": "BookOpen",
+        "categories": [
+          {
+            "id": "Academics",
+            "label": "Academics",
+            "icon": "BookOpen"
+          },
+          {
+            "id": "Books",
+            "label": "Books",
+            "icon": "FileText"
+          },
+          {
+            "id": "Legal Scholars",
+            "label": "Legal Scholars",
+            "icon": "Scale"
+          },
+          {
+            "id": "Historians",
+            "label": "Historians",
+            "icon": "BookOpen"
+          }
+        ]
+      }
+    ]
+  }

@@ -11,7 +11,7 @@ import { dirname, join } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const mmrDatabase = JSON.parse(readFileSync(join(__dirname, '../data/mmr_complete_database.json'), 'utf8'));
+const mmrDatabase = JSON.parse(readFileSync(join(__dirname, '../data/6_pillar_json_database.json'), 'utf8'));
 
 // Test colors for output
 const colors = {
