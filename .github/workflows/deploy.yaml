@@ -7,11 +7,9 @@ on:
       - dev
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
     steps:
       - name: Checkout code
@@ -29,35 +27,68 @@ jobs:
         run: pnpm install
 
       - name: Build Vite app for S3
-        run: |
-          if [ "$GITHUB_REF_NAME" = "main" ]; then
-            export VITE_BASE_PATH="/"
-          else
-            export VITE_BASE_PATH="/"
-          fi
-          pnpm run build
+        run: pnpm run build
 
-      - name: Sync to S3
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+  deploy-dev:
+    needs: build
+    if: github.ref_name == 'dev'
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      DEV_CF_ID: ${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }}
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Sync to Dev S3
         run: |
           cd dist
-          if [ "$GITHUB_REF_NAME" = "main" ]; then
-            aws s3 sync . s3://${{ secrets.PROD_S3_BUCKET_NAME }} --delete
+          aws s3 sync . s3://${{ secrets.DEV_S3_BUCKET_NAME }} --delete
+
+      - name: Invalidate Dev CloudFront
+        run: |
+          if [ -n "$DEV_CF_ID" ]; then
+            aws cloudfront create-invalidation --distribution-id $DEV_CF_ID --paths "/*"
           else
-            aws s3 sync . s3://${{ secrets.DEV_S3_BUCKET_NAME }} --delete
+            echo "Dev CloudFront distribution ID not set. Skipping invalidation."
           fi
 
-      - name: Invalidate CloudFront
-        env:
-          PROD_CF_ID: ${{ secrets.PROD_CLOUDFRONT_DISTRIBUTION_ID }}
-          DEV_CF_ID: ${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }}
+  deploy-main:
+    needs: build
+    if: github.ref_name == 'main'
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      PROD_CF_ID: ${{ secrets.PROD_CLOUDFRONT_DISTRIBUTION_ID }}
+    steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Sync to Prod S3
         run: |
-          if [ "$GITHUB_REF_NAME" = "main" ]; then
-            CF_ID=$PROD_CF_ID
+          cd dist
+          aws s3 sync . s3://${{ secrets.PROD_S3_BUCKET_NAME }} --delete
+
+      - name: Invalidate Prod CloudFront
+        run: |
+          if [ -n "$PROD_CF_ID" ]; then
+            aws cloudfront create-invalidation --distribution-id $PROD_CF_ID --paths "/*"
           else
-            CF_ID=$DEV_CF_ID
-          fi
-          if [ -n "$CF_ID" ]; then
-            aws cloudfront create-invalidation --distribution-id $CF_ID --paths "/*"
-          else
-            echo "CloudFront distribution ID not set for this branch. Skipping invalidation."
+            echo "Prod CloudFront distribution ID not set. Skipping invalidation."
           fi 
