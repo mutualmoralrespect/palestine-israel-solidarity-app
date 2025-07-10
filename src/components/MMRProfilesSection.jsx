@@ -93,6 +93,13 @@ const MMRProfilesSection = ({
         }
       });
       return otherProfiles;
+    } else if (activeCategory === 'group:other') {
+      // Special handling for the 'Other' group as a group
+      const group = categoryGroups.find(g => g.id === 'other');
+      if (group && group.categories.length > 0) {
+        return group.categories[0].profiles || [];
+      }
+      return [];
     } else if (activeCategory.startsWith('group:')) {
       // Group filtering - combine all categories in the group
       const groupId = activeCategory.replace('group:', '');
@@ -101,7 +108,6 @@ const MMRProfilesSection = ({
         let filtered = [];
         group.categories.forEach(cat => {
           const categoryFigures = figures[cat.id] || [];
-          
           // Apply status filter if specified
           let categoryFilteredFigures = categoryFigures;
           if (filterByStatus) {
@@ -122,13 +128,11 @@ const MMRProfilesSection = ({
                   return 'Unknown';
               }
             };
-            
             categoryFilteredFigures = categoryFigures.filter(figure => {
               const simplified = getSimplifiedRating(figure.status);
               return simplified === filterByStatus;
             });
           }
-          
           filtered = [...filtered, ...categoryFilteredFigures];
         });
         return filtered;
@@ -136,7 +140,6 @@ const MMRProfilesSection = ({
     } else {
       // Individual category filtering
       let categoryFigures = figures[activeCategory] || [];
-      
       // Apply status filter if specified
       if (filterByStatus) {
         const getSimplifiedRating = (rating) => {
@@ -156,13 +159,11 @@ const MMRProfilesSection = ({
               return 'Unknown';
           }
         };
-        
         categoryFigures = categoryFigures.filter(figure => {
           const simplified = getSimplifiedRating(figure.status);
           return simplified === filterByStatus;
         });
       }
-      
       return categoryFigures;
     }
     return [];

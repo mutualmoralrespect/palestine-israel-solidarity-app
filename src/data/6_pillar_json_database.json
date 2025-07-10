@@ -103,7 +103,7 @@
     "subject": "Sally Abed",
     "role": "Civic Organizer",
     "affiliation": "Standing Together",
-    "category": "peace-advocate2s",
+    "category": "peace-advocates",
     "source_context": "Leads Standing Together’s Arab-Jewish coalition work; organizes nonviolent actions and speaks across Western and Middle Eastern venues",
     "overall_alignment": "Pass",
     "pillars": [
@@ -1774,6 +1774,213 @@
         "Occasionally promotes contested claims that undercut epistemic rigor."
       ],
       "full_conclusion": "Jeffrey Sachs is a respected voice for structural justice, global equity, and nonviolent solutions. His MMR alignment is anchored in his principled opposition to imperialism, war, and economic exploitation. However, in the context of the Israeli–Palestinian conflict, his analysis lacks symmetrical moral accountability. He critiques Western and Israeli power extensively, but fails to address Hamas's violent rejectionism, internal repression, or role in sustaining cycles of suffering. Likewise, he underplays Israeli far-right extremism, despite its impact on Palestinian rights and dignity. While his peace vision is robust and inspiring at a global level, his discourse risks flattening the lived realities of both peoples. For full MMR alignment, Sachs would need to integrate direct moral scrutiny of all rejectionist actors—not just geopolitical hegemonies—and explicitly affirm the human dignity of both Palestinians and Israeli Jews as equal subjects of compassion and agency."
-    }
+    },
+    {
+      "subject": "Kenneth Roth",
+      "role": "Former Executive Director",
+      "affiliation": "Human Rights Watch",
+      "category": "organizations",
+      "source_context": "Public reports, interviews, and HRW publications from 1993–2022",
+      "overall_alignment": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject targeting of civilians",
+          "assessment": "✅ Pass",
+          "evidence": "Under Roth, HRW consistently condemned all deliberate attacks on civilians—including Israeli airstrikes on noncombatants and Hamas-led atrocities like the October 7 massacre. However, moral framing of these was sometimes couched in legal terms rather than emotional or ethical language."
+        },
+        {
+          "pillar": "Accountability for Hamas / PA rejectionism",
+          "assessment": "⚠️ Partial",
+          "evidence": "HRW documented abuses by Hamas and the Palestinian Authority, including arbitrary arrests, torture, and use of human shields. However, under Roth, these were framed largely through legalistic documentation, with minimal moral condemnation of Hamas’s ideological rejectionism or eliminationist rhetoric."
+        },
+        {
+          "pillar": "Accountability for Israeli far-right rejectionism",
+          "assessment": "✅ Pass",
+          "evidence": "Roth and HRW frequently criticized Israeli settlement expansion, far-right incitement, and judicial erosion under Netanyahu. HRW labeled Israeli apartheid practices explicitly and documented discriminatory laws and systemic violence."
+        },
+        {
+          "pillar": "Verified, truthful sources",
+          "assessment": "✅ Strong",
+          "evidence": "HRW under Roth maintained rigorous documentation standards, with clear methodology, evidence chains, and reliance on verifiable witness testimony, legal reviews, and geospatial data. Their work with the ICC and UN fact-finding efforts further validated their credibility."
+        },
+        {
+          "pillar": "Humanize both peoples",
+          "assessment": "⚠️ Partial",
+          "evidence": "HRW uplifted Palestinian civilian suffering through rich testimonial documentation, but coverage of Israeli trauma—especially civilian fears post-October 7—was sparse. Emotional asymmetry in narrative focus has drawn criticism from Jewish and Israeli observers."
+        },
+        {
+          "pillar": "Vision for Dignity, Coexistence & Peace",
+          "assessment": "⚠️ Partial",
+          "evidence": "HRW advocated for international law, equal rights, and ICC accountability. However, it rarely outlined a forward-looking vision of reconciliation, coexistence, or emotional healing—limiting its contribution to dignity-based peace-building narratives."
+        }
+      ],
+      "strengths": [
+        "Rigorous documentation of human rights abuses by both state and non-state actors.",
+        "Persistent challenge to Israeli far-right and discriminatory practices.",
+        "Commitment to legal frameworks and international norms."
+      ],
+      "weaknesses": [
+        "Asymmetrical emotional narrative—Palestinian pain is centered more than Israeli trauma.",
+        "Hamas rejectionism is legally documented but not morally critiqued in ideological terms.",
+        "No developed framework for reconciliation or mutual recognition."
+      ],
+      "full_conclusion": "Kenneth Roth’s leadership of Human Rights Watch reflects high epistemic integrity and persistent accountability for human rights violations globally. HRW documented Hamas’s war crimes, including the October 7 massacre, yet did so through a legalistic lens that lacked explicit moral confrontation with eliminationist ideology. While Roth was forceful in holding Israeli far-right actors accountable, Israeli civilian fears and emotional realities were underrepresented in HRW narratives. HRW’s vision for peace leaned heavily on law and accountability but offered little on moral reconciliation or dignity-based coexistence. These gaps prevent a full alignment under the MMR framework, placing Roth and HRW’s approach at a Partial overall."
+    },
+
+  {
+    "subject": "Alon‑Lee Green",
+    "role": "Co‑Director",
+    "affiliation": "Standing Together",
+    "category": "organizations",
+    "source_context": "Public leadership since 2015, activism, co-director since ~2023, interviews in Time, Teen Vogue, Wikipedia",
+    "overall_alignment": "Pass",
+    "pillars": [
+      {
+        "pillar": "Reject targeting of civilians",
+        "assessment": "✅ Pass",
+        "evidence": "Stands against all civilian violence, including condemning Hamas's October 7 massacre and Israeli bombardment, advocating for ceasefires and safe humanitarian passage."
+      },
+      {
+        "pillar": "Accountability for Hamas / PA rejectionism",
+        "assessment": "⚠️ Partial",
+        "evidence": "Focuses on ending occupation and war, but less on critiquing Hamas rejectionism; more emphasis on mutual Israeli–Palestinian solidarity."
+      },
+      {
+        "pillar": "Accountability for Israeli far‑right rejectionism",
+        "assessment": "✅ Pass",
+        "evidence": "Actively opposes settler violence and far‑right extremism (e.g., Tsav 9 blockade), defends humanitarian aid convoys."
+      },
+      {
+        "pillar": "Verified, truthful sources",
+        "assessment": "✅ Strong",
+        "evidence": "Statements recorded in reputable outlets (Teen Vogue, Time, Wikipedia), grounded in documented activism and movement transparency."
+      },
+      {
+        "pillar": "Humanize both peoples",
+        "assessment": "✅ Strong",
+        "evidence": "Highlights shared trauma of Jewish and Palestinian communities post-October 7, frames mutual safety as self-interest."
+      },
+      {
+        "pillar": "Vision for Dignity, Coexistence & Peace",
+        "assessment": "✅ Strong",
+        "evidence": "Advocates radical empathy, intercommunal solidarity, and long-term political cooperation for equality and peace."
+      }
+    ],
+    "strengths": [
+      "Explicit rejection of civilian targeting and call for ceasefire.",
+      "Clear condemnation of far‑right violence and support for humanitarian aid.",
+      "Deep humanization and shared trauma framing; grassroots movement builder.",
+      "Strong, consistent public messaging across media."
+    ],
+    "weaknesses": [
+      "Moral critique of Hamas/PA rejectionism is less developed.",
+      "Challenges in balancing solidarity with nuanced political accountability."
+    ],
+    "full_conclusion": "Alon‑Lee Green exemplifies a strong MMR alignment: he rejects violence, humanizes both Israelis and Palestinians, and offers a clear intercommunal, dignity‑based vision. His leadership in Standing Together is rooted in credible activism and offers a powerful moral model. To reach even greater moral clarity, more explicit accountability directed at Hamas’s rejectionist elements would be beneficial."
+  },
+  {
+    "subject": "Rula Daood",
+    "role": "Co‑Director",
+    "affiliation": "Standing Together",
+    "category": "organizations",
+    "source_context": "Wikipedia, Brene Brown podcast, Teen Vogue, public interviews (2023–2025)",
+    "overall_alignment": "Pass",
+    "pillars": [
+      {
+        "pillar": "Reject targeting of civilians",
+        "assessment": "✅ Pass",
+        "evidence": "Condemns military violence and advocates for ending the occupation; engaged in solidarity and ceasefire activism."
+      },
+      {
+        "pillar": "Accountability for Hamas / PA rejectionism",
+        "assessment": "⚠️ Partial",
+        "evidence": "Focuses on equality and shared society, with limited pronouncements on Hamas’s ideological rejectionism."
+      },
+      {
+        "pillar": "Accountability for Israeli far‑right rejectionism",
+        "assessment": "✅ Pass",
+        "evidence": "Criticizes occupation, settler violence (e.g., Jerusalem Day attacks), and defends protection of Palestinian civilians."
+      },
+      {
+        "pillar": "Verified, truthful sources",
+        "assessment": "✅ Strong",
+        "evidence": "Based on biographical records and leadership statements in multiple independent media sources."
+      },
+      {
+        "pillar": "Humanize both peoples",
+        "assessment": "✅ Strong",
+        "evidence": "Elevates Palestinian internal experiences and acknowledges Jewish-Palestinian partnership, stressing shared grief."
+      },
+      {
+        "pillar": "Vision for Dignity, Coexistence & Peace",
+        "assessment": "✅ Strong",
+        "evidence": "Promotes radical empathy, municipal politics, and shared equality; frames solidarity as crucial for peace."
+      }
+    ],
+    "strengths": [
+      "Firm rejection of violence and occupation.",
+      "Humanizes Palestinians within equal partnership.",
+      "Strong grassroots vision for shared society and dignity.",
+      "Consistent public voice with moral clarity."
+    ],
+    "weaknesses": [
+      "Less direct in naming Hamas ideological issues.",
+      "Must balance solidarity with complex political accountability."
+    ],
+    "full_conclusion": "Rula Daood’s leadership stands as an MMR exemplar: she foregrounds human dignity, explicitly opposes violence and far‑right aggression, and fosters visions of equality and shared governance. Her voice supports moral coherence across communal divides. To enhance her moral clarity, articulating accountability for rejectionist violence (e.g., by Hamas) would deepen the symmetry of her moral framework."
+  },
+  {
+    "subject": "Kenneth Roth",
+    "role": "Former Executive Director",
+    "affiliation": "Human Rights Watch",
+    "category": "organizations",
+    "source_context": "Public reports, interviews, and HRW publications from 1993–2022",
+    "overall_alignment": "Partial",
+    "pillars": [
+      {
+        "pillar": "Reject targeting of civilians",
+        "assessment": "✅ Pass",
+        "evidence": "Under Roth, HRW consistently condemned all deliberate attacks on civilians—including Israeli airstrikes on noncombatants and Hamas-led atrocities like the October 7 massacre. However, moral framing of these was sometimes couched in legal terms rather than emotional or ethical language."
+      },
+      {
+        "pillar": "Accountability for Hamas / PA rejectionism",
+        "assessment": "⚠️ Partial",
+        "evidence": "HRW documented abuses by Hamas and the Palestinian Authority, including arbitrary arrests, torture, and use of human shields. However, under Roth, these were framed largely through legalistic documentation, with minimal moral condemnation of Hamas’s ideological rejectionism or eliminationist rhetoric."
+      },
+      {
+        "pillar": "Accountability for Israeli far-right rejectionism",
+        "assessment": "✅ Pass",
+        "evidence": "Roth and HRW frequently criticized Israeli settlement expansion, far-right incitement, and judicial erosion under Netanyahu. HRW labeled Israeli apartheid practices explicitly and documented discriminatory laws and systemic violence."
+      },
+      {
+        "pillar": "Verified, truthful sources",
+        "assessment": "✅ Strong",
+        "evidence": "HRW under Roth maintained rigorous documentation standards, with clear methodology, evidence chains, and reliance on verifiable witness testimony, legal reviews, and geospatial data. Their work with the ICC and UN fact-finding efforts further validated their credibility."
+      },
+      {
+        "pillar": "Humanize both peoples",
+        "assessment": "⚠️ Partial",
+        "evidence": "HRW uplifted Palestinian civilian suffering through rich testimonial documentation, but coverage of Israeli trauma—especially civilian fears post-October 7—was sparse. Emotional asymmetry in narrative focus has drawn criticism from Jewish and Israeli observers."
+      },
+      {
+        "pillar": "Vision for Dignity, Coexistence & Peace",
+        "assessment": "⚠️ Partial",
+        "evidence": "HRW advocated for international law, equal rights, and ICC accountability. However, it rarely outlined a forward-looking vision of reconciliation, coexistence, or emotional healing—limiting its contribution to dignity-based peace-building narratives."
+      }
+    ],
+    "strengths": [
+      "Rigorous documentation of human rights abuses by both state and non-state actors.",
+      "Persistent challenge to Israeli far-right and discriminatory practices.",
+      "Commitment to legal frameworks and international norms."
+    ],
+    "weaknesses": [
+      "Asymmetrical emotional narrative—Palestinian pain is centered more than Israeli trauma.",
+      "Hamas rejectionism is legally documented but not morally critiqued in ideological terms.",
+      "No developed framework for reconciliation or mutual recognition."
+    ],
+    "full_conclusion": "Kenneth Roth’s leadership of Human Rights Watch reflects high epistemic integrity and persistent accountability for human rights violations globally. HRW documented Hamas’s war crimes, including the October 7 massacre, yet did so through a legalistic lens that lacked explicit moral confrontation with eliminationist ideology. While Roth was forceful in holding Israeli far-right actors accountable, Israeli civilian fears and emotional realities were underrepresented in HRW narratives. HRW’s vision for peace leaned heavily on law and accountability but offered little on moral reconciliation or dignity-based coexistence. These gaps prevent a full alignment under the MMR framework, placing Roth and HRW’s approach at a Partial overall."
+  }
+  
+    
   ]
 

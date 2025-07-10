@@ -267,6 +267,7 @@ export const getCategoryGroups = (filterByStatus = null) => {
       }
       if (!include) return;
 
+      // Check if the category exists in our defined categories
       if (!cat || !allDefinedCategories.has(cat)) {
         otherCount++;
         otherProfiles.push(transformProfile(profile));
