@@ -55,7 +55,7 @@ const ProfileCard = ({
             <div 
               className="px-3 py-1 rounded-full text-sm font-medium"
               style={{ backgroundColor: statusDisplay.bgColor, color: statusDisplay.hexColor }}
-            >
+            > MMR Alignment: { " "}
               {statusDisplay.icon} {statusDisplay.text}
             </div>
             <ChevronDown 
