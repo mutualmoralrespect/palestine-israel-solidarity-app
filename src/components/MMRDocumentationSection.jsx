@@ -1,12 +1,41 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Shield, Users, Building, BarChart3, Heart, Sprout, Eye, Scale } from 'lucide-react';
 
 const MMRDocumentationSection = () => {
+  const sectionRef = useRef(null);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+      const rect = sectionRef.current.getBoundingClientRect();
+      const offset = Math.max(0, -rect.top);
+      setScrollY(Math.min(offset, 200)); // Cap at 200px
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Header slides up only (no fade)
+  const headerStyle = {
+    transform: `translateY(-${scrollY}px)`,
+    opacity: 1,
+    transition: 'transform 0.2s',
+    willChange: 'transform',
+  };
+  // Pillars fade in sooner
+  const pillarsStyle = {
+    opacity: `${Math.min(1, scrollY / 40)}`,
+    transition: 'opacity 0.3s',
+    willChange: 'opacity',
+    pointerEvents: scrollY > 20 ? 'auto' : 'none',
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div id="mmr-documentation" ref={sectionRef} className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       <div className="container mx-auto px-4 py-16">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16" style={headerStyle}>
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mb-6">
             <Scale className="w-10 h-10 text-white" />
           </div>
@@ -19,7 +48,7 @@ const MMRDocumentationSection = () => {
         </div>
 
         {/* Seven Pillars */}
-        <div className="max-w-6xl mx-auto mb-16">
+        <div className="max-w-6xl mx-auto mb-16" style={pillarsStyle}>
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
               The Six Pillars of MMR
