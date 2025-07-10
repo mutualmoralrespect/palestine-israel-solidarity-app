@@ -53,8 +53,8 @@ const ProfileCard = ({
           </div>
           <div className="flex items-center gap-3">
             <div 
-              className="px-3 py-1 rounded-full text-sm font-medium text-white"
-              style={{ backgroundColor: statusDisplay.hexColor }}
+              className="px-3 py-1 rounded-full text-sm font-medium"
+              style={{ backgroundColor: statusDisplay.bgColor, color: statusDisplay.hexColor }}
             >
               {statusDisplay.icon} {statusDisplay.text}
             </div>
