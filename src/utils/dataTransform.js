@@ -109,30 +109,19 @@ export const transformProfile = (profile) => {
   const calculateSortingScore = () => {
     // Overall rating ranks (primary sort key)
     const overallRank = {
-      "Strong Fail": 0,
-      "Clear Fail": 0,  // Legacy support
-      "Failing": 1,
       "Fail": 1,
       "Partial": 2,
-      "Pass": 3,
-      "Full Pass": 4,
-      "Strong Pass": 4
+      "Pass": 3
     };
 
-    // Get overall rating from JSON and normalize
-    let overall = profile.overall_rating;
-    if (overall === "Full Pass") overall = "Strong Pass";
-    if (overall === "Failing") overall = "Fail";
-
-    const rank = overallRank[overall] !== undefined ? overallRank[overall] : -99;
+    // Use normalized status for sorting
+    const rank = overallRank[status] !== undefined ? overallRank[status] : -99;
 
     // Compute pillar-weighted score (secondary sort key - tiebreaker)
     const pillarScore = (
-      3 * pillarCounts.strongPass +
       2 * pillarCounts.pass +
-      1 * (pillarCounts.partial + pillarCounts.mixed) +
-      (-2) * pillarCounts.fail +
-      (-5) * pillarCounts.clearFail
+      1 * pillarCounts.partial +
+      (-2) * pillarCounts.fail
     );
 
     // Return composite score: rank * 10000 + pillarScore
