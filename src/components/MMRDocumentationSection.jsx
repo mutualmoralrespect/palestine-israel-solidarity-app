@@ -30,98 +30,73 @@ const MMRDocumentationSection = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {/* Pillar 1 */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="text-center mb-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-red-500 to-pink-500 rounded-full mb-3">
-                  <Shield className="w-6 h-6 text-white" />
+            {[
+              {
+                icon: Shield,
+                title: "Reject Targeting Civilians",
+                description: "Condemn attacks on civilians regardless of perpetrator.",
+                color: "from-pink-500 to-red-500",
+                iconBg: "bg-gradient-to-r from-pink-500 to-red-500"
+              },
+              {
+                icon: Scale,
+                title: "Accountability for Hamas/Militants",
+                description: "Hold Palestinian militant groups accountable for violence",
+                color: "from-orange-500 to-red-500",
+                iconBg: "bg-gradient-to-r from-orange-500 to-red-500"
+              },
+              {
+                icon: Building,
+                title: "Accountability for Israeli Far Right",
+                description: "Hold Israeli extremists and policies accountable",
+                color: "from-yellow-500 to-orange-500",
+                iconBg: "bg-gradient-to-r from-yellow-500 to-orange-500"
+              },
+              {
+                icon: BarChart3,
+                title: "Use Verified Sources",
+                description: "Base arguments on credible, verified information.",
+                color: "from-green-500 to-emerald-500",
+                iconBg: "bg-gradient-to-r from-green-500 to-emerald-500"
+              },
+              {
+                icon: Heart,
+                title: "Humanize Both Peoples",
+                description: "Recognize the humanity and suffering of all people",
+                color: "from-orange-500 to-pink-500",
+                iconBg: "bg-gradient-to-r from-orange-500 to-pink-500"
+              },
+              {
+                icon: Sprout,
+                title: "Embrace Coexistence",
+                description: "Reject eliminationist rhetoric from all sides.",
+                color: "from-purple-500 to-pink-500",
+                iconBg: "bg-gradient-to-r from-purple-500 to-pink-500"
+              },
+              {
+                icon: Eye,
+                title: "Vision for Dignity & Peace",
+                description: "Articulate a constructive path toward peace",
+                color: "from-blue-500 to-cyan-500",
+                iconBg: "bg-gradient-to-r from-blue-500 to-cyan-500"
+              }
+            ].map((pillar, index) => (
+              <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 group hover:scale-105 flex flex-col items-center text-center">
+                <div className={`w-14 h-14 ${pillar.iconBg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 rounded-full`}>
+                  <pillar.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">1. Reject Targeting Civilians</h3>
-                <p className="text-sm text-gray-600">
-                  Condemn attacks on civilians regardless of perpetrator
+                <h4 className="text-lg font-bold text-gray-900 mb-2">
+                  {index + 1}. {pillar.title}
+                </h4>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {pillar.description}
                 </p>
               </div>
-            </div>
-
-            {/* Pillar 2 */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="text-center mb-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full mb-3">
-                  <Scale className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">2. Accountability for Hamas/Militants</h3>
-                <p className="text-sm text-gray-600">
-                  Hold Palestinian militant groups accountable for violence
-                </p>
-              </div>
-            </div>
-
-            {/* Pillar 3 */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="text-center mb-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full mb-3">
-                  <Building className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">3. Accountability for Israeli Right</h3>
-                <p className="text-sm text-gray-600">
-                  Hold Israeli extremists and policies accountable
-                </p>
-              </div>
-            </div>
-
-            {/* Pillar 4 */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="text-center mb-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-full mb-3">
-                  <BarChart3 className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">4. Use Verified Sources</h3>
-                <p className="text-sm text-gray-600">
-                  Base arguments on credible, verified information
-                </p>
-              </div>
-            </div>
-
-            {/* Pillar 5 */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="text-center mb-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mb-3">
-                  <Heart className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">5. Humanize Both Peoples</h3>
-                <p className="text-sm text-gray-600">
-                  Recognize the humanity and suffering of all people
-                </p>
-              </div>
-            </div>
-
-            {/* Pillar 6 */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="text-center mb-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mb-3">
-                  <Sprout className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">6. Embrace Coexistence</h3>
-                <p className="text-sm text-gray-600">
-                  Reject eliminationist rhetoric from all sides
-                </p>
-              </div>
-            </div>
-
-            {/* Pillar 7 */}
-            <div className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="text-center mb-4">
-                <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full mb-3">
-                  <Eye className="w-6 h-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">7. Vision for Dignity & Peace</h3>
-                <p className="text-sm text-gray-600">
-                  Articulate a constructive path toward peace
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
+
+
 
         {/* Trademark Notice */}
         <div className="max-w-4xl mx-auto mb-16">
