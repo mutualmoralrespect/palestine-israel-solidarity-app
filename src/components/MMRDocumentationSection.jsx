@@ -122,8 +122,8 @@ const MMRDocumentationSection = () => {
               },
               {
                 icon: Building,
-                title: "Accountability for Israeli Far Right",
-                description: "Hold Israeli extremists and policies accountable.  Includes critique of Israeli leaders, IDF military actions, settler violence, annexationist policies, and Jewish supremacist rhetoric.",
+                title: "Accountability for Israeli far-right rejectionism",
+                description: "Hold Israeli extremists and policies accountable.  Assesses actions by Israeli officials, settlers, or policies—including military conduct—that.  Differentiates between security dilemmas and ideologically driven rejectionism.",
                 color: "from-yellow-500 to-orange-500",
                 iconBg: "bg-gradient-to-r from-yellow-500 to-orange-500"
               },
