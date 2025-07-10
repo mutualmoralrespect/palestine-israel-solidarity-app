@@ -36,7 +36,7 @@ export const transformProfile = (profile) => {
   const colorMap = {
     'Pass': '#4CAF50',           // Green
     'Partial': '#FFC107',        // Gold/Amber
-    'Fail': '#E53935'            // Red
+    'Fail': '#fde8e8'            // Light red background for fail
   };
   
   // Map pillar assessments to colors
