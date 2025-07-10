@@ -80,53 +80,19 @@ const MMRProfilesSection = ({
   const filteredFigures = useMemo(() => {
     if (activeCategory === 'All') {
       return allFigures;
-    } else if (activeCategory === 'Unsorted') {
-      // Handle Unsorted category - show profiles with categories not in navigation
-      const allDefinedCategories = new Set();
+    } else if (activeCategory === 'other') {
+      // Show all profiles in the 'Other' group (uncategorized + unmatched)
+      let otherProfiles = [];
       categoryGroups.forEach(group => {
-        group.categories.forEach(cat => {
-          if (cat.id !== 'Unsorted') { // Exclude the Unsorted category itself
-            allDefinedCategories.add(cat.id);
-          }
-        });
-      });
-      
-      let unsortedFigures = [];
-      Object.keys(figures).forEach(categoryId => {
-        if (!allDefinedCategories.has(categoryId)) {
-          let categoryFigures = figures[categoryId] || [];
-          
-          // Apply status filter if specified
-          if (filterByStatus) {
-            const getSimplifiedRating = (rating) => {
-              switch (rating) {
-                case 'Full Pass':
-                case 'Strong Pass':
-                case 'Pass':
-                  return 'Pass';
-                case 'Mixed':
-                case 'Partial':
-                  return 'Partial';
-                case 'Failing':
-                case 'Clear Fail':
-                case 'Fail':
-                  return 'Fail';
-                default:
-                  return 'Unknown';
-              }
-            };
-            
-            categoryFigures = categoryFigures.filter(figure => {
-              const simplified = getSimplifiedRating(figure.status);
-              return simplified === filterByStatus;
-            });
-          }
-          
-          unsortedFigures = [...unsortedFigures, ...categoryFigures];
+        if (group.id === 'other') {
+          group.categories.forEach(cat => {
+            if (cat.id === 'other' && cat.profiles) {
+              otherProfiles = cat.profiles;
+            }
+          });
         }
       });
-      
-      return unsortedFigures;
+      return otherProfiles;
     } else if (activeCategory.startsWith('group:')) {
       // Group filtering - combine all categories in the group
       const groupId = activeCategory.replace('group:', '');

@@ -228,8 +228,8 @@ export const getCategoryGroups = (filterByStatus = null) => {
     const figures = transformCategories();
     const actualStats = {};
     let totalCount = 0;
-    let unsortedCount = 0;
-    let unsortedProfiles = [];
+    let otherCount = 0;
+    let otherProfiles = [];
 
     // Build a set of all defined categories from the navigation
     const allDefinedCategories = new Set();
@@ -239,11 +239,11 @@ export const getCategoryGroups = (filterByStatus = null) => {
       });
     });
 
-    // Count profiles in each category
-    Object.keys(figures).forEach(categoryId => {
-      let categoryFigures = figures[categoryId] || [];
-
+    // Go through all profiles in the database
+    mmrDatabase.forEach(profile => {
+      const cat = profile.category;
       // Apply status filter if specified
+      let include = true;
       if (filterByStatus) {
         const getSimplifiedRating = (rating) => {
           switch (rating) {
@@ -262,25 +262,25 @@ export const getCategoryGroups = (filterByStatus = null) => {
               return 'Unknown';
           }
         };
-        categoryFigures = categoryFigures.filter(figure => {
-          const simplified = getSimplifiedRating(figure.status);
-          return simplified === filterByStatus;
-        });
+        const simplified = getSimplifiedRating(profile.status || profile.overall_alignment);
+        include = simplified === filterByStatus;
       }
+      if (!include) return;
 
-      if (!allDefinedCategories.has(categoryId)) {
-        unsortedCount += categoryFigures.length;
-        unsortedProfiles.push(...categoryFigures);
+      if (!cat || !allDefinedCategories.has(cat)) {
+        otherCount++;
+        otherProfiles.push(transformProfile(profile));
       } else {
-        actualStats[categoryId] = categoryFigures.length;
-        totalCount += categoryFigures.length;
+        if (!actualStats[cat]) actualStats[cat] = 0;
+        actualStats[cat]++;
+        totalCount++;
       }
     });
 
-    return { actualStats, totalCount, unsortedCount, unsortedProfiles };
+    return { actualStats, totalCount, otherCount, otherProfiles };
   };
 
-  const { actualStats, totalCount, unsortedCount, unsortedProfiles } = getActualCounts();
+  const { actualStats, totalCount, otherCount, otherProfiles } = getActualCounts();
 
   // Transform JSON category groups to component format with smart filtering
   const processedGroups = categoryGroups.map(group => {
@@ -328,31 +328,24 @@ export const getCategoryGroups = (filterByStatus = null) => {
     return group.id === 'all' || group.categories.length > 0;
   });
 
-  // Add 'Other' group if there are unsorted profiles
-  if (unsortedCount > 0) {
-    // Group unsorted profiles by their actual category name
-    const otherCategoriesMap = {};
-    unsortedProfiles.forEach(profile => {
-      const cat = profile.category || 'Uncategorized';
-      if (!otherCategoriesMap[cat]) otherCategoriesMap[cat] = [];
-      otherCategoriesMap[cat].push(profile);
-    });
-    const otherCategories = Object.entries(otherCategoriesMap).map(([cat, profiles]) => ({
-      id: cat,
-      label: cat,
-      icon: FileText,
-      count: profiles.length,
-      profiles
-    }));
+  // Add 'Other' group if there are any such profiles
+  if (otherCount > 0) {
     processedGroups.push({
       id: 'other',
       label: 'Other',
       icon: FileText,
-      count: unsortedCount,
-      categories: otherCategories
+      count: otherCount,
+      categories: [{
+        id: 'other',
+        label: 'Other',
+        icon: FileText,
+        count: otherCount,
+        profiles: otherProfiles
+      }]
     });
   }
 
   return processedGroups;
 };
+
 

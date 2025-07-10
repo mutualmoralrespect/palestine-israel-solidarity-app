@@ -185,6 +185,14 @@
             "subcategories": [
               "Historian"
             ]
+          },
+          {
+            "id": "trauma-specialists",
+            "label": "Trauma Specialist",
+            "icon": "UserHeart",
+            "subcategories": [
+              "Trauma Specialist"
+            ]
           }
         ]
       }

@@ -103,6 +103,7 @@
     "subject": "Sally Abed",
     "role": "Civic Organizer",
     "affiliation": "Standing Together",
+    "category": "peace-advocate2s",
     "source_context": "Leads Standing Together’s Arab-Jewish coalition work; organizes nonviolent actions and speaks across Western and Middle Eastern venues",
     "overall_alignment": "Pass",
     "pillars": [
@@ -1517,9 +1518,262 @@
       "Disseminates false and inciting narratives"
     ],
     "full_conclusion": "Yahya Sinwar represents the most structurally noncompliant profile under the MMR framework. He glorifies violence, erases Israeli humanity, and strategically instrumentalizes Palestinian suffering for ideological and political gain. His leadership doctrine centers on resistance through sacrifice, not reconciliation or cohabitation. Though he speaks to genuine grievances and resonates with anti-colonial discourses, his framework is zero-sum, triumphalist, and eliminationist. Sinwar makes no gesture toward shared moral futures or mutual recognition. Under MMR standards, his narrative is a profound betrayal of the Palestinian civilians he claims to defend."
-  }
-  
-  
-  
-]
+  },
+  {
+    "subject": "Anne Applebaum",
+    "role": "Historian and Journalist",
+    "affiliation": "The Atlantic, Washington Post, Pulitzer Prize Winner",
+    "category": "journalists",
+    "source_context": "Public commentary, articles on democracy, autocracy, and Israel-Hamas war (2023–2024), coverage in The Atlantic, WPR, Mondoweiss, Middle East Forum",
+    "overall_alignment": "Partial",
+    "pillars": [
+      {
+        "pillar": "Reject targeting of civilians",
+        "assessment": "✅ Pass",
+        "evidence": "Applebaum has condemned Hamas’s October 7 massacre as blatant terrorism and stressed the necessity of defending Israel. She’s also acknowledged Gaza’s devastation—calling the war a breach of the 'rules-based world order' due to widespread civilian harm."
+      },
+      {
+        "pillar": "Accountability for Hamas / PA rejectionism",
+        "assessment": "✅ Pass",
+        "evidence": "She places Hamas within a broader autocratic 'Illiberal International,' condemning its terror tactics and alignment with Iran and Russia. She asserts Hamas must be held accountable as a terrorist organization."
+      },
+      {
+        "pillar": "Accountability for Israeli far-right rejectionism",
+        "assessment": "⚠️ Partial",
+        "evidence": "Applebaum warns that Netanyahu's government threatens Israel’s democracy, likening judicial overhaul to autocratic erosion, but she less frequently addresses Israeli military policies toward Palestinians or labels them as human rights violations."
+      },
+      {
+        "pillar": "Verified, truthful sources",
+        "assessment": "✅ Strong",
+        "evidence": "As a Pulitzer-winning historian, Applebaum grounds her analysis in global patterns of authoritarianism. She supports her assessments with reputable comparative data, interviews, and historical examples across coverage of Ukraine, Israel, and autocracies."
+      },
+      {
+        "pillar": "Humanize both peoples",
+        "assessment": "⚠️ Mixed",
+        "evidence": "She empathizes strongly with Israelis traumatized by Hamas terror and highlights global democratic backsliding, yet her coverage often prioritizes Israeli narratives and global strategic frameworks—less frequently spotlighting Palestinian civilian suffering and personal stories."
+      },
+      {
+        "pillar": "Vision for Dignity, Coexistence & Peace",
+        "assessment": "⚠️ Partial",
+        "evidence": "Applebaum frames the conflict as part of a global struggle between democracy and autocracy, urging defense of democratic norms, but seldom proposes concrete dignity-based pathways for Israeli-Palestinian reconciliation or Palestinian self-determination."
+      }
+    ],
+    "strengths": [
+      "Firm moral rejection of terrorism and civilian-targeted violence by Hamas.",
+      "Treats Israel’s democracy seriously, warning against right-wing authoritarian drift.",
+      "Robust use of comparative, globally contextualized evidence and reporting."
+    ],
+    "weaknesses": [
+      "Israeli far-right actions and Gaza civilian impact receive less focused moral critique.",
+      "Weak humanization of Palestinian civilian experiences and trauma.",
+      "Lacks a clear, dignity-based political roadmap for resolving Israeli-Palestinian conflict beyond strategic framing."
+    ],
+    "full_conclusion": "Anne Applebaum is a thoughtful and well-sourced commentator whose global-democracy frame brings valuable context to the Gaza war. She issues strong moral condemnation of Hamas and powerful critique of Israeli democratic backsliding under Netanyahu. However, through an MMR lens, her alignment remains Partial: she does not consistently extend moral scrutiny to Israeli military actions harming civilians, and largely centers Israeli and Western democratic narratives over Palestinian human experiences. Nor does she outline positive peace-building strategies rooted in dignity and shared agency. To reach fuller alignment with the Mutual Moral Respect framework, Applebaum would need to balance her rigorous autocracy analysis with consistent condemnation of all civilian-targeting regardless of actor, greater empathy for Palestinians as individuals, and advocacy for mutual political solutions that uphold Palestinian rights and dignity."
+  },
+  {
+    "subject": "Noam Chomsky",
+    "role": "Linguist, Philosopher, Political Commentator",
+    "affiliation": "MIT, Public Intellectual, Author of 'Fateful Triangle'",
+    "category": "academics",
+    "source_context": "Books, speeches, interviews, published essays (1970s–2024), including Asre Nou and Boston University interviews on Gaza",
+    "overall_alignment": "Partial",
+    "pillars": [
+      {
+        "pillar": "Reject targeting of civilians",
+        "assessment": "✅ Pass",
+        "evidence": "Chomsky condemns both Hamas’s attacks on civilians (e.g., October 7) and Israeli military actions, describing Gaza bombardments as 'murder,' not self-defense, especially under occupation."
+      },
+      {
+        "pillar": "Accountability for Hamas / PA rejectionism",
+        "assessment": "⚠️ Partial",
+        "evidence": "While Chomsky acknowledges Hamas’s violence, describing civilian massacres as 'atrocities,' he often emphasizes systemic causes over Hamas's moral agency. He critiques Hamas’s charter selectively and calls for distinction between rhetoric and lived violence."
+      },
+      {
+        "pillar": "Accountability for Israeli far-right rejectionism",
+        "assessment": "✅ Pass",
+        "evidence": "He labels Israeli occupation worse than apartheid, condemns settlements, calls Gaza a 'concentration camp,' and warns Israeli Jewish society risks 'turning into Judeo-Nazis.'"
+      },
+      {
+        "pillar": "Verified, truthful sources",
+        "assessment": "✅ Strong",
+        "evidence": "Chomsky’s commentary is grounded in decades of sourced research (e.g. 'Fateful Triangle', 'Middle East Illusions'), consistently citing historical records and media critique."
+      },
+      {
+        "pillar": "Humanize both peoples",
+        "assessment": "⚠️ Partial",
+        "evidence": "Chomsky shows deep empathy for Palestinian suffering and recognizes Israeli fears and structural constraints. However, his analysis often foregrounds structural critique over personal narratives of Israeli civilian pain."
+      },
+      {
+        "pillar": "Vision for Dignity, Coexistence & Peace",
+        "assessment": "⚠️ Partial",
+        "evidence": "He advocates for a two-state solution grounded in justice and restraint, yet focuses more on systemic change and less on articulating a positive, shared roadmap of dignity for both communities."
+      }
+    ],
+    "strengths": [
+      "Strong moral stance condemning civilian targeting by both Hamas and Israeli military forces.",
+      "Rigorous, well-sourced critique of Israeli occupation, labeling it worse than apartheid.",
+      "Founded on extensive historical and archival scholarship—consistently citing documents and structural analysis."
+    ],
+    "weaknesses": [
+      "Moral accountability for Hamas is less direct; structural explanation sometimes overshadows clear ethical condemnation.",
+      "Limited personal humanization of Israeli civilians and victims; focus is more on state-level dynamics.",
+      "While advocating systemic justice, lacks a fully fleshed, dignity-driven roadmap that addresses reconciliation and mutual thriving."
+    ],
+    "full_conclusion": "Noam Chomsky stands as a principled, deeply informed critic of power—particularly U.S. imperialism and Israeli occupation. His moral clarity shines in condemning civilian-targeting actions of all parties, and his labeling of Gaza as a 'concentration camp' reflects his use of sharply honest language. His structural critiques are fortified by decades of documented research and media analysis. Yet, under the MMR framework, this moral rigor is undermined by two central gaps: first, a relative attenuation of Hamas’s moral critique, framed predominantly through systemic context rather than direct ethical accountability; second, a lack of personal empathetic narrative for Israeli civilian suffering. Lastly, while Chomsky robustly calls for two‑state justice, his envisioned peace remains abstract—heavy on systemic critiques and light on a human-centered plan for shared dignity. To strengthen his alignment, Chomsky would need more balanced moral accountability for non-state actors and a richer narrative of Israeli human suffering, paired with a forward-looking, dignity-based peace framework rooted in mutual humanization."
+  },
+    {
+      "subject": "Rashid Khalidi",
+      "role": "Historian, Palestinian-American Academic",
+      "affiliation": "Columbia University",
+      "category": "historians",
+      "source_context": "Books, media interviews, public lectures, articles on Palestinian history and Zionism",
+      "overall_alignment": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject targeting of civilians",
+          "assessment": "✅ Pass",
+          "evidence": "Khalidi explicitly condemns the targeting of civilians, including both Hamas’s October 7 attacks and Israeli airstrikes. He has stated publicly that deliberate attacks on civilians are unacceptable and morally unjustifiable."
+        },
+        {
+          "pillar": "Accountability for Hamas / PA rejectionism",
+          "assessment": "⚠️ Weak",
+          "evidence": "Khalidi avoids substantive critique of Hamas’s ideological rejectionism or authoritarian tactics. He tends to frame Palestinian violence as reactive or structural, not grounded in independent agency, which undermines symmetrical moral clarity."
+        },
+        {
+          "pillar": "Accountability for Israeli far-right rejectionism",
+          "assessment": "✅ Pass",
+          "evidence": "Khalidi consistently critiques Israeli expansionism, settler violence, and right-wing ultranationalist politics. He frames Likud-era Zionism as increasingly incompatible with Palestinian dignity and consistently opposes eliminationist tendencies on the Israeli right."
+        },
+        {
+          "pillar": "Verified, truthful sources",
+          "assessment": "✅ Strong",
+          "evidence": "As a historian, Khalidi demonstrates academic rigor, particularly in 'The Hundred Years’ War on Palestine.' He uses archival sources, diplomatic records, and firsthand knowledge. His factual sourcing is well-regarded across political lines."
+        },
+        {
+          "pillar": "Humanize both peoples",
+          "assessment": "⚠️ Partial",
+          "evidence": "He richly humanizes Palestinian trauma and aspirations, including personal and familial narratives. However, Israeli Jewish fears, trauma, or civilian identity are underrepresented in his discourse—often portrayed through structural or colonial roles."
+        },
+        {
+          "pillar": "Vision for Dignity, Coexistence & Peace",
+          "assessment": "⚠️ Moderate",
+          "evidence": "Khalidi supports a two-state solution and opposes eliminationism, but his framing is more centered on justice for Palestinians than mutual dignity. His long-term peace vision is often implied rather than articulated in detail, particularly from the Israeli perspective."
+        }
+      ],
+      "strengths": [
+        "Ethical rejection of all civilian targeting.",
+        "Clear critique of Israeli far-right rejectionism and settler violence.",
+        "Verified academic sourcing and historical rigor.",
+        "Deep, sincere humanization of Palestinian identity and loss."
+      ],
+      "weaknesses": [
+        "Insufficient critique of Hamas or PA moral failures.",
+        "Weak humanization of Israeli civilians—emotional asymmetry.",
+        "Lacks a clearly articulated, dignity-based political roadmap for mutual coexistence."
+      ],
+      "full_conclusion": "Rashid Khalidi is a respected historian and voice of Palestinian dignity whose work is deeply grounded in archival documentation and a strong moral sense of justice. His contributions to global understanding of Palestinian narratives are invaluable. Under MMR evaluation, however, his alignment is partial. While he consistently opposes civilian targeting and critiques Israeli ultranationalism with clarity, he does not hold Hamas or PA governance morally accountable with the same transparency. His emotional narrative centers Palestinian trauma but gives insufficient space to Israeli civilian identity or suffering. Moreover, while he supports peaceful solutions, he rarely articulates a vision of shared future dignity in concrete, forward-looking terms. A shift toward more symmetrical empathy and shared moral accountability would strengthen Khalidi’s MMR alignment and make his voice more resonant across divided moral communities."
+    },
+    {
+      "subject": "Gabor Maté",
+      "role": "Physician, Trauma Specialist, Public Intellectual",
+      "affiliation": "Prominent in addiction and trauma psychology",
+      "category": "trauma-specialists",
+      "source_context": "Personal essays, interviews, clinical lectures, Gaza commentary (2023–2024)",
+      "overall_alignment": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject targeting of civilians",
+          "assessment": "✅ Pass",
+          "evidence": "Maté emphasizes nonviolence and trauma-awareness, advocating compassion for both Israelis and Palestinians. He explicitly critiques Israeli military actions as 'mass killing' that violate 'never again' principles."
+        },
+        {
+          "pillar": "Accountability for Hamas / PA rejectionism",
+          "assessment": "⚠️ Partial",
+          "evidence": "His focus is on psychological trauma and broader systems; he criticizes Israeli state actions more than analyzing Hamas’s rejectionism or its use of civilian environments. No clear moral critique of Hamas’s role."
+        },
+        {
+          "pillar": "Accountability for Israeli far-right rejectionism",
+          "assessment": "✅ Pass",
+          "evidence": "Maté explicitly names Israeli policies as apartheid and ethnic cleansing, labels Gaza a 'concentration camp,' and condemns Israeli far-right conduct, demonstrating strong moral clarity."
+        },
+        {
+          "pillar": "Verified, truthful sources",
+          "assessment": "⚠️ Mixed",
+          "evidence": "His contributions rest on clinical experience and scholarship in trauma and addiction. Critics argue his trauma-centric interpretations verge on reductionism when applied to geopolitical violence."
+        },
+        {
+          "pillar": "Humanize both peoples",
+          "assessment": "✅ Strong",
+          "evidence": "Maté humanizes all sides: rooted in his Holocaust survivor story, he empathizes deeply with Jewish suffering and equally with Palestinian civilians—mourning mutual pain and shared humanity."
+        },
+        {
+          "pillar": "Vision for Dignity, Coexistence & Peace",
+          "assessment": "⚠️ Partial",
+          "evidence": "Maté calls for trauma healing and mutual listening, rejecting tribal slogans. Yet his peace proposals focus on psychological restoration rather than concrete political frameworks or mechanisms for justice and rights."
+        }
+      ],
+      "strengths": [
+        "Emphatic moral language opposing Israeli state violence.",
+        "Trauma-informed empathy links both Jewish and Palestinian suffering.",
+        "Strong humanizing voice, fostering reconciliation through shared pain."
+      ],
+      "weaknesses": [
+        "Does not hold Hamas or Palestinian leadership to the same moral standard.",
+        "Lacks specific political or justice-based solutions.",
+        "Trauma-centric model may oversimplify complex political dynamics."
+      ],
+      "full_conclusion": "Dr. Gabor Maté is a deeply empathetic voice, bridging collective traumas across Israeli and Palestinian identities. His lived Holocaust history and harm-reduction clinical work enrich his narrative, making him a powerful moral interlocutor. He clearly rejects Israeli far-right policies with moral clarity—labeling them apartheid or ethnic cleansing—and equally acknowledges Jewish historical suffering. Yet his MMR alignment falters in failing to name or critique rejectionist tactics by Hamas or Palestinian leadership, leaving an asymmetry in moral accountability. Additionally, while his trauma-informed vision promotes healing and mutual understanding, it lacks concrete political frameworks or justice strategies needed for lasting peace. To strengthen MMR alignment, Maté would need to integrate moral scrutiny of all violent actors while articulating dignity-based solutions that address structural and political realities—beyond the psychological."
+    },
+    {
+      "subject": "Jeffrey D. Sachs",
+      "role": "Economist, Global Policy Advisor, UN Consultant",
+      "affiliation": "Columbia University, The Earth Institute",
+      "category": "academics",
+      "source_context": "Global development speeches, Gaza commentary, UN briefings, academic work (2020s)",
+      "overall_alignment": "Partial",
+      "pillars": [
+        {
+          "pillar": "Reject targeting of civilians",
+          "assessment": "✅ Pass",
+          "evidence": "Sachs consistently opposes war and military violence in principle, emphasizing diplomacy and international law. He condemns mass violence broadly, including U.S.-led wars and the Ukraine invasion. However, he rarely specifies moral outrage toward civilian-targeting actors like Hamas."
+        },
+        {
+          "pillar": "Accountability for Hamas / PA rejectionism",
+          "assessment": "❌ Fail",
+          "evidence": "Sachs rarely critiques Hamas or PA governance directly. His narrative frames Israel and the U.S. as dominant aggressors, with minimal examination of Hamas's ideological rejectionism, ceasefire sabotage, or use of civilian infrastructure for militant aims."
+        },
+        {
+          "pillar": "Accountability for Israeli far-right rejectionism",
+          "assessment": "⚠️ Partial",
+          "evidence": "Sachs critiques Israeli occupation and human rights violations in broad terms but does not directly engage with Kahanism, settler violence, or the current ultra-nationalist coalition’s policies. His discourse lacks named moral scrutiny of Israeli far-right ideologies."
+        },
+        {
+          "pillar": "Verified, truthful sources",
+          "assessment": "⚠️ Mixed",
+          "evidence": "A seasoned academic, Sachs cites reputable economic and policy sources. Yet, he has promoted contested claims (e.g., about COVID origins or covert Western regime change operations) without always offering verifiable, peer-reviewed evidence. His framing sometimes slips into conspiratorial tone."
+        },
+        {
+          "pillar": "Humanize both peoples",
+          "assessment": "⚠️ Partial",
+          "evidence": "Sachs empathizes with the Global South, including Palestinians, as victims of structural injustice. Yet his discourse largely omits Israeli civilian trauma—especially post-10/7—or the lived fear of Jewish communities. His framing risks presenting Israelis as mere agents of power, not people."
+        },
+        {
+          "pillar": "Vision for Dignity, Coexistence & Peace",
+          "assessment": "✅ Strong",
+          "evidence": "Sachs offers sweeping, dignity-based visions rooted in UN mechanisms, economic justice, and nonviolent diplomacy. He advocates for a rules-based global order centered on equality and peace—clearly rejecting eliminationism and supremacism."
+        }
+      ],
+      "strengths": [
+        "Advocates for nonviolence, diplomacy, and structural dignity across conflicts.",
+        "Vision rooted in international law, human development, and shared prosperity.",
+        "Longstanding critique of Western hypocrisy and power imbalance."
+      ],
+      "weaknesses": [
+        "Avoids moral critique of Hamas or internal Palestinian rejectionism.",
+        "Does not name or confront Israeli far-right supremacism or eliminationist rhetoric.",
+        "Occasionally promotes contested claims that undercut epistemic rigor."
+      ],
+      "full_conclusion": "Jeffrey Sachs is a respected voice for structural justice, global equity, and nonviolent solutions. His MMR alignment is anchored in his principled opposition to imperialism, war, and economic exploitation. However, in the context of the Israeli–Palestinian conflict, his analysis lacks symmetrical moral accountability. He critiques Western and Israeli power extensively, but fails to address Hamas's violent rejectionism, internal repression, or role in sustaining cycles of suffering. Likewise, he underplays Israeli far-right extremism, despite its impact on Palestinian rights and dignity. While his peace vision is robust and inspiring at a global level, his discourse risks flattening the lived realities of both peoples. For full MMR alignment, Sachs would need to integrate direct moral scrutiny of all rejectionist actors—not just geopolitical hegemonies—and explicitly affirm the human dignity of both Palestinians and Israeli Jews as equal subjects of compassion and agency."
+    }
+  ]
 
