@@ -154,7 +154,8 @@ export const transformProfile = (profile) => {
     overall: getOverallText(status),
     reflection: profile.reflection,
     pillars: transformedPillars,
-    sortingScore: sortingScore  // For sorting only, doesn't affect display
+    sortingScore: sortingScore,  // For sorting only, doesn't affect display
+    affiliation: profile.affiliation // <-- Add this line
   };
 };
 

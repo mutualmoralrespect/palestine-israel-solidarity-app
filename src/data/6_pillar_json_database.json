@@ -3,6 +3,7 @@
     "subject": "Gershon Baskin",
     "role": "Israeli Peace Activist",
     "affiliation": "Israeli–Palestinian Center for Research and Information",
+    "category": "peace-advocates",
     "source_context": "Co-founder of IPCRI; facilitator of prisoner swap (Gilad Shalit); peace dialogues and public mediation since 1990s",
     "overall_alignment": "Pass",
     "pillars": [
@@ -52,6 +53,7 @@
     "subject": "Sulaiman Khatib",
     "role": "Palestinian Peace Activist",
     "affiliation": "Combatants for Peace",
+    "category": "peace-advocates",
     "source_context": "Former militant turned nonviolent leader; co-founder of Combatants for Peace; public narrative reconciliation since early 2000s",
     "overall_alignment": "Pass",
     "pillars": [
@@ -150,6 +152,7 @@
     "subject": "Itamar Ben‑Gvir",
     "role": "Minister of National Security",
     "affiliation": "Otzma Yehudit / Israeli Government",
+    "category": "israeli-politicians",
     "source_context": "Known for extremist nationalist positions, street provocations, support for settler expansion; holds public office since 2022",
     "overall_alignment": "Fail",
     "pillars": [
@@ -199,6 +202,7 @@
     "subject": "Bezalel Smotrich",
     "role": "Minister of Finance",
     "affiliation": "Religious Zionist Party / Israeli Government",
+    "category": "israeli-politicians",
     "source_context": "Leads far‑right religious‑nationalist bloc; openly opposes Palestinian statehood; supports settler expansion",
     "overall_alignment": "Fail",
     "pillars": [
@@ -245,6 +249,7 @@
     "subject": "Benny Gantz",
     "role": "Opposition Leader / Former Minister of Defense",
     "affiliation": "National Unity Party",
+    "category": "israeli-politicians",
     "source_context": "Military officer turned politician; advocated for conditional Palestinian development during defense tenure; political leadership since 2018",
     "overall_alignment": "Partial",
     "pillars": [
@@ -294,6 +299,7 @@
     "subject": "Yair Lapid",
     "role": "Opposition Leader / Former Prime Minister",
     "affiliation": "Yesh Atid",
+    "category": "israeli-politicians",
     "source_context": "Centrist politician; governed 2022–2023; advocated for secularism, civil rights, cautious Palestinian engagement",
     "overall_alignment": "Partial",
     "pillars": [
@@ -342,6 +348,7 @@
     "subject": "Avigdor Lieberman",
     "role": "Opposition Leader / Former Minister of Defense and Finance",
     "affiliation": "Yisrael Beiteinu",
+    "category": "israeli-politicians",
     "source_context": "Right-wing secular nationalist, leaders in defense and economic portfolios, critical of Palestinian political structures",
     "overall_alignment": "Weak",
     "pillars": [
@@ -390,6 +397,7 @@
     "subject": "Naftali Bennett",
     "role": "Former Prime Minister",
     "affiliation": "Yamina / Israeli Government (past)",
+    "category": "israeli-politicians",
     "source_context": "Led a centrist-right government (2021–2022), combining security credentials and cautious outreach to Gulf states; opposed hardcore settlement expansion in some contexts",
     "overall_alignment": "Partial",
     "pillars": [
@@ -438,6 +446,7 @@
     "subject": "Gideon Sa'ar",
     "role": "Opposition Leader",
     "affiliation": "New Hope",
+    "category": "israeli-politicians",
     "source_context": "Former minister, currently in opposition; advocates judicial reform and security enhancements",
     "overall_alignment": "Partial",
     "pillars": [
@@ -486,6 +495,7 @@
     "subject": "Yair Golan",
     "role": "Opposition MK / Retired Major General",
     "affiliation": "Democratic Union",
+    "category": "israeli-politicians",
     "source_context": "Noted for critical remarks on occupation and Jewish morality; involved in peace advocacy after military service",
     "overall_alignment": "Pass",
     "pillars": [
@@ -535,6 +545,7 @@
     "subject": "Hussein al‑Sheikh",
     "role": "PA Cabinet Secretary",
     "affiliation": "Palestinian Authority",
+    "category": "palestinian-authority",
     "source_context": "Senior PA official; oversees governance and security coordination with Israel",
     "overall_alignment": "Weak",
     "pillars": [
@@ -584,6 +595,7 @@
     "subject": "Majed Faraj",
     "role": "PA Intelligence Chief",
     "affiliation": "Palestinian Authority",
+    "category": "palestinian-authority",
     "source_context": "Heads Palestinian general intelligence; coordinates with Israeli security on counterterrorism operations",
     "overall_alignment": "Weak",
     "pillars": [
@@ -632,6 +644,7 @@
     "subject": "Rami Hamdallah",
     "role": "Former PA Prime Minister",
     "affiliation": "Palestinian Authority",
+    "category": "palestinian-authority",
     "source_context": "Served as PM 2014–2019; engaged in diplomacy and administration under Abbas",
     "overall_alignment": "Partial",
     "pillars": [
@@ -680,6 +693,7 @@
     "subject": "Khaled Meshaal",
     "role": "Senior Hamas Leader (In Exile)",
     "affiliation": "Hamas",
+    "category": "hamas-officials",
     "source_context": "Politburo leader based in Qatar (2004–2017); speaks on political strategy and resistance narratives",
     "overall_alignment": "Fail",
     "pillars": [
@@ -726,6 +740,7 @@
     "subject": "Mousa Abu Marzook",
     "role": "Senior Hamas Politician",
     "affiliation": "Hamas",
+    "category": "hamas-officials",
     "source_context": "Long-term political representative in exile; involved in negotiations and media representation since the 1990s",
     "overall_alignment": "Fail",
     "pillars": [
@@ -771,6 +786,7 @@
     "subject": "Osama Hamdan",
     "role": "Hamas Representative in Lebanon",
     "affiliation": "Hamas",
+    "category": "hamas-officials",
     "source_context": "Longtime political spokesman based in Beirut; known for media appearances defending Hamas positions",
     "overall_alignment": "Fail",
     "pillars": [
@@ -817,6 +833,7 @@
     "subject": "Sami Abu Zuhri",
     "role": "Hamas Spokesman",
     "affiliation": "Hamas",
+    "category": "hamas-officials",
     "source_context": "Regular media spokesperson in Gaza, frequently quoted after escalation or cross-border incidents",
     "overall_alignment": "Fail",
     "pillars": [
@@ -863,6 +880,7 @@
     "subject": "Rep. Ritchie Torres",
     "role": "U.S. Representative",
     "affiliation": "Democratic Party",
+    "category": "us-politicians",
     "source_context": "Member of U.S. Congress since 2021; vocal on human rights, LGBTQ+ issues, and foreign policy",
     "overall_alignment": "Pass",
     "pillars": [
@@ -909,6 +927,7 @@
     "subject": "Mehdi Hasan",
     "role": "Journalist / Host",
     "affiliation": "Al Jazeera English",
+    "category": "journalists",
     "source_context": "Anchor and political correspondent; known for hard-hitting interviews and analysis on US and Middle East politics",
     "overall_alignment": "Partial",
     "pillars": [
@@ -958,6 +977,7 @@
     "subject": "Christiane Amanpour",
     "role": "Chief International Anchor",
     "affiliation": "CNN",
+    "category": "journalists",
     "source_context": "Veteran international correspondent; reports from conflict zones; focuses on human rights and global affairs",
     "overall_alignment": "Pass",
     "pillars": [
@@ -1004,6 +1024,7 @@
     "subject": "Anderson Cooper",
     "role": "Anchor / Correspondent",
     "affiliation": "CNN",
+    "category": "journalists",
     "source_context": "Veteran news anchor; has covered conflicts including Middle East and war zones; known for field reporting",
     "overall_alignment": "Pass",
     "pillars": [
@@ -1050,6 +1071,7 @@
     "subject": "Clarissa Ward",
     "role": "Chief International Correspondent",
     "affiliation": "CNN",
+    "category": "journalists",
     "source_context": "Has reported from Gaza, Iraq, Syria; known for immersive frontline presence and detailed conflict narratives",
     "overall_alignment": "Pass",
     "pillars": [
@@ -1096,6 +1118,7 @@
     "subject": "Jeremy Bowen",
     "role": "Chief International Editor",
     "affiliation": "BBC",
+    "category": "journalists",
     "source_context": "Veteran Middle East correspondent; reports from conflict zones and geopolitical flashpoints",
     "overall_alignment": "Pass",
     "pillars": [
@@ -1145,6 +1168,7 @@
     "subject": "Omar Shakir",
     "role": "Human Rights Director",
     "affiliation": "Human Rights Watch (formerly Israel/Palestine Director)",
+    "category": "ngo-leaders",
     "source_context": "Leads reporting on human rights conditions in Israel, Gaza, and West Bank; engages in legal advocacy",
     "overall_alignment": "Pass",
     "pillars": [
@@ -1194,6 +1218,7 @@
     "subject": "Hagai El‑Ad",
     "role": "Former Executive Director",
     "affiliation": "B’Tselem",
+    "category": "ngo-leaders",
     "source_context": "Led Israeli human rights NGO; issued high-profile reports on occupation and settler violence",
     "overall_alignment": "Pass",
     "pillars": [
@@ -1243,6 +1268,7 @@
     "subject": "Yuli Novak",
     "role": "Human Rights Advocate",
     "affiliation": "Gisha",
+    "category": "ngo-leaders",
     "source_context": "Director and co-founder of Israeli NGO monitoring restrictions on movement in Gaza; engages in policy advocacy",
     "overall_alignment": "Pass",
     "pillars": [
@@ -1291,6 +1317,7 @@
     "subject": "Kenneth Roth",
     "role": "Executive Director (former)",
     "affiliation": "Human Rights Watch",
+    "category": "ngo-leaders",
     "source_context": "Led HRW from 1993–2022; influential global human rights policymaker and author",
     "overall_alignment": "Pass",
     "pillars": [
@@ -1335,6 +1362,59 @@
       "Lacks sustained narrative on shared civic future"
     ],
     "full_conclusion": "Kenneth Roth’s leadership in HRW exemplifies principled MMR engagement through global rights advocacy. His structure and integrity are strong, though enhanced moral symmetry and future-focused messaging would further his alignment."
+  },{
+    "subject": "Benjamin Netanyahu",
+    "role": "Prime Minister",
+    "affiliation": "Israeli Government",
+    "category": "israeli-politicians",
+    "source_context": "Public speeches, policy actions during terms (2009–2024), war-time leadership, international statements.",
+    "pillars": [
+      {
+        "pillar": "Reject targeting of civilians",
+        "assessment": "❌ Fail",
+        "evidence": "While Netanyahu states that Israel does not target civilians, his government's military policies (e.g., in Gaza 2014, 2021, 2023) often show disregard for proportionality and civilian safety. Civilian infrastructure is frequently struck, and no accountability is applied internally."
+      },
+      {
+        "pillar": "Accountability for Hamas / PA rejectionism",
+        "assessment": "✅ Pass",
+        "evidence": "Clearly identifies Hamas as a rejectionist, terrorist actor and condemns its use of human shields and refusal to recognize Israel. Criticized the PA when it has failed to distance itself from Hamas."
+      },
+      {
+        "pillar": "Accountability for Israeli far-right rejectionism",
+        "assessment": "❌ Fail",
+        "evidence": "Netanyahu has repeatedly empowered far-right extremists, including ministers who openly incite against Arabs and reject Palestinian statehood. He shields them from accountability and has formed coalitions that mainstream ultra-nationalist ideologies."
+      },
+      {
+        "pillar": "Verified, truthful sources",
+        "assessment": "⚠️ Mixed",
+        "evidence": "Often uses factual security threats to justify actions but distorts context. His narratives frequently omit Palestinian suffering or civilian tolls. In some speeches and international media, he frames Palestinian nationalism as inherently antisemitic or terroristic."
+      },
+      {
+        "pillar": "Humanize both peoples",
+        "assessment": "⚠️ Weak",
+        "evidence": "He appeals strongly to Jewish trauma and Israeli security fears, but rarely humanizes Palestinians as a people with dignity and aspirations. Palestinian civilians are typically framed only in the context of terrorism or as human shields."
+      },
+      {
+        "pillar": "Vision for Dignity, Coexistence & Peace",
+        "assessment": "❌ Fail",
+        "evidence": "Netanyahu consistently rejects Palestinian statehood, proposes long-term military control over Palestinians, and offers no vision for coexistence or equal rights. His future framing is zero-sum and power-dominant, with no shared moral horizon."
+      }
+    ],
+    "overall_alignment": "Fail",
+    "strengths": [
+      "Clear condemnation of Hamas as a terrorist actor.",
+      "Consistent articulation of Israeli Jewish trauma and fear.",
+      "Appeals to Western audiences on security-based moral terms."
+    ],
+    "weaknesses": [
+      "Shields far-right Israeli extremists from accountability.",
+      "Frames Palestinians through securitized and dehumanized lenses.",
+      "Offers no dignity-based vision of peace.",
+      "Military policies result in high civilian harm without internal accountability."
+    ],
+    "full_conclusion": "Benjamin Netanyahu embodies a morally asymmetrical posture under the MMR framework. While he forcefully condemns Hamas and articulates the traumas facing Israeli Jews, he simultaneously empowers ultra-nationalist forces that promote permanent subjugation of Palestinians. His policy record reflects rejection of equal dignity, with no genuine peace proposal on the table. In public statements, Netanyahu justifies Israeli actions primarily through the lens of Jewish historical trauma and existential threat. But this framework often erases Palestinian civilian suffering and leaves no room for a shared future. His rejection of Palestinian statehood, tolerance of settler violence, and alliances with religious extremists result in an MMR profile that fails on humanization, vision, and proportionality. Despite a coherent security narrative, his overall leadership does not meet the structural, moral, or emotional requirements of Mutual Moral Respect."
   }
+  
+  
 ]
 

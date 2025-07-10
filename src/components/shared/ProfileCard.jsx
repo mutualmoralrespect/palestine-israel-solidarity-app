@@ -44,7 +44,12 @@ const ProfileCard = ({
           </div>
           <div className="flex-1">
             <h3 className="text-xl font-semibold text-gray-800">{figure.name}</h3>
-            <p className="text-gray-600">{figure.role || figure.title}</p>
+            <p className="text-gray-600">
+              {figure.role || figure.title}
+              {figure.affiliation && (
+                <span className="text-gray-400 italic"> &middot; {figure.affiliation}</span>
+              )}
+            </p>
           </div>
           <div className="flex items-center gap-3">
             <div 
