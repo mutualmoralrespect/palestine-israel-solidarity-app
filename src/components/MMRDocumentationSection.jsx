@@ -22,7 +22,7 @@ const MMRDocumentationSection = () => {
         <div className="max-w-6xl mx-auto mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              The Seven Pillars of MMR
+              The Six Pillars of MMR
             </h2>
             <p className="text-lg text-gray-600">
               A comprehensive framework for moral evaluation
@@ -358,7 +358,7 @@ const MMRDocumentationSection = () => {
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
               <h4 className="text-xl font-bold text-gray-900 mb-4">Understanding MMR Assessments</h4>
               <p className="text-lg text-gray-600 max-w-4xl mx-auto">
-                These examples demonstrate how the MMR framework provides nuanced, evidence-based evaluations across all seven pillars. The framework reveals both strengths and critical failures in political leadership, helping identify voices that genuinely advance mutual moral respect versus those that perpetuate cycles of polarization and violence.
+                These examples demonstrate how the MMR framework provides nuanced, evidence-based evaluations across all six pillars. The framework reveals both strengths and critical failures in political leadership, helping identify voices that genuinely advance mutual moral respect versus those that perpetuate cycles of polarization and violence.
               </p>
             </div>
           </div>
