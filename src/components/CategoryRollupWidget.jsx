@@ -8,31 +8,23 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
     if (!figures || figures.length === 0) {
       return {
         total: 0,
-        strongPass: 0,
         pass: 0,
         partial: 0,
         fail: 0,
-        strongFail: 0,
         passRate: 0
       };
     }
 
     const counts = {
       total: figures.length,
-      strongPass: 0,
       pass: 0,
       partial: 0,
-      fail: 0,
-      strongFail: 0
+      fail: 0
     };
 
     figures.forEach(figure => {
       const rating = figure.status || "Unknown";
-      
       switch (rating) {
-        case "Strong Pass":
-          counts.strongPass++;
-          break;
         case "Pass":
           counts.pass++;
           break;
@@ -42,15 +34,11 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
         case "Fail":
           counts.fail++;
           break;
-        case "Strong Fail":
-          counts.strongFail++;
-          break;
       }
     });
 
-    // Calculate pass rate (Strong Pass + Pass)
-    const totalPassing = counts.strongPass + counts.pass;
-    counts.passRate = Math.round((totalPassing / counts.total) * 100);
+    // Calculate pass rate (Pass only)
+    counts.passRate = Math.round((counts.pass / counts.total) * 100);
 
     return counts;
   }, [figures]);
@@ -92,19 +80,9 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
         </div>
       </div>
 
-      {/* Progress Bar - 5-level system with updated colors */}
+      {/* Progress Bar - 3-level system with updated colors */}
       <div className="mb-3">
         <div className="flex h-3 rounded-full overflow-hidden bg-gray-200">
-          {/* Strong Fail section (dark red, leftmost) */}
-          {stats.strongFail > 0 && (
-            <div 
-              className="bg-red-900" 
-              style={{ 
-                width: `${(stats.strongFail / stats.total) * 100}%`,
-                backgroundColor: '#8B0000'
-              }}
-            />
-          )}
           {/* Fail section (bright red) */}
           {stats.fail > 0 && (
             <div 
@@ -125,7 +103,7 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
               }}
             />
           )}
-          {/* Pass section (medium green) */}
+          {/* Pass section (green) */}
           {stats.pass > 0 && (
             <div 
               className="bg-green-500" 
@@ -135,25 +113,11 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
               }}
             />
           )}
-          {/* Strong Pass section (dark green/teal, rightmost) */}
-          {stats.strongPass > 0 && (
-            <div 
-              className="bg-teal-700" 
-              style={{ 
-                width: `${(stats.strongPass / stats.total) * 100}%`,
-                backgroundColor: '#00796B'
-              }}
-            />
-          )}
         </div>
       </div>
 
-      {/* Statistics - 5-level system */}
-      <div className="grid grid-cols-5 gap-2 text-xs">
-        <div className="flex items-center gap-1">
-          <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#8B0000' }}></div>
-          <span>{stats.strongFail} Strong Fail</span>
-        </div>
+      {/* Statistics - 3-level system */}
+      <div className="grid grid-cols-3 gap-2 text-xs">
         <div className="flex items-center gap-1">
           <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#dc2626' }}></div>
           <span>{stats.fail} Fail</span>
@@ -165,10 +129,6 @@ const CategoryRollupWidget = ({ categoryName, figures, totalCount }) => {
         <div className="flex items-center gap-1">
           <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#4CAF50' }}></div>
           <span>{stats.pass} Pass</span>
-        </div>
-        <div className="flex items-center gap-1">
-          <div className="w-3 h-3 rounded-full" style={{ backgroundColor: '#00796B' }}></div>
-          <span>{stats.strongPass} Strong Pass</span>
         </div>
       </div>
     </div>

@@ -32,47 +32,42 @@ export const transformProfile = (profile) => {
     'Weak': 'Partial' // Optionally treat 'Weak' as Partial
   };
 
-  // Updated 5-level color mapping
+  // Updated 3-level color mapping
   const colorMap = {
-    'Strong Pass': '#00796B',    // Darker Green/Teal
-    'Pass': '#4CAF50',           // Medium Green
+    'Pass': '#4CAF50',           // Green
     'Partial': '#FFC107',        // Gold/Amber
-    'Fail': '#E53935',           // Bright Red
-    'Strong Fail': '#8B0000'     // Dark Red
+    'Fail': '#E53935'            // Red
   };
   
   // Map pillar assessments to colors
   const pillarColorMap = {
-    'Strong Pass': 'green',
     'Pass': 'green',
     'Partial': 'yellow',
-    'Mixed': 'yellow',
-    'Fail': 'red',
-    'Clear Fail': 'red'
+    'Fail': 'red'
   };
   
   // Clean and normalize overall rating
   let overall = profile.overall_rating || profile.overall_alignment || '';
   overall = overall.replace(/[^a-zA-Z ]/g, '').trim().toLowerCase();
   let status = 'Partial';
-  if (overall.includes('strong fail')) status = 'Strong Fail';
-  else if (overall.includes('fail')) status = 'Fail';
+  if (overall.includes('fail')) status = 'Fail';
   else if (overall.includes('partial') || overall.includes('mixed') || overall.includes('weak')) status = 'Partial';
-  else if (overall.includes('strong')) status = 'Strong Pass';
-  else if (overall.includes('pass')) status = 'Pass';
+  else if (overall.includes('pass') || overall.includes('strong')) status = 'Pass';
   const statusColor = colorMap[status] || 'yellow';
   
   // Convert pillars
   const cleanAssessment = (assessment) => {
     // Remove emojis and extra whitespace, keep only the text
-    return (assessment || '').replace(/[^a-zA-Z ]/g, '').trim();
+    return (assessment || '').replace(/[^a-zA-Z ]/g, '').trim().toLowerCase();
   };
   const transformedPillars = profile.pillars.map(pillar => {
-    const cleanStatus = cleanAssessment(pillar.assessment);
+    let cleanStatus = cleanAssessment(pillar.assessment);
+    if (cleanStatus === 'strong pass') cleanStatus = 'pass';
+    if (cleanStatus === 'strong fail' || cleanStatus === 'clear fail') cleanStatus = 'fail';
     return {
       name: pillar.pillar.replace(' / ', '/'),
-      status: cleanStatus,
-      color: pillarColorMap[cleanStatus] || 'yellow',
+      status: cleanStatus.charAt(0).toUpperCase() + cleanStatus.slice(1),
+      color: pillarColorMap[cleanStatus.charAt(0).toUpperCase() + cleanStatus.slice(1)] || 'yellow',
       evidence: pillar.evidence
     };
   });
@@ -150,16 +145,12 @@ export const transformProfile = (profile) => {
   // Generate overall assessment text with updated emojis
   const getOverallText = (status) => {
     switch(status) {
-      case 'Strong Pass':
-        return `🏁 Overall MMR Alignment: ✅ ${status}`;
       case 'Pass':
         return `🏁 Overall MMR Alignment: 🟢 ${status}`;
       case 'Partial':
         return `🏁 Overall MMR Alignment: ⚠️ ${status}`;
       case 'Fail':
         return `🏁 Overall MMR Alignment: ❌ ${status}`;
-      case 'Strong Fail':
-        return `🏁 Overall MMR Alignment: ❌❌ ${status}`;
       default:
         return `🏁 Overall MMR Alignment: ⚠️ ${status}`;
     }
