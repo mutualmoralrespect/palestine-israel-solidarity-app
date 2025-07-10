@@ -10,25 +10,33 @@ const MMRDocumentationSection = () => {
       if (!sectionRef.current) return;
       const rect = sectionRef.current.getBoundingClientRect();
       const offset = Math.max(0, -rect.top);
-      setScrollY(Math.min(offset, 200)); // Cap at 200px
+      setScrollY(offset);
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Header slides up only (no fade)
+  // Title slides up only (never fades out)
   const headerStyle = {
-    transform: `translateY(-${scrollY}px)`,
+    transform: `translateY(-${Math.min(scrollY, 10)}px)`,
     opacity: 1,
     transition: 'transform 0.2s',
     willChange: 'transform',
+    marginBottom: scrollY > 10 ? '2rem' : '4rem', // reduce space as you scroll
   };
-  // Pillars fade in sooner
+
+  const headerHasMoved = scrollY > 0;
+
+  const isSectionNearTop =
+    scrollY > 0 ||
+    (sectionRef.current && sectionRef.current.getBoundingClientRect().top < 10);
+
   const pillarsStyle = {
-    opacity: `${Math.min(1, scrollY / 40)}`,
-    transition: 'opacity 0.3s',
-    willChange: 'opacity',
-    pointerEvents: scrollY > 20 ? 'auto' : 'none',
+    opacity: isSectionNearTop ? 1 : 0,
+    transform: isSectionNearTop ? 'none' : 'translateY(10px)',
+    transition: 'opacity 0.2s, transform 0.2s',
+    willChange: 'opacity, transform',
+    pointerEvents: isSectionNearTop ? 'auto' : 'none',
   };
 
   return (
