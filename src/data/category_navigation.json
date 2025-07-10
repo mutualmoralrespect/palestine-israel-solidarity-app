@@ -1,0 +1,201 @@
+{
+    "category_groups": [
+      {
+        "id": "all",
+        "label": "All Categories",
+        "icon": "Users",
+        "categories": []
+      },
+      {
+        "id": "palestinian",
+        "label": "Palestinian Perspectives",
+        "icon": "Users",
+        "categories": [
+          {
+            "id": "palestinian-authority",
+            "label": "Palestinian Authority",
+            "icon": "Building",
+            "subcategories": [
+              "Palestinian Authority"
+            ]
+          },
+          {
+            "id": "fatah-leaders",
+            "label": "Fatah Leaders",
+            "icon": "Users",
+            "subcategories": [
+              "Fatah"
+            ]
+          },
+          {
+            "id": "hamas-officials",
+            "label": "Hamas Officials",
+            "icon": "ShieldAlert",
+            "subcategories": [
+              "Hamas"
+            ]
+          },
+          {
+            "id": "palestinian-voices",
+            "label": "Palestinian Voices",
+            "icon": "Mic",
+            "subcategories": [
+              "Peace Activist (Palestinian)"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "israeli",
+        "label": "Israeli Perspectives",
+        "icon": "StarOfDavid",
+        "categories": [
+          {
+            "id": "israeli-politicians",
+            "label": "Israeli Politicians",
+            "icon": "Users",
+            "subcategories": [
+              "Likud",
+              "Yamina",
+              "Otzma Yehudit",
+              "National Unity",
+              "Religious Zionist Party",
+              "Yesh Atid",
+              "Yisrael Beiteinu",
+              "New Hope",
+              "Democratic Union"
+            ]
+          },
+          {
+            "id": "israeli-voices",
+            "label": "Israeli Voices",
+            "icon": "Mic",
+            "subcategories": [
+              "Peace Activist (Israeli)"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "international",
+        "label": "International Voices",
+        "icon": "Globe",
+        "categories": [
+          {
+            "id": "us-politicians",
+            "label": "US Politicians",
+            "icon": "Flag",
+            "subcategories": [
+              "Democratic Party",
+              "Republican Party"
+            ]
+          },
+          {
+            "id": "journalists",
+            "label": "Journalists",
+            "icon": "FileText",
+            "subcategories": [
+              "CNN",
+              "BBC",
+              "Al Jazeera",
+              "The Intercept",
+              "Other Media"
+            ]
+          },
+          {
+            "id": "ngo-leaders",
+            "label": "NGO Leaders",
+            "icon": "Building",
+            "subcategories": [
+              "Human Rights Watch",
+              "B'Tselem",
+              "Gisha",
+              "Standing Together",
+              "Other NGO"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "peace",
+        "label": "Peace & Advocacy",
+        "icon": "Heart",
+        "categories": [
+          {
+            "id": "peace-advocates",
+            "label": "Peace Advocates",
+            "icon": "Users",
+            "subcategories": [
+              "Peace Activist (Palestinian)",
+              "Peace Activist (Israeli)",
+              "Peace Activist (Other)",
+              "Civic Organizer",
+              "Human Rights Advocate"
+            ]
+          },
+          {
+            "id": "organizations",
+            "label": "Organizations",
+            "icon": "Building",
+            "subcategories": [
+              "Standing Together",
+              "Human Rights Watch",
+              "Gisha",
+              "B'Tselem",
+              "Other NGO"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "academic",
+        "label": "Academic & Literary",
+        "icon": "BookOpen",
+        "categories": [
+          {
+            "id": "academics",
+            "label": "Academics",
+            "icon": "GraduationCap",
+            "subcategories": [
+              "Academic"
+            ]
+          },
+          {
+            "id": "books",
+            "label": "Books",
+            "icon": "Library",
+            "subcategories": [
+              "Book Author",
+              "Memoir",
+              "Literary Commentary"
+            ]
+          },
+          {
+            "id": "legal-scholars",
+            "label": "Legal Scholars",
+            "icon": "Scale",
+            "subcategories": [
+              "Legal Scholar"
+            ]
+          },
+          {
+            "id": "historians",
+            "label": "Historians",
+            "icon": "BookOpenCheck",
+            "subcategories": [
+              "Historian"
+            ]
+          },
+          {
+            "id": "trauma-specialists",
+            "label": "Trauma Specialist",
+            "icon": "UserHeart",
+            "subcategories": [
+              "Trauma Specialist"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  

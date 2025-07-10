@@ -14,18 +14,14 @@ const ProfileCard = ({
   // Determine status display with updated colors
   const getStatusDisplay = (rating) => {
     switch (rating) {
-      case 'Strong Pass':
-        return { color: 'teal', icon: '✅', text: 'Strong Pass', hexColor: '#00796B' };
       case 'Pass':
-        return { color: 'green', icon: '🟢', text: 'Pass', hexColor: '#4CAF50' };
+        return { color: 'green', icon: '🟢', text: 'Pass', hexColor: '#4CAF50', bgColor: '#f0fdf4' };
       case 'Partial':
-        return { color: 'yellow', icon: '⚠️', text: 'Partial', hexColor: '#eab308' };
+        return { color: 'yellow', icon: '⚠️', text: 'Partial', hexColor: '#eab308', bgColor: '#fef9c3' };
       case 'Fail':
-        return { color: 'red', icon: '❌', text: 'Fail', hexColor: '#dc2626' };
-      case 'Strong Fail':
-        return { color: 'darkred', icon: '❌❌', text: 'Strong Fail', hexColor: '#8B0000' };
+        return { color: 'red', icon: '❌', text: 'Fail', hexColor: '#dc2626', bgColor: '#fde8e8' };
       default:
-        return { color: 'gray', icon: '❓', text: 'Unknown', hexColor: '#6b7280' };
+        return { color: 'gray', icon: '❓', text: 'Unknown', hexColor: '#6b7280', bgColor: '#f3f4f6' };
     }
   };
   
@@ -48,13 +44,18 @@ const ProfileCard = ({
           </div>
           <div className="flex-1">
             <h3 className="text-xl font-semibold text-gray-800">{figure.name}</h3>
-            <p className="text-gray-600">{figure.role || figure.title}</p>
+            <p className="text-gray-600">
+              {figure.role || figure.title}
+              {figure.affiliation && (
+                <span className="text-gray-400 italic"> &middot; {figure.affiliation}</span>
+              )}
+            </p>
           </div>
           <div className="flex items-center gap-3">
             <div 
-              className="px-3 py-1 rounded-full text-sm font-medium text-white"
-              style={{ backgroundColor: statusDisplay.hexColor }}
-            >
+              className="px-3 py-1 rounded-full text-sm font-medium"
+              style={{ backgroundColor: statusDisplay.bgColor, color: statusDisplay.hexColor }}
+            > MMR Alignment: { " "}
               {statusDisplay.icon} {statusDisplay.text}
             </div>
             <ChevronDown 
@@ -100,19 +101,17 @@ const ProfileCard = ({
               const assessment = pillar.assessment || pillar.status || 'Unknown';
               const isPass = assessment.includes('Pass') || assessment === 'Strong';
               const isPartial = assessment.includes('Partial') || assessment.includes('Mixed');
-              
+              const isFail = !isPass && !isPartial;
               const borderColor = isPass ? 'border-green-500 bg-green-50' : 
                                  isPartial ? 'border-yellow-500 bg-yellow-50' : 
-                                 'border-red-500 bg-red-50';
-              
+                                 'border-red-500';
               const textColor = isPass ? 'text-green-600' : 
                                isPartial ? 'text-yellow-600' : 
                                'text-red-600';
-              
               const icon = isPass ? '✅' : isPartial ? '⚠️' : '❌';
-              
+              const bgColor = isFail ? 'bg-[#fde8e8]' : isPartial ? 'bg-yellow-50' : isPass ? 'bg-green-50' : '';
               return (
-                <div key={pillarIndex} className={`p-3 rounded-lg border-l-4 ${borderColor}`}>
+                <div key={pillarIndex} className={`p-3 rounded-lg border-l-4 ${borderColor} ${bgColor}`}>
                   {/* Top line: Pillar title and score */}
                   <div className="flex items-center justify-between mb-2">
                     <span className="font-medium text-gray-800">{pillar.pillar || pillar.title || pillar.name}</span>

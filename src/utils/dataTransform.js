@@ -1,5 +1,6 @@
 import { Users, Building, FileText, Scale, BookOpen, Heart } from 'lucide-react';
-import mmrDatabase from '../data/mmr_complete_database.json';
+import mmrDatabase from '../data/6_pillar_json_database.json';
+import categoryNavigation from '../data/category_navigation.json';
 
 /**
  * Icon mapping for string-based icon names from JSON
@@ -20,44 +21,56 @@ export const transformProfile = (profile) => {
   // Map JSON overall_rating to display values with updated colors
   const statusMap = {
     'Full Pass': 'Strong Pass',
-    'Strong Pass': 'Strong Pass', 
+    'Strong Pass': 'Strong Pass',
     'Pass': 'Pass',
+    'Strong': 'Strong Pass', // Map 'Strong' to 'Strong Pass'
     'Partial': 'Partial',
     'Mixed': 'Partial',
     'Failing': 'Fail',
     'Fail': 'Fail',
-    'Clear Fail': 'Strong Fail'
+    'Strong Fail': 'Strong Fail',
+    'Weak': 'Partial' // Optionally treat 'Weak' as Partial
   };
 
-  // Updated 5-level color mapping
+  // Updated 3-level color mapping
   const colorMap = {
-    'Strong Pass': '#00796B',    // Darker Green/Teal
-    'Pass': '#4CAF50',           // Medium Green
+    'Pass': '#4CAF50',           // Green
     'Partial': '#FFC107',        // Gold/Amber
-    'Fail': '#E53935',           // Bright Red
-    'Strong Fail': '#8B0000'     // Dark Red
+    'Fail': '#fde8e8'            // Light red background for fail
   };
   
   // Map pillar assessments to colors
   const pillarColorMap = {
-    'Strong Pass': 'green',
     'Pass': 'green',
     'Partial': 'yellow',
-    'Mixed': 'yellow',
-    'Fail': 'red',
-    'Clear Fail': 'red'
+    'Fail': 'red'
   };
   
-  const status = statusMap[profile.overall_rating] || 'Partial';
+  // Clean and normalize overall rating
+  let overall = profile.overall_rating || profile.overall_alignment || '';
+  overall = overall.replace(/[^a-zA-Z ]/g, '').trim().toLowerCase();
+  let status = 'Partial';
+  if (overall.includes('fail')) status = 'Fail';
+  else if (overall.includes('partial') || overall.includes('mixed') || overall.includes('weak')) status = 'Partial';
+  else if (overall.includes('pass') || overall.includes('strong')) status = 'Pass';
   const statusColor = colorMap[status] || 'yellow';
   
   // Convert pillars
-  const transformedPillars = profile.pillars.map(pillar => ({
-    name: pillar.pillar.replace(' / ', '/'),
-    status: pillar.assessment,
-    color: pillarColorMap[pillar.assessment] || 'yellow',
-    evidence: pillar.evidence
-  }));
+  const cleanAssessment = (assessment) => {
+    // Remove emojis and extra whitespace, keep only the text
+    return (assessment || '').replace(/[^a-zA-Z ]/g, '').trim().toLowerCase();
+  };
+  const transformedPillars = profile.pillars.map(pillar => {
+    let cleanStatus = cleanAssessment(pillar.assessment);
+    if (cleanStatus === 'strong pass') cleanStatus = 'pass';
+    if (cleanStatus === 'strong fail' || cleanStatus === 'clear fail') cleanStatus = 'fail';
+    return {
+      name: pillar.pillar.replace(' / ', '/'),
+      status: cleanStatus.charAt(0).toUpperCase() + cleanStatus.slice(1),
+      color: pillarColorMap[cleanStatus.charAt(0).toUpperCase() + cleanStatus.slice(1)] || 'yellow',
+      evidence: pillar.evidence
+    };
+  });
   
   // Calculate pillar score breakdown for sorting only (doesn't affect display)
   const pillarCounts = {
@@ -96,30 +109,19 @@ export const transformProfile = (profile) => {
   const calculateSortingScore = () => {
     // Overall rating ranks (primary sort key)
     const overallRank = {
-      "Strong Fail": 0,
-      "Clear Fail": 0,  // Legacy support
-      "Failing": 1,
       "Fail": 1,
       "Partial": 2,
-      "Pass": 3,
-      "Full Pass": 4,
-      "Strong Pass": 4
+      "Pass": 3
     };
 
-    // Get overall rating from JSON and normalize
-    let overall = profile.overall_rating;
-    if (overall === "Full Pass") overall = "Strong Pass";
-    if (overall === "Failing") overall = "Fail";
-
-    const rank = overallRank[overall] !== undefined ? overallRank[overall] : -99;
+    // Use normalized status for sorting
+    const rank = overallRank[status] !== undefined ? overallRank[status] : -99;
 
     // Compute pillar-weighted score (secondary sort key - tiebreaker)
     const pillarScore = (
-      3 * pillarCounts.strongPass +
       2 * pillarCounts.pass +
-      1 * (pillarCounts.partial + pillarCounts.mixed) +
-      (-2) * pillarCounts.fail +
-      (-5) * pillarCounts.clearFail
+      1 * pillarCounts.partial +
+      (-2) * pillarCounts.fail
     );
 
     // Return composite score: rank * 10000 + pillarScore
@@ -132,23 +134,19 @@ export const transformProfile = (profile) => {
   // Generate overall assessment text with updated emojis
   const getOverallText = (status) => {
     switch(status) {
-      case 'Strong Pass':
-        return `🏁 Overall MMR Alignment: ✅ ${status}`;
       case 'Pass':
         return `🏁 Overall MMR Alignment: 🟢 ${status}`;
       case 'Partial':
         return `🏁 Overall MMR Alignment: ⚠️ ${status}`;
       case 'Fail':
         return `🏁 Overall MMR Alignment: ❌ ${status}`;
-      case 'Strong Fail':
-        return `🏁 Overall MMR Alignment: ❌❌ ${status}`;
       default:
         return `🏁 Overall MMR Alignment: ⚠️ ${status}`;
     }
   };
   
   return {
-    name: profile.name,
+    name: profile.subject,
     title: profile.role,
     status: status,
     statusColor: statusColor,
@@ -156,7 +154,8 @@ export const transformProfile = (profile) => {
     overall: getOverallText(status),
     reflection: profile.reflection,
     pillars: transformedPillars,
-    sortingScore: sortingScore  // For sorting only, doesn't affect display
+    sortingScore: sortingScore,  // For sorting only, doesn't affect display
+    affiliation: profile.affiliation // <-- Add this line
   };
 };
 
@@ -167,7 +166,7 @@ export const transformCategories = () => {
   const figures = {};
   
   // Group profiles by category
-  mmrDatabase.profiles.forEach(profile => {
+  mmrDatabase.forEach(profile => {
     const category = profile.category;
     if (!figures[category]) {
       figures[category] = [];
@@ -186,32 +185,65 @@ export const getCategoryStats = () => {
 };
 
 /**
- * Get overall statistics
+ * Get overall statistics dynamically from the database
  */
 export const getOverallStats = () => {
-  return mmrDatabase.statistics.overall_performance;
+  const total_profiles = mmrDatabase.length;
+  let passing = 0;
+  let partial = 0;
+  let failing = 0;
+
+  mmrDatabase.forEach(profile => {
+    // Normalize status field (may be 'overall_alignment', 'status', etc.)
+    const status = (profile.overall_alignment || profile.status || '').toLowerCase();
+    if (status.includes('pass')) {
+      passing++;
+    } else if (status.includes('partial') || status.includes('mixed')) {
+      partial++;
+    } else if (status.includes('fail')) {
+      failing++;
+    }
+  });
+
+  const pass_rate = total_profiles > 0 ? `${Math.round((passing / total_profiles) * 100)}%` : '0%';
+
+  return {
+    total_profiles,
+    passing,
+    partial,
+    failing,
+    pass_rate
+  };
 };
 
 /**
- * Get category groups from JSON database with counts and smart filtering
+ * Get category groups from separate category_navigation.json file with counts and smart filtering
  */
 export const getCategoryGroups = (filterByStatus = null) => {
-  const stats = getCategoryStats();
-  const overallStats = getOverallStats();
-  const categoryGroups = mmrDatabase.navigation.category_groups;
-  
+  // Use the new category navigation JSON
+  const categoryGroups = categoryNavigation.category_groups;
+
   // Get actual profile counts based on current data and filtering
   const getActualCounts = () => {
     const figures = transformCategories();
     const actualStats = {};
     let totalCount = 0;
-    let unsortedCount = 0;
-    
-    // Count profiles in each category
-    Object.keys(figures).forEach(categoryId => {
-      let categoryFigures = figures[categoryId] || [];
-      
+    let otherCount = 0;
+    let otherProfiles = [];
+
+    // Build a set of all defined categories from the navigation
+    const allDefinedCategories = new Set();
+    categoryGroups.forEach(group => {
+      group.categories.forEach(cat => {
+        allDefinedCategories.add(cat.id);
+      });
+    });
+
+    // Go through all profiles in the database
+    mmrDatabase.forEach(profile => {
+      const cat = profile.category;
       // Apply status filter if specified
+      let include = true;
       if (filterByStatus) {
         const getSimplifiedRating = (rating) => {
           switch (rating) {
@@ -230,65 +262,27 @@ export const getCategoryGroups = (filterByStatus = null) => {
               return 'Unknown';
           }
         };
-        
-        categoryFigures = categoryFigures.filter(figure => {
-          const simplified = getSimplifiedRating(figure.status);
-          return simplified === filterByStatus;
-        });
+        const simplified = getSimplifiedRating(profile.status || profile.overall_alignment);
+        include = simplified === filterByStatus;
       }
-      
-      actualStats[categoryId] = categoryFigures.length;
-      totalCount += categoryFigures.length;
-    });
-    
-    // Check for unsorted profiles (profiles with categories not in our navigation)
-    const allDefinedCategories = new Set();
-    categoryGroups.forEach(group => {
-      group.categories.forEach(cat => {
-        allDefinedCategories.add(cat.id);
-      });
-    });
-    
-    // Count profiles in categories not defined in navigation
-    Object.keys(figures).forEach(categoryId => {
-      if (!allDefinedCategories.has(categoryId)) {
-        let categoryFigures = figures[categoryId] || [];
-        
-        // Apply status filter if specified
-        if (filterByStatus) {
-          const getSimplifiedRating = (rating) => {
-            switch (rating) {
-              case 'Full Pass':
-              case 'Strong Pass':
-              case 'Pass':
-                return 'Pass';
-              case 'Mixed':
-              case 'Partial':
-                return 'Partial';
-              case 'Failing':
-              case 'Clear Fail':
-              case 'Fail':
-                return 'Fail';
-              default:
-                return 'Unknown';
-            }
-          };
-          
-          categoryFigures = categoryFigures.filter(figure => {
-            const simplified = getSimplifiedRating(figure.status);
-            return simplified === filterByStatus;
-          });
-        }
-        
-        unsortedCount += categoryFigures.length;
+      if (!include) return;
+
+      // Check if the category exists in our defined categories
+      if (!cat || !allDefinedCategories.has(cat)) {
+        otherCount++;
+        otherProfiles.push(transformProfile(profile));
+      } else {
+        if (!actualStats[cat]) actualStats[cat] = 0;
+        actualStats[cat]++;
+        totalCount++;
       }
     });
-    
-    return { actualStats, totalCount, unsortedCount };
+
+    return { actualStats, totalCount, otherCount, otherProfiles };
   };
-  
-  const { actualStats, totalCount, unsortedCount } = getActualCounts();
-  
+
+  const { actualStats, totalCount, otherCount, otherProfiles } = getActualCounts();
+
   // Transform JSON category groups to component format with smart filtering
   const processedGroups = categoryGroups.map(group => {
     // Special handling for "All Categories" to show total count
@@ -308,7 +302,6 @@ export const getCategoryGroups = (filterByStatus = null) => {
           .filter(category => category.count > 0) // Hide categories with 0 profiles
       };
     }
-    
     // For other groups, calculate total from their categories and filter empty ones
     const filteredCategories = group.categories
       .map(category => ({
@@ -318,11 +311,11 @@ export const getCategoryGroups = (filterByStatus = null) => {
         count: actualStats[category.id] || 0
       }))
       .filter(category => category.count > 0); // Hide categories with 0 profiles
-    
+
     const groupTotal = filteredCategories.reduce((total, category) => {
       return total + category.count;
     }, 0);
-    
+
     return {
       id: group.id,
       label: group.label,
@@ -335,22 +328,25 @@ export const getCategoryGroups = (filterByStatus = null) => {
     // Hide groups that have no categories with profiles (except "All Categories")
     return group.id === 'all' || group.categories.length > 0;
   });
-  
-  // Add Unsorted category if there are unsorted profiles
-  if (unsortedCount > 0) {
-    // Add Unsorted as a standalone category in the "All Categories" group
-    const allCategoriesGroup = processedGroups.find(group => group.id === 'all');
-    if (allCategoriesGroup) {
-      allCategoriesGroup.categories.push({
-        id: 'Unsorted',
-        label: 'Unsorted Profiles',
+
+  // Add 'Other' group if there are any such profiles
+  if (otherCount > 0) {
+    processedGroups.push({
+      id: 'other',
+      label: 'Other',
+      icon: FileText,
+      count: otherCount,
+      categories: [{
+        id: 'other',
+        label: 'Other',
         icon: FileText,
-        count: unsortedCount
-      });
-      allCategoriesGroup.count += unsortedCount;
-    }
+        count: otherCount,
+        profiles: otherProfiles
+      }]
+    });
   }
-  
+
   return processedGroups;
 };
+
 

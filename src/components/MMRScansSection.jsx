@@ -62,6 +62,14 @@ const MMRScansSection = () => {
         { id: 'Legal Scholars', label: 'Legal Scholars', icon: Scale, count: 0 },
         { id: 'Historians', label: 'Historians', icon: BookOpen, count: 0 }
       ]
+    },
+    {
+      id: 'other',
+      label: 'Other',
+      icon: Eye,
+      categories: [
+        { id: 'Other Figures', label: 'Other Figures', icon: Eye, profiles: [] }
+      ]
     }
   ];
 
@@ -252,6 +260,13 @@ const MMRScansSection = () => {
   const filteredFigures = useMemo(() => {
     if (activeCategory === 'All') {
       return allFigures;
+    } else if (activeCategory === 'group:other') {
+      // Special handling for the 'Other' group
+      const group = categoryGroups.find(g => g.id === 'other');
+      if (group && group.categories.length > 0) {
+        return group.categories[0].profiles || [];
+      }
+      return [];
     } else if (activeCategory.startsWith('group:')) {
       // Group filtering - combine all categories in the group
       const groupId = activeCategory.replace('group:', '');

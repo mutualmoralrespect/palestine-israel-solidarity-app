@@ -7,7 +7,7 @@ const HeroSection = () => {
   const scrollToDocumentation = () => {
     const docSection = document.getElementById('mmr-documentation');
     if (docSection) {
-      docSection.scrollIntoView({ behavior: 'smooth' });
+      docSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   };
 
