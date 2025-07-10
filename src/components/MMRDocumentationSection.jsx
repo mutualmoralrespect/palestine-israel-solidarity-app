@@ -41,42 +41,42 @@ const MMRDocumentationSection = () => {
               {
                 icon: Scale,
                 title: "Accountability for Hamas/Militants",
-                description: "Hold Palestinian militant groups accountable for violence",
+                description: "Hold Palestinian militant groups accountable for violence.  Holds Palestinian factions like Hamas, accountable for violence, ideological rejectionism, and martyrdom culture.",
                 color: "from-orange-500 to-red-500",
                 iconBg: "bg-gradient-to-r from-orange-500 to-red-500"
               },
               {
                 icon: Building,
                 title: "Accountability for Israeli Far Right",
-                description: "Hold Israeli extremists and policies accountable",
+                description: "Hold Israeli extremists and policies accountable.  Includes critique of Israeli leaders, settler violence, annexationist policies, and Jewish supremacist rhetoric.",
                 color: "from-yellow-500 to-orange-500",
                 iconBg: "bg-gradient-to-r from-yellow-500 to-orange-500"
               },
               {
                 icon: BarChart3,
                 title: "Use Verified Sources",
-                description: "Base arguments on credible, verified information.",
+                description: "Base arguments on credible, verified information.  Prioritizes transparent, evidence-based documentation over conspiracy or tribal narratives.",
                 color: "from-green-500 to-emerald-500",
                 iconBg: "bg-gradient-to-r from-green-500 to-emerald-500"
               },
               {
                 icon: Heart,
                 title: "Humanize Both Peoples",
-                description: "Recognize the humanity and suffering of all people",
+                description: "Recognize the humanity and suffering of all people.  Expresses grief, empathy, and respect for civilian suffering on both sides.",
                 color: "from-orange-500 to-pink-500",
                 iconBg: "bg-gradient-to-r from-orange-500 to-pink-500"
               },
-              {
-                icon: Sprout,
-                title: "Embrace Coexistence",
-                description: "Reject eliminationist rhetoric from all sides.",
-                color: "from-purple-500 to-pink-500",
-                iconBg: "bg-gradient-to-r from-purple-500 to-pink-500"
-              },
+              // {
+              //   icon: Sprout,
+              //   title: "Embrace Coexistence",
+              //   description: "Reject eliminationist rhetoric from all sides.",
+              //   color: "from-purple-500 to-pink-500",
+              //   iconBg: "bg-gradient-to-r from-purple-500 to-pink-500"
+              // },
               {
                 icon: Eye,
                 title: "Vision for Dignity & Peace",
-                description: "Articulate a constructive path toward peace",
+                description: "Articulate a constructive path toward peace.  Articulates political, ethical, or structural frameworks for a just peace rooted in equal dignity.",
                 color: "from-blue-500 to-cyan-500",
                 iconBg: "bg-gradient-to-r from-blue-500 to-cyan-500"
               }
