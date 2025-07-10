@@ -34,7 +34,7 @@ const MMRDocumentationSection = () => {
               {
                 icon: Shield,
                 title: "Reject Targeting Civilians",
-                description: "Condemn attacks on civilians regardless of perpetrator.",
+                description: "Condemn attacks on civilians regardless of perpetrator.  Unprovoked attacks of any kind are unacceptable.",
                 color: "from-pink-500 to-red-500",
                 iconBg: "bg-gradient-to-r from-pink-500 to-red-500"
               },
@@ -48,7 +48,7 @@ const MMRDocumentationSection = () => {
               {
                 icon: Building,
                 title: "Accountability for Israeli Far Right",
-                description: "Hold Israeli extremists and policies accountable.  Includes critique of Israeli leaders, settler violence, annexationist policies, and Jewish supremacist rhetoric.",
+                description: "Hold Israeli extremists and policies accountable.  Includes critique of Israeli leaders, IDF military actions, settler violence, annexationist policies, and Jewish supremacist rhetoric.",
                 color: "from-yellow-500 to-orange-500",
                 iconBg: "bg-gradient-to-r from-yellow-500 to-orange-500"
               },
@@ -75,8 +75,8 @@ const MMRDocumentationSection = () => {
               // },
               {
                 icon: Eye,
-                title: "Vision for Dignity & Peace",
-                description: "Articulate a constructive path toward peace.  Articulates political, ethical, or structural frameworks for a just peace rooted in equal dignity.",
+                title: "Vision for Coexistence, Dignity & Peace",
+                description: "Articulate a constructive path toward peace rooted in coexistence.  Articulates political, ethical, or structural frameworks for a safety and peace with equal dignity.",
                 color: "from-blue-500 to-cyan-500",
                 iconBg: "bg-gradient-to-r from-blue-500 to-cyan-500"
               }
