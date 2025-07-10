@@ -28,7 +28,7 @@ const ProfileCard = ({
   const statusDisplay = getStatusDisplay(overallRating);
 
   return (
-    <div className="bg-white rounded-lg shadow-md border-l-4 border-blue-500">
+    <div className="bg-white rounded-lg shadow-md border-l-4" style={{ borderLeftColor: statusDisplay.hexColor }}>
       {/* Card Header - Always Visible */}
       <div 
         className="p-6 cursor-pointer hover:bg-gray-50 transition-colors"
