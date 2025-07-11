@@ -116,13 +116,13 @@ const MMRDocumentationSection = () => {
               {
                 icon: Scale,
                 title: "Accountability for Hamas/Militants",
-                description: "Hold Palestinian militant groups accountable for violence.  Holds Palestinian factions like Hamas, accountable for violence, ideological rejectionism, and martyrdom culture.",
+                description: "Hold Palestinian militant groups accountable for violence.  Holds Palestinian factions like Hamas, accountable for violence, ideological rejectionism, and martyrdom `culture.",
                 color: "from-orange-500 to-red-500",
                 iconBg: "bg-gradient-to-r from-orange-500 to-red-500"
               },
               {
                 icon: Building,
-                title: "Accountability for Israeli far-right rejectionism",
+                title: "Accountability for Israeli far-right/for Israeli Far-Right/State-Caused Harm",
                 description: "Hold Israeli extremists and policies accountable.  Assesses actions by Israeli officials, settlers, or policies—including military conduct—that.  Differentiates between security dilemmas and ideologically driven rejectionism.",
                 color: "from-yellow-500 to-orange-500",
                 iconBg: "bg-gradient-to-r from-yellow-500 to-orange-500"
@@ -194,7 +194,7 @@ const MMRDocumentationSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              MMR Analysis Examples
+              Mutual Moral Respect (MMR) Analysis Examples
             </h3>
             <p className="text-lg text-gray-600">
               See how the MMR framework evaluates real-world political figures
