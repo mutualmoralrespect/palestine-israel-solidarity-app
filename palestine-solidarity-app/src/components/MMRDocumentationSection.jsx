@@ -94,8 +94,8 @@ const MMRDocumentationSection = () => {
               },
               {
                 icon: Users,
-                title: "Accountability for Israeli Right/Ultra-Nationalists",
-                description: "Hold Israeli extremist and ultra-nationalist actors accountable",
+                title: "Accountability for Israeli Right/Ultra-Nationalists, and acknowledge IDF Harm",
+                description: "Hold Israeli extremist and ultra-nationalist actors accountable and acknowledge IDF Harm",
                 color: "from-purple-500 to-indigo-500"
               },
               {
