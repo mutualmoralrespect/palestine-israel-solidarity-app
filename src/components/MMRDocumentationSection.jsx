@@ -122,7 +122,7 @@ const MMRDocumentationSection = () => {
               },
               {
                 icon: Building,
-                title: "Accountability for Israeli far-right/for Israeli Far-Right/State-Caused Harm",
+                title: "Accountability for Israeli far-right/State-Caused Harm",
                 description: "Hold Israeli extremists and policies accountable.  Assesses actions by Israeli officials, settlers, or policies—including military conduct—that.  Differentiates between security dilemmas and ideologically driven rejectionism.",
                 color: "from-yellow-500 to-orange-500",
                 iconBg: "bg-gradient-to-r from-yellow-500 to-orange-500"
